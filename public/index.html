@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>GameKeys Store</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: sans-serif; background: #0f0f13; color: #e0e0e0; min-height: 100vh; }
+
+    /* NAV */
+    nav { background: #1a1a24; padding: 16px 32px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #2a2a3a; }
+    .logo { font-size: 22px; font-weight: bold; color: #7c3aed; letter-spacing: 1px; }
+    .logo span { color: #a78bfa; }
+    .nav-btns { display: flex; gap: 10px; align-items: center; }
+    .nav-user { color: #a78bfa; font-size: 14px; }
+    .btn-nav { padding: 8px 16px; border-radius: 6px; border: none; cursor: pointer; font-size: 14px; }
+    .btn-salir { background: #2a2a3a; color: #e0e0e0; }
+    .btn-salir:hover { background: #3a3a4a; }
+
+    /* AUTH */
+    #auth { display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
+    .tarjeta { background: #1a1a24; border-radius: 16px; padding: 36px; width: 100%; max-width: 420px; border: 1px solid #2a2a3a; }
+    .tarjeta h1 { font-size: 20px; margin-bottom: 6px; color: #fff; }
+    .tarjeta p { font-size: 13px; color: #888; margin-bottom: 24px; }
+    .tabs { display: flex; gap: 8px; margin-bottom: 24px; }
+    .tab { flex: 1; padding: 10px; border: 1px solid #2a2a3a; background: #0f0f13; color: #888; border-radius: 8px; cursor: pointer; font-size: 14px; }
+    .tab.activo { border-color: #7c3aed; color: #a78bfa; background: #1e1030; }
+    input { width: 100%; padding: 12px; margin-bottom: 12px; border: 1px solid #2a2a3a; border-radius: 8px; font-size: 14px; background: #0f0f13; color: #e0e0e0; }
+    input:focus { outline: none; border-color: #7c3aed; }
+    .btn-principal { width: 100%; padding: 12px; background: #7c3aed; color: white; border: none; border-radius: 8px; font-size: 15px; cursor: pointer; font-weight: bold; }
+    .btn-principal:hover { background: #6d28d9; }
+    .mensaje { margin-top: 14px; padding: 10px; border-radius: 8px; font-size: 13px; display: none; }
+    .ok { background: #052e16; color: #4ade80; border: 1px solid #166534; }
+    .error { background: #2d0a0a; color: #f87171; border: 1px solid #7f1d1d; }
+
+    /* TIENDA */
+    #tienda { display: none; }
+    .hero { background: linear-gradient(135deg, #1e1030, #0f0f13); padding: 48px 32px; text-align: center; border-bottom: 1px solid #2a2a3a; }
+    .hero h2 { font-size: 32px; color: #fff; margin-bottom: 10px; }
+    .hero h2 span { color: #a78bfa; }
+    .hero p { color: #888; font-size: 16px; }
+    .seccion { padding: 32px; }
+    .seccion h3 { font-size: 18px; color: #fff; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid #2a2a3a; }
+    .juegos { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+    .juego { background: #1a1a24; border-radius: 12px; overflow: hidden; border: 1px solid #2a2a3a; transition: border-color 0.2s, transform 0.2s; cursor: pointer; }
+    .juego:hover { border-color: #7c3aed; transform: translateY(-4px); }
+    .juego-img { width: 100%; height: 120px; object-fit: cover; background: #2a2a3a; display: flex; align-items: center; justify-content: center; font-size: 40px; }
+    .juego-info { padding: 14px; }
+    .juego-nombre { font-size: 14px; font-weight: bold; color: #fff; margin-bottom: 4px; }
+    .juego-plataforma { font-size: 11px; color: #888; margin-bottom: 10px; }
+    .juego-precios { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+    .precio-original { font-size: 12px; color: #888; text-decoration: line-through; }
+    .precio-nuevo { font-size: 18px; font-weight: bold; color: #4ade80; }
+    .descuento { background: #7c3aed; color: white; font-size: 11px; padding: 2px 6px; border-radius: 4px; font-weight: bold; }
+    .btn-comprar { width: 100%; padding: 8px; background: #7c3aed; color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 13px; font-weight: bold; }
+    .btn-comprar:hover { background: #6d28d9; }
+
+    /* MODAL */
+    .modal-fondo { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 100; justify-content: center; align-items: center; }
+    .modal-fondo.abierto { display: flex; }
+    .modal { background: #1a1a24; border-radius: 16px; padding: 32px; max-width: 400px; width: 90%; border: 1px solid #7c3aed; text-align: center; }
+    .modal h3 { font-size: 20px; color: #fff; margin-bottom: 8px; }
+    .modal p { color: #888; font-size: 14px; margin-bottom: 20px; }
+    .key-box { background: #0f0f13; border: 1px dashed #7c3aed; border-radius: 8px; padding: 16px; font-family: monospace; font-size: 18px; color: #a78bfa; letter-spacing: 3px; margin-bottom: 20px; }
+    .btn-copiar { padding: 10px 24px; background: #7c3aed; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 14px; margin-right: 8px; }
+    .btn-cerrar-modal { padding: 10px 24px; background: #2a2a3a; color: #e0e0e0; border: none; border-radius: 8px; cursor: pointer; font-size: 14px; }
+  </style>
+</head>
+<body>
+
+<!-- AUTH -->
+<div id="auth">
+  <div class="tarjeta">
+    <div style="text-align:center; margin-bottom: 24px;">
+      <div style="font-size: 28px; font-weight: bold; color: #7c3aed;">🎮 Game<span style="color:#a78bfa">Keys</span></div>
+      <p style="margin-top:6px">Keys de videojuegos al mejor precio</p>
+    </div>
+    <div class="tabs">
+      <button class="tab activo" onclick="mostrarTab('registro')">Crear cuenta</button>
+      <button class="tab" onclick="mostrarTab('login')">Iniciar sesión</button>
+    </div>
+    <div id="form-registro">
+      <input id="reg-nombre" type="text" placeholder="Tu nombre">
+      <input id="reg-email" type="email" placeholder="Tu email">
+      <input id="reg-pass" type="password" placeholder="Contraseña (mín. 6 caracteres)">
+      <button class="btn-principal" onclick="registrar()">Crear cuenta gratis</button>
+    </div>
+    <div id="form-login" style="display:none">
+      <input id="log-email" type="email" placeholder="Tu email">
+      <input id="log-pass" type="password" placeholder="Tu contraseña">
+      <button class="btn-principal" onclick="login()">Entrar a la tienda</button>
+    </div>
+    <div class="mensaje" id="mensaje"></div>
+  </div>
+</div>
+
+<!-- TIENDA -->
+<div id="tienda">
+  <nav>
+    <div class="logo">🎮 Game<span>Keys</span></div>
+    <div class="nav-btns">
+      <span class="nav-user" id="nav-nombre"></span>
+      <button class="btn-nav btn-salir" onclick="cerrarSesion()">Cerrar sesión</button>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <h2>Keys de videojuegos <span>hasta 80% off</span></h2>
+    <p>Activa tu juego al instante en Steam, Epic Games y más</p>
+  </div>
+
+  <div class="seccion">
+    <h3>🔥 Ofertas destacadas</h3>
+    <div class="juegos" id="lista-juegos"></div>
+  </div>
+</div>
+
+<!-- MODAL KEY -->
+<div class="modal-fondo" id="modal">
+  <div class="modal">
+    <h3>🎉 ¡Tu key está lista!</h3>
+    <p id="modal-juego">Cyberpunk 2077 — Steam</p>
+    <div class="key-box" id="modal-key">XXXX-XXXX-XXXX-XXXX</div>
+    <button class="btn-copiar" onclick="copiarKey()">📋 Copiar key</button>
+    <button class="btn-cerrar-modal" onclick="cerrarModal()">Cerrar</button>
+  </div>
+</div>
+
+
+
+
+
+IMAGENES
+<script>
+  const juegos = [
+    { nombre: "Cyberpunk 2077", plataforma: "Steam", img: "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/36407bf0-7675-4fc7-953d-91ab3af07156/debwpo6-883d3fab-7062-4491-8f2e-54544d459e43.jpg/v1/fill/w_1192,h_670,q_70,strp/cyberpunk_2077_cover_art__red_version__by_l4chun_debwpo6-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDAwMCIsInBhdGgiOiJcL2ZcLzM2NDA3YmYwLTc2NzUtNGZjNy05NTNkLTkxYWIzYWYwNzE1NlwvZGVid3BvNi04ODNkM2ZhYi03MDYyLTQ0OTEtOGYyZS01NDU0NGQ0NTllNDMuanBnIiwid2lkdGgiOiI8PTcxMTEifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.Ug8u_jg4z4zdzznbbzJFai9ZsbUIPl263n3mJVwFP5k.jpg", original: 59.99, precio: 5.99, descuento: 78 },
+    { nombre: "Elden Ring", plataforma: "Steam", emoji: "⚔️", original: 59.99, precio: 29.99, descuento: 50 },
+    
+    { nombre: "Red Dead Redemption 2", plataforma: "Steam", emoji: "🤠", original: 69.99, precio: 19.99, descuento: 67 },
+    { nombre: "Hogwarts Legacy", plataforma: "Steam", emoji: "🧙", original: 59.99, precio: 24.99, descuento: 58 },
+    { nombre: "FIFA 24", plataforma: "EA App", emoji: "⚽", original: 69.99, precio: 14.99, descuento: 79 },
+    { nombre: "Minecraft", plataforma: "Microsoft", emoji: "⛏️", original: 26.99, precio: 9.99, descuento: 63 },
+    { nombre: "The Witcher 3", plataforma: "GOG", emoji: "🐺", original: 39.99, precio: 4.99, descuento: 88 },
+  ];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  function generarKey() {
+    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    return Array.from({length: 4}, () =>
+      Array.from({length: 4}, () => chars[Math.floor(Math.random() * chars.length)]).join('')
+    ).join('-');
+  }
+
+  function cargarJuegos() {
+    const lista = document.getElementById('lista-juegos');
+    lista.innerHTML = juegos.map((j, i) => `
+      <div class="juego" onclick="comprar(${i})">
+        <div class="juego-img"><img src="${j.img}" style="width:100%;height:100%;object-fit:cover;" onerror="this.parentNode.innerHTML='🎮'"></div>
+        <div class="juego-info">
+          <div class="juego-nombre">${j.nombre}</div>
+          <div class="juego-plataforma">${j.plataforma}</div>
+          <div class="juego-precios">
+            <span class="precio-original">$${j.original}</span>
+            <span class="precio-nuevo">$${j.precio}</span>
+            <span class="descuento">-${j.descuento}%</span>
+          </div>
+          <button class="btn-comprar">Comprar key</button>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function comprar(i) {
+    const j = juegos[i];
+    document.getElementById('modal-juego').textContent = j.nombre + ' — ' + j.plataforma;
+    document.getElementById('modal-key').textContent = generarKey();
+    document.getElementById('modal').classList.add('abierto');
+  }
+
+  function copiarKey() {
+    const key = document.getElementById('modal-key').textContent;
+    navigator.clipboard.writeText(key);
+    document.querySelector('.btn-copiar').textContent = '✅ Copiado!';
+    setTimeout(() => document.querySelector('.btn-copiar').textContent = '📋 Copiar key', 2000);
+  }
+
+  function cerrarModal() {
+    document.getElementById('modal').classList.remove('abierto');
+  }
+
+  function mostrarTab(tab) {
+    document.getElementById('form-registro').style.display = tab === 'registro' ? 'block' : 'none';
+    document.getElementById('form-login').style.display = tab === 'login' ? 'block' : 'none';
+    document.querySelectorAll('.tab').forEach((t, i) => {
+      t.classList.toggle('activo', (tab === 'registro' && i === 0) || (tab === 'login' && i === 1));
+    });
+    ocultarMensaje();
+  }
+
+  function mostrarMensaje(texto, tipo) {
+    const el = document.getElementById('mensaje');
+    el.textContent = texto;
+    el.className = 'mensaje ' + tipo;
+    el.style.display = 'block';
+  }
+
+  function ocultarMensaje() {
+    document.getElementById('mensaje').style.display = 'none';
+  }
+
+  async function registrar() {
+    const nombre = document.getElementById('reg-nombre').value;
+    const email = document.getElementById('reg-email').value;
+    const password = document.getElementById('reg-pass').value;
+    const res = await fetch('/api/auth/registro', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ nombre, email, password })
+    });
+    const data = await res.json();
+    if (res.ok) {
+      mostrarMensaje('¡Cuenta creada! Ahora inicia sesión.', 'ok');
+      setTimeout(() => mostrarTab('login'), 1500);
+    } else {
+      mostrarMensaje(data.error || data.errores?.[0]?.msg || 'Error al registrar', 'error');
+    }
+  }
+
+  async function login() {
+    const email = document.getElementById('log-email').value;
+    const password = document.getElementById('log-pass').value;
+    const res = await fetch('/api/auth/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password })
+    });
+    const data = await res.json();
+    if (res.ok) {
+      localStorage.setItem('token', data.token);
+      document.getElementById('auth').style.display = 'none';
+      document.getElementById('tienda').style.display = 'block';
+      document.getElementById('nav-nombre').textContent = '👾 ' + data.nombre;
+      cargarJuegos();
+    } else {
+      mostrarMensaje(data.error || 'Error al iniciar sesión', 'error');
+    }
+  }
+
+  function cerrarSesion() {
+    localStorage.removeItem('token');
+    document.getElementById('tienda').style.display = 'none';
+    document.getElementById('auth').style.display = 'flex';
+    mostrarTab('login');
+  }
+</script>
+</body>
+</html>
