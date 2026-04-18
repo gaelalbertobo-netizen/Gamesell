@@ -19,6 +19,7 @@ app.use(rateLimit({ windowMs: 15 * 60 * 1000, max: 100 }));
 app.use(express.json());
 app.use(express.static('public'));
 app.use('/api/auth', require('./routes/auth'));
+app.use('/api/shop', require('./routes/shop'));
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
