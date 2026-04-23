@@ -5,25 +5,34 @@ const jwt = require('jsonwebtoken');
 const { body, validationResult } = require('express-validator');
 const pool = require('../config/db');
 
+pool.query(`
+  CREATE TABLE IF NOT EXISTS usuarios (
+    id SERIAL PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT NOW()
+  )
+`).catch(err => console.error('Error creando tabla:', err));
+
 router.post('/registro', [
   body('nombre').trim().notEmpty().withMessage('El nombre es obligatorio'),
-  body('email').isEmail().withMessage('Email no válido'),
-  body('password').isLength({ min: 6 }).withMessage('Mínimo 6 caracteres'),
+  body('email').isEmail().withMessage('Email no valido'),
+  body('password').isLength({ min: 6 }).withMessage('Minimo 6 caracteres'),
 ], async (req, res) => {
   const errores = validationResult(req);
   if (!errores.isEmpty()) return res.status(400).json({ errores: errores.array() });
-
   const { nombre, email, password } = req.body;
   try {
     const hash = await bcrypt.hash(password, 12);
-    await pool.execute(
-      'INSERT INTO usuarios (nombre, email, password) VALUES (?, ?, ?)',
+    await pool.query(
+      'INSERT INTO usuarios (nombre, email, password) VALUES ($1, $2, $3)',
       [nombre, email, hash]
     );
-    res.json({ mensaje: '¡Registro exitoso! Ya puedes iniciar sesión.' });
+    res.json({ mensaje: 'Registro exitoso! Ya puedes iniciar sesion.' });
   } catch (err) {
-    console.log('ERROR DETALLADO:', err);
-    if (err.code === 'ER_DUP_ENTRY') return res.status(409).json({ error: 'Ese email ya está registrado.' });
+    console.error('ERROR:', err);
+    if (err.code === '23505') return res.status(409).json({ error: 'Ese email ya esta registrado.' });
     res.status(500).json({ error: 'Error del servidor.' });
   }
 });
@@ -34,16 +43,13 @@ router.post('/login', [
 ], async (req, res) => {
   const errores = validationResult(req);
   if (!errores.isEmpty()) return res.status(400).json({ errores: errores.array() });
-
   const { email, password } = req.body;
   try {
-    const [rows] = await pool.execute('SELECT * FROM usuarios WHERE email = ?', [email]);
-    if (rows.length === 0) return res.status(401).json({ error: 'Email o contraseña incorrectos.' });
-
-    const usuario = rows[0];
+    const result = await pool.query('SELECT * FROM usuarios WHERE email = $1', [email]);
+    if (result.rows.length === 0) return res.status(401).json({ error: 'Email o contrasena incorrectos.' });
+    const usuario = result.rows[0];
     const esCorrecta = await bcrypt.compare(password, usuario.password);
-    if (!esCorrecta) return res.status(401).json({ error: 'Email o contraseña incorrectos.' });
-
+    if (!esCorrecta) return res.status(401).json({ error: 'Email o contrasena incorrectos.' });
     const token = jwt.sign(
       { id: usuario.id, nombre: usuario.nombre },
       process.env.JWT_SECRET,
@@ -51,7 +57,7 @@ router.post('/login', [
     );
     res.json({ token, nombre: usuario.nombre });
   } catch (err) {
-    console.log('ERROR DETALLADO:', err);
+    console.error('ERROR:', err);
     res.status(500).json({ error: 'Error del servidor.' });
   }
 });
