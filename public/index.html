@@ -10,6 +10,7 @@
       --bg: #080810;
       --bg2: #0f0f1a;
       --bg3: #15151f;
+      --bg4: #1a1a28;
       --border: #1e1e2e;
       --purple: #7c3aed;
       --purple2: #a78bfa;
@@ -46,504 +47,178 @@
       box-shadow: 0 0 60px rgba(124,58,237,0.12);
     }
 
-    .logo-auth {
-      text-align: center;
-      margin-bottom: 28px;
-    }
-
-    .logo-auth .brand {
-      font-family: 'Rajdhani', sans-serif;
-      font-size: 32px;
-      font-weight: 700;
-      color: #fff;
-      letter-spacing: 1px;
-    }
-
+    .logo-auth { text-align: center; margin-bottom: 28px; }
+    .logo-auth .brand { font-family: 'Rajdhani', sans-serif; font-size: 32px; font-weight: 700; color: #fff; }
     .logo-auth .brand span { color: var(--purple2); }
     .logo-auth p { color: var(--muted); font-size: 13px; margin-top: 6px; }
 
-    .tabs {
-      display: flex;
-      background: var(--bg);
-      border-radius: 10px;
-      padding: 4px;
-      margin-bottom: 24px;
-      border: 1px solid var(--border);
-    }
+    .tabs { display: flex; background: var(--bg); border-radius: 10px; padding: 4px; margin-bottom: 24px; border: 1px solid var(--border); }
+    .tab { flex: 1; padding: 9px; background: none; border: none; color: var(--muted); border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 500; transition: all 0.2s; }
+    .tab.activo { background: var(--purple); color: #fff; }
 
-    .tab {
-      flex: 1;
-      padding: 9px;
-      background: none;
-      border: none;
-      color: var(--muted);
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 13px;
-      font-weight: 500;
-      transition: all 0.2s;
-    }
-
-    .tab.activo {
-      background: var(--purple);
-      color: #fff;
-    }
-
-    input {
-      width: 100%;
-      padding: 12px 14px;
-      margin-bottom: 12px;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      background: var(--bg);
-      color: var(--text);
-      font-size: 14px;
-      outline: none;
-      transition: border-color 0.2s;
-    }
-
+    input { width: 100%; padding: 12px 14px; margin-bottom: 12px; border: 1px solid var(--border); border-radius: 10px; background: var(--bg); color: var(--text); font-size: 14px; outline: none; transition: border-color 0.2s; }
     input:focus { border-color: var(--purple); }
 
-    .btn-principal {
-      width: 100%;
-      padding: 13px;
-      background: var(--purple);
-      color: #fff;
-      border: none;
-      border-radius: 10px;
-      font-size: 15px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s;
-      margin-top: 4px;
-    }
-
+    .btn-principal { width: 100%; padding: 13px; background: var(--purple); color: #fff; border: none; border-radius: 10px; font-size: 15px; font-weight: 600; cursor: pointer; transition: all 0.2s; margin-top: 4px; }
     .btn-principal:hover { background: #6d28d9; transform: translateY(-1px); }
 
-    .mensaje {
-      margin-top: 14px;
-      padding: 10px 14px;
-      border-radius: 8px;
-      font-size: 13px;
-      display: none;
-    }
-
+    .mensaje { margin-top: 14px; padding: 10px 14px; border-radius: 8px; font-size: 13px; display: none; }
     .ok { background: #052e16; color: #4ade80; border: 1px solid #166534; }
     .error { background: #2d0a0a; color: #f87171; border: 1px solid #7f1d1d; }
 
     /* ── TIENDA ── */
     #tienda { display: none; }
 
-    nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 16px 32px;
-      background: rgba(8,8,16,0.95);
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(12px);
-    }
-
-    .logo {
-      font-family: 'Rajdhani', sans-serif;
-      font-size: 22px;
-      font-weight: 700;
-      color: #fff;
-    }
-
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 16px 32px; background: rgba(8,8,16,0.95); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 50; backdrop-filter: blur(12px); }
+    .logo { font-family: 'Rajdhani', sans-serif; font-size: 22px; font-weight: 700; color: #fff; }
     .logo span { color: var(--purple2); }
+    .nav-right { display: flex; align-items: center; gap: 16px; }
+    .nav-user { font-size: 13px; color: var(--muted); }
 
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .nav-user {
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    /* Carrito botón nav */
-    .btn-carrito-nav {
-      position: relative;
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      color: var(--text);
-      padding: 8px 16px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 14px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      transition: border-color 0.2s;
-    }
-
+    .btn-carrito-nav { background: var(--bg3); border: 1px solid var(--border); color: var(--text); padding: 8px 16px; border-radius: 8px; cursor: pointer; font-size: 14px; display: flex; align-items: center; gap: 6px; transition: border-color 0.2s; }
     .btn-carrito-nav:hover { border-color: var(--purple); }
+    .carrito-badge { background: var(--purple); color: #fff; font-size: 11px; font-weight: 700; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
 
-    .carrito-badge {
-      background: var(--purple);
-      color: #fff;
-      font-size: 11px;
-      font-weight: 700;
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .btn-salir {
-      background: none;
-      border: 1px solid var(--border);
-      color: var(--muted);
-      padding: 8px 14px;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 13px;
-      transition: all 0.2s;
-    }
-
+    .btn-salir { background: none; border: 1px solid var(--border); color: var(--muted); padding: 8px 14px; border-radius: 8px; cursor: pointer; font-size: 13px; transition: all 0.2s; }
     .btn-salir:hover { border-color: #f87171; color: #f87171; }
 
-    /* Hero */
-    .hero {
-      background: linear-gradient(135deg, #0f0820 0%, var(--bg) 60%);
-      padding: 60px 32px;
-      text-align: center;
-      border-bottom: 1px solid var(--border);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 600px;
-      height: 300px;
-      background: radial-gradient(ellipse, rgba(124,58,237,0.15) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
-    .hero h2 {
-      font-family: 'Rajdhani', sans-serif;
-      font-size: 42px;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 10px;
-    }
-
+    .hero { background: linear-gradient(135deg, #0f0820 0%, var(--bg) 60%); padding: 60px 32px; text-align: center; border-bottom: 1px solid var(--border); position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; top: -50%; left: 50%; transform: translateX(-50%); width: 600px; height: 300px; background: radial-gradient(ellipse, rgba(124,58,237,0.15) 0%, transparent 70%); pointer-events: none; }
+    .hero h2 { font-family: 'Rajdhani', sans-serif; font-size: 42px; font-weight: 700; color: #fff; margin-bottom: 10px; }
     .hero h2 span { color: var(--purple2); }
     .hero p { color: var(--muted); font-size: 16px; }
 
-    /* Sección */
-    .seccion {
-      padding: 40px 32px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
+    .seccion { padding: 40px 32px; max-width: 1200px; margin: 0 auto; }
+    .seccion h3 { font-family: 'Rajdhani', sans-serif; font-size: 22px; color: #fff; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
 
-    .seccion h3 {
-      font-family: 'Rajdhani', sans-serif;
-      font-size: 22px;
-      color: #fff;
-      margin-bottom: 24px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid var(--border);
-    }
+    .juegos { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
 
-    /* Grid juegos */
-    .juegos {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 16px;
-    }
+    .juego { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; transition: all 0.2s; cursor: pointer; }
+    .juego:hover { border-color: var(--purple); transform: translateY(-4px); box-shadow: 0 8px 30px rgba(124,58,237,0.2); }
 
-    .juego {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      overflow: hidden;
-      transition: all 0.2s;
-      cursor: pointer;
-    }
-
-    .juego:hover {
-      border-color: var(--purple);
-      transform: translateY(-4px);
-      box-shadow: 0 8px 30px rgba(124,58,237,0.2);
-    }
-
-    .juego-img {
-      width: 100%;
-      height: 120px;
-      object-fit: cover;
-      background: var(--bg3);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 40px;
-    }
-
-    .juego-img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+    .juego-img { width: 100%; height: 120px; background: var(--bg3); display: flex; align-items: center; justify-content: center; font-size: 40px; overflow: hidden; }
+    .juego-img img { width: 100%; height: 100%; object-fit: cover; }
 
     .juego-info { padding: 14px; }
     .juego-nombre { font-size: 13px; font-weight: 600; color: #fff; margin-bottom: 4px; }
     .juego-plataforma { font-size: 11px; color: var(--muted); margin-bottom: 10px; }
-
-    .juego-precios {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      margin-bottom: 12px;
-      flex-wrap: wrap;
-    }
-
+    .juego-precios { display: flex; align-items: center; gap: 6px; margin-bottom: 12px; flex-wrap: wrap; }
     .precio-original { font-size: 11px; color: var(--muted); text-decoration: line-through; }
     .precio-nuevo { font-size: 17px; font-weight: 700; color: var(--green); }
-    .descuento {
-      background: var(--purple);
-      color: #fff;
-      font-size: 10px;
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-weight: 700;
-    }
+    .descuento { background: var(--purple); color: #fff; font-size: 10px; padding: 2px 6px; border-radius: 4px; font-weight: 700; }
 
-    .btn-agregar {
-      width: 100%;
-      padding: 8px;
-      background: var(--bg3);
-      color: var(--text);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 12px;
-      font-weight: 600;
-      transition: all 0.2s;
-    }
+    .btn-ver { width: 100%; padding: 8px; background: var(--bg3); color: var(--text); border: 1px solid var(--border); border-radius: 8px; cursor: pointer; font-size: 12px; font-weight: 600; transition: all 0.2s; }
+    .btn-ver:hover { background: var(--purple); border-color: var(--purple); color: #fff; }
 
-    .btn-agregar:hover { background: var(--purple); border-color: var(--purple); color: #fff; }
-    .btn-agregar.agregado { background: var(--green); border-color: var(--green); color: #000; }
-
-    /* ── CARRITO PANEL ── */
-    .carrito-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.6);
-      z-index: 200;
-      backdrop-filter: blur(4px);
-    }
-
+    /* ── CARRITO ── */
+    .carrito-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 200; }
     .carrito-overlay.abierto { display: block; }
-
-    .carrito-panel {
-      position: fixed;
-      top: 0;
-      right: -420px;
-      width: 400px;
-      height: 100vh;
-      background: var(--bg2);
-      border-left: 1px solid var(--border);
-      z-index: 201;
-      transition: right 0.3s ease;
-      display: flex;
-      flex-direction: column;
-    }
-
+    .carrito-panel { position: fixed; top: 0; right: -420px; width: 400px; height: 100vh; background: var(--bg2); border-left: 1px solid var(--border); z-index: 201; transition: right 0.3s ease; display: flex; flex-direction: column; }
     .carrito-panel.abierto { right: 0; }
-
-    .carrito-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 20px 24px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .carrito-header h3 {
-      font-family: 'Rajdhani', sans-serif;
-      font-size: 20px;
-      color: #fff;
-    }
-
-    .btn-cerrar-carrito {
-      background: none;
-      border: none;
-      color: var(--muted);
-      font-size: 20px;
-      cursor: pointer;
-      padding: 4px 8px;
-      border-radius: 6px;
-      transition: color 0.2s;
-    }
-
-    .btn-cerrar-carrito:hover { color: #fff; }
-
-    .carrito-items {
-      flex: 1;
-      overflow-y: auto;
-      padding: 16px 24px;
-    }
-
-    .carrito-vacio {
-      text-align: center;
-      color: var(--muted);
-      padding: 60px 0;
-      font-size: 14px;
-    }
-
-    .carrito-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 12px 0;
-      border-bottom: 1px solid var(--border);
-    }
-
+    .carrito-header { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; border-bottom: 1px solid var(--border); }
+    .carrito-header h3 { font-family: 'Rajdhani', sans-serif; font-size: 20px; color: #fff; }
+    .btn-cerrar-carrito { background: none; border: none; color: var(--muted); font-size: 20px; cursor: pointer; }
+    .carrito-items { flex: 1; overflow-y: auto; padding: 16px 24px; }
+    .carrito-vacio { text-align: center; color: var(--muted); padding: 60px 0; font-size: 14px; }
+    .carrito-item { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--border); }
     .carrito-item-emoji { font-size: 28px; }
-
     .carrito-item-info { flex: 1; }
     .carrito-item-nombre { font-size: 13px; font-weight: 600; color: #fff; }
     .carrito-item-plat { font-size: 11px; color: var(--muted); }
-
-    .carrito-item-precio {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--green);
-    }
-
-    .btn-quitar {
-      background: none;
-      border: none;
-      color: var(--muted);
-      cursor: pointer;
-      font-size: 16px;
-      padding: 4px;
-      border-radius: 4px;
-      transition: color 0.2s;
-    }
-
+    .carrito-item-precio { font-size: 15px; font-weight: 700; color: var(--green); }
+    .btn-quitar { background: none; border: none; color: var(--muted); cursor: pointer; font-size: 16px; }
     .btn-quitar:hover { color: #f87171; }
-
-    .carrito-footer {
-      padding: 20px 24px;
-      border-top: 1px solid var(--border);
-    }
-
-    .carrito-total {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 16px;
-    }
-
+    .carrito-footer { padding: 20px 24px; border-top: 1px solid var(--border); }
+    .carrito-total { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
     .carrito-total span:first-child { color: var(--muted); font-size: 14px; }
     .carrito-total span:last-child { font-size: 22px; font-weight: 700; color: var(--green); font-family: 'Rajdhani', sans-serif; }
+    .btn-pagar { width: 100%; padding: 14px; background: var(--purple); color: #fff; border: none; border-radius: 10px; font-size: 15px; font-weight: 700; cursor: pointer; transition: all 0.2s; font-family: 'Rajdhani', sans-serif; }
+    .btn-pagar:hover { background: #6d28d9; }
+    .btn-pagar:disabled { background: var(--muted); cursor: not-allowed; }
 
-    .btn-pagar {
-      width: 100%;
-      padding: 14px;
-      background: var(--purple);
-      color: #fff;
-      border: none;
-      border-radius: 10px;
-      font-size: 15px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.2s;
-      font-family: 'Rajdhani', sans-serif;
-      letter-spacing: 0.5px;
-    }
+    /* ── MODAL DETALLE (STEAM STYLE) ── */
+    .detalle-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 300; overflow-y: auto; padding: 20px; }
+    .detalle-overlay.abierto { display: block; }
 
-    .btn-pagar:hover { background: #6d28d9; transform: translateY(-1px); }
-    .btn-pagar:disabled { background: var(--muted); cursor: not-allowed; transform: none; }
+    .detalle-modal { max-width: 940px; margin: 0 auto; background: var(--bg2); border-radius: 16px; overflow: hidden; border: 1px solid var(--border); position: relative; }
+
+    .detalle-header { position: relative; height: 320px; overflow: hidden; background: var(--bg3); display: flex; align-items: center; justify-content: center; font-size: 100px; }
+    .detalle-header img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+    .detalle-header-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,15,26,1) 0%, rgba(15,15,26,0.2) 60%, transparent 100%); }
+    .detalle-header-info { position: absolute; bottom: 24px; left: 32px; right: 32px; z-index: 2; }
+
+    .detalle-tags { display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+    .detalle-tag { background: rgba(124,58,237,0.3); border: 1px solid rgba(124,58,237,0.5); color: var(--purple2); font-size: 11px; padding: 3px 10px; border-radius: 20px; }
+    .detalle-titulo { font-family: 'Rajdhani', sans-serif; font-size: 36px; font-weight: 700; color: #fff; margin-bottom: 6px; text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
+    .detalle-desarrollador { color: #aaa; font-size: 13px; }
+    .detalle-desarrollador span { color: var(--purple2); }
+
+    .detalle-btn-cerrar { position: absolute; top: 16px; right: 16px; background: rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.1); color: #fff; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; z-index: 10; }
+    .detalle-btn-cerrar:hover { background: rgba(200,0,0,0.6); }
+
+    .detalle-body { display: grid; grid-template-columns: 1fr 280px; }
+
+    .detalle-main { padding: 32px; border-right: 1px solid var(--border); }
+
+    .galeria-principal { width: 100%; height: 260px; border-radius: 10px; overflow: hidden; background: var(--bg3); margin-bottom: 10px; display: flex; align-items: center; justify-content: center; font-size: 80px; }
+    .galeria-principal img { width: 100%; height: 100%; object-fit: cover; }
+    .galeria-thumbs { display: flex; gap: 8px; margin-bottom: 28px; }
+    .galeria-thumb { width: 80px; height: 50px; border-radius: 6px; overflow: hidden; cursor: pointer; border: 2px solid transparent; flex-shrink: 0; background: var(--bg3); display: flex; align-items: center; justify-content: center; font-size: 20px; transition: border-color 0.2s; }
+    .galeria-thumb.activo, .galeria-thumb:hover { border-color: var(--purple); }
+    .galeria-thumb img { width: 100%; height: 100%; object-fit: cover; }
+
+    .detalle-seccion-titulo { font-family: 'Rajdhani', sans-serif; font-size: 18px; color: #fff; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+    .detalle-descripcion { color: #aaa; font-size: 14px; line-height: 1.7; margin-bottom: 28px; }
+
+    .resena { background: var(--bg3); border-radius: 10px; padding: 16px; margin-bottom: 12px; border: 1px solid var(--border); }
+    .resena-positiva { border-left: 3px solid var(--green); }
+    .resena-negativa { border-left: 3px solid #f87171; }
+    .resena-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .resena-avatar { width: 32px; height: 32px; border-radius: 50%; background: var(--purple); display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; color: #fff; flex-shrink: 0; }
+    .resena-usuario { font-size: 13px; font-weight: 600; color: #fff; }
+    .resena-fecha { font-size: 11px; color: var(--muted); }
+    .resena-rating { margin-left: auto; font-size: 12px; }
+    .resena-texto { font-size: 13px; color: #aaa; line-height: 1.6; }
+
+    .detalle-sidebar { padding: 28px 20px; }
+    .detalle-precio-box { background: var(--bg3); border-radius: 12px; padding: 20px; margin-bottom: 16px; border: 1px solid var(--border); }
+    .detalle-precio-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .detalle-descuento { background: var(--purple); color: #fff; font-size: 14px; font-weight: 700; padding: 4px 10px; border-radius: 6px; }
+    .detalle-precio-original { font-size: 13px; color: var(--muted); text-decoration: line-through; }
+    .detalle-precio-nuevo { font-size: 30px; font-weight: 700; color: var(--green); font-family: 'Rajdhani', sans-serif; }
+
+    .btn-agregar-detalle { width: 100%; padding: 14px; background: var(--green); color: #000; border: none; border-radius: 10px; font-size: 15px; font-weight: 700; cursor: pointer; transition: all 0.2s; margin-bottom: 10px; }
+    .btn-agregar-detalle:hover { background: #22c55e; }
+    .btn-agregar-detalle.agregado { background: var(--bg3); color: var(--muted); border: 1px solid var(--border); cursor: default; }
+
+    .detalle-rating-global { background: var(--bg3); border-radius: 12px; padding: 16px; margin: 16px 0; border: 1px solid var(--border); text-align: center; }
+    .detalle-rating-numero { font-family: 'Rajdhani', sans-serif; font-size: 40px; font-weight: 700; color: var(--green); }
+    .detalle-rating-estrellas { color: #fbbf24; font-size: 18px; margin: 4px 0; }
+    .detalle-rating-total { font-size: 12px; color: var(--muted); }
+
+    .detalle-info-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+    .detalle-info-item span:first-child { color: var(--muted); }
+    .detalle-info-item span:last-child { color: #fff; font-weight: 500; text-align: right; }
 
     /* ── MODAL KEY ── */
-    .modal-fondo {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.8);
-      z-index: 300;
-      justify-content: center;
-      align-items: center;
-    }
-
+    .modal-fondo { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 400; justify-content: center; align-items: center; }
     .modal-fondo.abierto { display: flex; }
-
-    .modal {
-      background: var(--bg2);
-      border-radius: 20px;
-      padding: 36px;
-      max-width: 400px;
-      width: 90%;
-      border: 1px solid var(--purple);
-      text-align: center;
-      box-shadow: 0 0 60px rgba(124,58,237,0.3);
-    }
-
+    .modal { background: var(--bg2); border-radius: 20px; padding: 36px; max-width: 400px; width: 90%; border: 1px solid var(--purple); text-align: center; }
     .modal h3 { font-family: 'Rajdhani', sans-serif; font-size: 24px; color: #fff; margin-bottom: 8px; }
     .modal p { color: var(--muted); font-size: 14px; margin-bottom: 20px; }
-
-    .key-box {
-      background: var(--bg);
-      border: 1px dashed var(--purple);
-      border-radius: 10px;
-      padding: 18px;
-      font-family: monospace;
-      font-size: 20px;
-      color: var(--purple2);
-      letter-spacing: 4px;
-      margin-bottom: 20px;
-    }
-
+    .key-box { background: var(--bg); border: 1px dashed var(--purple); border-radius: 10px; padding: 18px; font-family: monospace; font-size: 20px; color: var(--purple2); letter-spacing: 4px; margin-bottom: 20px; }
     .modal-btns { display: flex; gap: 10px; justify-content: center; }
+    .btn-copiar { padding: 10px 24px; background: var(--purple); color: #fff; border: none; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 600; }
+    .btn-cerrar-modal { padding: 10px 24px; background: var(--bg3); color: var(--muted); border: 1px solid var(--border); border-radius: 8px; cursor: pointer; font-size: 14px; }
 
-    .btn-copiar {
-      padding: 10px 24px;
-      background: var(--purple);
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 14px;
-      font-weight: 600;
-      transition: background 0.2s;
-    }
-
-    .btn-copiar:hover { background: #6d28d9; }
-
-    .btn-cerrar-modal {
-      padding: 10px 24px;
-      background: var(--bg3);
-      color: var(--muted);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 14px;
-      transition: all 0.2s;
-    }
-
-    .btn-cerrar-modal:hover { color: #fff; }
-
-    /* scrollbar */
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
     ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+    @media (max-width: 700px) {
+      .detalle-body { grid-template-columns: 1fr; }
+      .detalle-main { border-right: none; border-bottom: 1px solid var(--border); }
+    }
   </style>
 </head>
 <body>
@@ -581,8 +256,7 @@
     <div class="nav-right">
       <span class="nav-user" id="nav-nombre"></span>
       <button class="btn-carrito-nav" onclick="abrirCarrito()">
-        🛒 Carrito
-        <span class="carrito-badge" id="carrito-count">0</span>
+        🛒 Carrito <span class="carrito-badge" id="carrito-count">0</span>
       </button>
       <button class="btn-salir" onclick="cerrarSesion()">Salir</button>
     </div>
@@ -599,7 +273,7 @@
   </div>
 </div>
 
-<!-- ── CARRITO PANEL ── -->
+<!-- ── CARRITO ── -->
 <div class="carrito-overlay" id="carrito-overlay" onclick="cerrarCarrito()"></div>
 <div class="carrito-panel" id="carrito-panel">
   <div class="carrito-header">
@@ -614,9 +288,58 @@
       <span>Total</span>
       <span id="carrito-total">$0.00</span>
     </div>
-    <button class="btn-pagar" id="btn-pagar" onclick="pagar()" disabled>
-      💳 Pagar con Stripe
-    </button>
+    <button class="btn-pagar" id="btn-pagar" onclick="pagar()" disabled>💳 Pagar con Stripe</button>
+  </div>
+</div>
+
+<!-- ── DETALLE JUEGO ── -->
+<div class="detalle-overlay" id="detalle-overlay">
+  <div class="detalle-modal">
+    <button class="detalle-btn-cerrar" onclick="cerrarDetalle()">✕</button>
+
+    <div class="detalle-header" id="detalle-header">
+      <div class="detalle-header-overlay"></div>
+      <div class="detalle-header-info">
+        <div class="detalle-tags" id="detalle-tags"></div>
+        <div class="detalle-titulo" id="detalle-titulo"></div>
+        <div class="detalle-desarrollador">por <span id="detalle-dev"></span></div>
+      </div>
+    </div>
+
+    <div class="detalle-body">
+      <div class="detalle-main">
+        <div class="galeria-principal" id="galeria-principal"></div>
+        <div class="galeria-thumbs" id="galeria-thumbs"></div>
+
+        <div class="detalle-seccion-titulo">📖 Acerca de este juego</div>
+        <div class="detalle-descripcion" id="detalle-descripcion"></div>
+
+        <div class="detalle-seccion-titulo">💬 Reseñas de usuarios</div>
+        <div id="detalle-resenas"></div>
+      </div>
+
+      <div class="detalle-sidebar">
+        <div class="detalle-precio-box">
+          <div class="detalle-precio-row">
+            <span class="detalle-descuento" id="detalle-desc-badge"></span>
+            <span class="detalle-precio-original" id="detalle-precio-orig"></span>
+          </div>
+          <div class="detalle-precio-nuevo" id="detalle-precio-nuevo"></div>
+        </div>
+
+        <button class="btn-agregar-detalle" id="btn-agregar-detalle" onclick="agregarDesdeDetalle()">
+          🛒 Agregar al carrito
+        </button>
+
+        <div class="detalle-rating-global">
+          <div class="detalle-rating-numero" id="detalle-rating-num"></div>
+          <div class="detalle-rating-estrellas" id="detalle-rating-stars"></div>
+          <div class="detalle-rating-total" id="detalle-rating-total"></div>
+        </div>
+
+        <div id="detalle-info-lista"></div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -624,7 +347,7 @@
 <div class="modal-fondo" id="modal">
   <div class="modal">
     <h3>🎉 ¡Tu key está lista!</h3>
-    <p id="modal-juego">Cyberpunk 2077 — Steam</p>
+    <p id="modal-juego"></p>
     <div class="key-box" id="modal-key">XXXX-XXXX-XXXX-XXXX</div>
     <div class="modal-btns">
       <button class="btn-copiar" onclick="copiarKey()">📋 Copiar key</button>
@@ -635,27 +358,187 @@
 
 <script>
   const juegos = [
-    { nombre: "Cyberpunk 2077", plataforma: "Steam", img: "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/36407bf0-7675-4fc7-953d-91ab3af07156/debwpo6-883d3fab-7062-4491-8f2e-54544d459e43.jpg/v1/fill/w_1192,h_670,q_70,strp/cyberpunk_2077_cover_art__red_version__by_l4chun_debwpo6-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDAwMCIsInBhdGgiOiJcL2ZcLzM2NDA3YmYwLTc2NzUtNGZjNy05NTNkLTkxYWIzYWYwNzE1NlwvZGVid3BvNi04ODNkM2ZhYi03MDYyLTQ0OTEtOGYyZS01NDU0NGQ0NTllNDMuanBnIiwid2lkdGgiOiI8PTcxMTEifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.Ug8u_jg4z4zdzznbbzJFai9ZsbUIPl263n3mJVwFP5k.jpg", original: 59.99, precio: 5.99, descuento: 78, emoji: "🤖" },
-    { nombre: "Elden Ring", plataforma: "Steam", emoji: "⚔️", original: 59.99, precio: 29.99, descuento: 50 },
-    { nombre: "Red Dead Redemption 2", plataforma: "Steam", emoji: "🤠", original: 69.99, precio: 19.99, descuento: 67 },
-    { nombre: "Hogwarts Legacy", plataforma: "Steam", emoji: "🧙", original: 59.99, precio: 24.99, descuento: 58 },
-    { nombre: "FIFA 24", plataforma: "EA App", emoji: "⚽", original: 69.99, precio: 14.99, descuento: 79 },
-    { nombre: "Minecraft", plataforma: "Microsoft", emoji: "⛏️", original: 26.99, precio: 9.99, descuento: 63 },
-    { nombre: "The Witcher 3", plataforma: "GOG", emoji: "🐺", original: 39.99, precio: 4.99, descuento: 88 },
+    {
+      nombre: "Cyberpunk 2077", plataforma: "Steam", emoji: "🤖",
+      img: "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/36407bf0-7675-4fc7-953d-91ab3af07156/debwpo6-883d3fab-7062-4491-8f2e-54544d459e43.jpg/v1/fill/w_1192,h_670,q_70,strp/cyberpunk_2077_cover_art__red_version__by_l4chun_debwpo6-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDAwMCIsInBhdGgiOiJcL2ZcLzM2NDA3YmYwLTc2NzUtNGZjNy05NTNkLTkxYWIzYWYwNzE1NlwvZGVid3BvNi04ODNkM2ZhYi03MDYyLTQ0OTEtOGYyZS01NDU0NGQ0NTllNDMuanBnIiwid2lkdGgiOiI8PTcxMTEifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.Ug8u_jg4z4zdzznbbzJFai9ZsbUIPl263n3mJVwFP5k.jpg",
+      original: 59.99, precio: 5.99, descuento: 78,
+      desarrollador: "CD Projekt Red", fecha: "10 Dic, 2020",
+      generos: ["RPG", "Acción", "Open World"],
+      descripcion: "Cyberpunk 2077 es un RPG de acción en mundo abierto ambientado en Night City. Asumes el papel de V, un mercenario en busca de un implante único que es la clave de la inmortalidad. Con el DLC Phantom Liberty, la experiencia es completamente renovada.",
+      rating: 4.2,
+      resenas: [
+        { usuario: "ShadowRun_MX", avatar: "S", texto: "Increíble juego, la historia es épica. Vale cada centavo.", positiva: true, fecha: "Ene 2024" },
+        { usuario: "NightCityFan", avatar: "N", texto: "Gráficos espectaculares con Phantom Liberty. Historia 10/10.", positiva: true, fecha: "Feb 2024" },
+        { usuario: "Gamer_Critico", avatar: "G", texto: "Bugs en el lanzamiento pero ahora está perfecto.", positiva: true, fecha: "Mar 2024" },
+      ]
+    },
+    {
+      nombre: "Elden Ring", plataforma: "Steam", emoji: "⚔️",
+      original: 59.99, precio: 29.99, descuento: 50,
+      desarrollador: "FromSoftware", fecha: "25 Feb, 2022",
+      generos: ["RPG", "Souls-like", "Fantasía"],
+      descripcion: "Elden Ring es un RPG de acción desarrollado por FromSoftware en colaboración con George R.R. Martin. Explora las Tierras Intermedias, un vasto mundo abierto lleno de secretos y jefes brutales.",
+      rating: 4.8,
+      resenas: [
+        { usuario: "DarkSoulsVet", avatar: "D", texto: "El mejor juego de FromSoftware. El mundo abierto es increíble.", positiva: true, fecha: "Abr 2024" },
+        { usuario: "CasualPlayer", avatar: "C", texto: "Muy difícil pero la recompensa es enorme. Vale la pena.", positiva: true, fecha: "Mar 2024" },
+      ]
+    },
+    {
+      nombre: "Red Dead Redemption 2", plataforma: "Steam", emoji: "🤠",
+      original: 69.99, precio: 19.99, descuento: 67,
+      desarrollador: "Rockstar Games", fecha: "5 Nov, 2019",
+      generos: ["Acción", "Aventura", "Western"],
+      descripcion: "Una épica historia del fin de la era de los forajidos. Arthur Morgan y la banda Van der Linde deben robar, huir y luchar para sobrevivir en un país que se moderniza a su pesar.",
+      rating: 4.9,
+      resenas: [
+        { usuario: "CowboyGamer", avatar: "C", texto: "La mejor historia que he vivido en un videojuego. Absolutamente épico.", positiva: true, fecha: "Ene 2024" },
+        { usuario: "OpenWorldFan", avatar: "O", texto: "El mundo más detallado que he visto. Cada NPC tiene vida propia.", positiva: true, fecha: "Feb 2024" },
+      ]
+    },
+    {
+      nombre: "Hogwarts Legacy", plataforma: "Steam", emoji: "🧙",
+      original: 59.99, precio: 24.99, descuento: 58,
+      desarrollador: "Avalanche Software", fecha: "10 Feb, 2023",
+      generos: ["RPG", "Aventura", "Magia"],
+      descripcion: "Vive la experiencia de ser estudiante en Hogwarts en el siglo XIX. Explora el castillo, aprende hechizos y descubre un misterio antiguo que amenaza el mundo mágico.",
+      rating: 4.3,
+      resenas: [
+        { usuario: "PotterHead_MX", avatar: "P", texto: "Sueño de cualquier fan de Harry Potter hecho realidad.", positiva: true, fecha: "Mar 2024" },
+        { usuario: "RPG_Lover", avatar: "R", texto: "Historia interesante aunque algo corta. El mundo es hermoso.", positiva: true, fecha: "Abr 2024" },
+      ]
+    },
+    {
+      nombre: "FIFA 24", plataforma: "EA App", emoji: "⚽",
+      original: 69.99, precio: 14.99, descuento: 79,
+      desarrollador: "EA Sports", fecha: "29 Sep, 2023",
+      generos: ["Deportes", "Fútbol", "Multijugador"],
+      descripcion: "EA Sports FC 24 redefine el fútbol virtual con HyperMotionV. Juega con más de 19,000 jugadores con licencia en más de 700 equipos de todo el mundo.",
+      rating: 3.8,
+      resenas: [
+        { usuario: "FutboleroMX", avatar: "F", texto: "Modo carrera mejorado. Ultimate Team sigue igual.", positiva: false, fecha: "Oct 2023" },
+        { usuario: "FIFAAnual", avatar: "A", texto: "Buen juego de fútbol aunque similar al anterior.", positiva: true, fecha: "Nov 2023" },
+      ]
+    },
+    {
+      nombre: "Minecraft", plataforma: "Microsoft", emoji: "⛏️",
+      original: 26.99, precio: 9.99, descuento: 63,
+      desarrollador: "Mojang Studios", fecha: "18 Nov, 2011",
+      generos: ["Sandbox", "Supervivencia", "Creativo"],
+      descripcion: "Minecraft es el juego sandbox más popular del mundo. Construye, explora y sobrevive en mundos infinitos. Con actualizaciones constantes y una comunidad enorme, nunca termina.",
+      rating: 4.7,
+      resenas: [
+        { usuario: "CraftMaster", avatar: "C", texto: "El juego más jugado de la historia. Infinitas posibilidades.", positiva: true, fecha: "Ene 2024" },
+        { usuario: "BuilderPro", avatar: "B", texto: "Perfecto para todas las edades. Mis hijos y yo lo jugamos juntos.", positiva: true, fecha: "Feb 2024" },
+      ]
+    },
+    {
+      nombre: "The Witcher 3", plataforma: "GOG", emoji: "🐺",
+      original: 39.99, precio: 4.99, descuento: 88,
+      desarrollador: "CD Projekt Red", fecha: "19 May, 2015",
+      generos: ["RPG", "Fantasía", "Open World"],
+      descripcion: "Geralt de Rivia busca a su hija adoptiva Ciri en un mundo abierto masivo. Decisiones moralmente complejas, una historia sin igual y dos DLCs épicos incluidos.",
+      rating: 4.9,
+      resenas: [
+        { usuario: "WitcherFan", avatar: "W", texto: "El mejor RPG de todos los tiempos. Historia increíble.", positiva: true, fecha: "Mar 2024" },
+        { usuario: "FantasyRPG", avatar: "F", texto: "A este precio es un robo. Vale 10 veces más. Cómpralo ya.", positiva: true, fecha: "Abr 2024" },
+      ]
+    },
   ];
 
   let carrito = [];
+  let juegoActual = null;
+
+  // ── DETALLE ──
+  function abrirDetalle(i) {
+    const j = juegos[i];
+    juegoActual = i;
+
+    const header = document.getElementById('detalle-header');
+    // Limpiar imagen anterior
+    const imgAnterior = header.querySelector('img');
+    if (imgAnterior) imgAnterior.remove();
+
+    if (j.img) {
+      const img = document.createElement('img');
+      img.src = j.img;
+      img.onerror = () => img.remove();
+      header.insertBefore(img, header.firstChild);
+    }
+
+    document.getElementById('detalle-titulo').textContent = j.nombre;
+    document.getElementById('detalle-dev').textContent = j.desarrollador;
+    document.getElementById('detalle-tags').innerHTML = j.generos.map(g => `<span class="detalle-tag">${g}</span>`).join('');
+
+    const galPrincipal = document.getElementById('galeria-principal');
+    galPrincipal.innerHTML = j.img ? `<img src="${j.img}" onerror="this.parentNode.innerHTML='${j.emoji}'">` : j.emoji;
+
+    document.getElementById('galeria-thumbs').innerHTML = `
+      <div class="galeria-thumb activo">${j.img ? `<img src="${j.img}" onerror="this.parentNode.innerHTML='${j.emoji}'">` : j.emoji}</div>
+      <div class="galeria-thumb">${j.emoji}</div>
+      <div class="galeria-thumb">${j.emoji}</div>
+    `;
+
+    document.getElementById('detalle-descripcion').textContent = j.descripcion;
+    document.getElementById('detalle-desc-badge').textContent = `-${j.descuento}%`;
+    document.getElementById('detalle-precio-orig').textContent = `$${j.original}`;
+    document.getElementById('detalle-precio-nuevo').textContent = `$${j.precio}`;
+
+    const enCarrito = carrito.find(c => c.nombre === j.nombre);
+    const btn = document.getElementById('btn-agregar-detalle');
+    btn.textContent = enCarrito ? '✅ En el carrito' : '🛒 Agregar al carrito';
+    btn.className = 'btn-agregar-detalle' + (enCarrito ? ' agregado' : '');
+
+    const estrellas = '★'.repeat(Math.round(j.rating)) + '☆'.repeat(5 - Math.round(j.rating));
+    document.getElementById('detalle-rating-num').textContent = j.rating.toFixed(1);
+    document.getElementById('detalle-rating-stars').textContent = estrellas;
+    document.getElementById('detalle-rating-total').textContent = `${j.resenas.length} reseñas`;
+
+    document.getElementById('detalle-info-lista').innerHTML = `
+      <div class="detalle-info-item"><span>Plataforma</span><span>${j.plataforma}</span></div>
+      <div class="detalle-info-item"><span>Desarrollador</span><span>${j.desarrollador}</span></div>
+      <div class="detalle-info-item"><span>Lanzamiento</span><span>${j.fecha}</span></div>
+      <div class="detalle-info-item"><span>Géneros</span><span>${j.generos.join(', ')}</span></div>
+    `;
+
+    document.getElementById('detalle-resenas').innerHTML = j.resenas.map(r => `
+      <div class="resena ${r.positiva ? 'resena-positiva' : 'resena-negativa'}">
+        <div class="resena-header">
+          <div class="resena-avatar">${r.avatar}</div>
+          <div><div class="resena-usuario">${r.usuario}</div><div class="resena-fecha">${r.fecha}</div></div>
+          <div class="resena-rating">${r.positiva ? '👍 Recomendado' : '👎 No recomendado'}</div>
+        </div>
+        <div class="resena-texto">${r.texto}</div>
+      </div>
+    `).join('');
+
+    document.getElementById('detalle-overlay').classList.add('abierto');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function cerrarDetalle() {
+    document.getElementById('detalle-overlay').classList.remove('abierto');
+    document.body.style.overflow = '';
+  }
+
+  function agregarDesdeDetalle() {
+    if (juegoActual === null) return;
+    const j = juegos[juegoActual];
+    if (carrito.find(c => c.nombre === j.nombre)) return;
+    carrito.push({ ...j, cantidad: 1 });
+    actualizarCarrito();
+    cargarJuegos();
+    const btn = document.getElementById('btn-agregar-detalle');
+    btn.textContent = '✅ En el carrito';
+    btn.className = 'btn-agregar-detalle agregado';
+  }
 
   // ── CARRITO ──
   function agregarAlCarrito(i) {
-    const juego = juegos[i];
-    const existe = carrito.find(c => c.nombre === juego.nombre);
-    if (existe) return;
-    carrito.push({ ...juego, cantidad: 1 });
+    const j = juegos[i];
+    if (carrito.find(c => c.nombre === j.nombre)) return;
+    carrito.push({ ...j, cantidad: 1 });
     actualizarCarrito();
-    const btn = document.querySelectorAll('.btn-agregar')[i];
-    btn.textContent = '✅ Agregado';
-    btn.classList.add('agregado');
   }
 
   function quitarDelCarrito(nombre) {
@@ -667,20 +550,11 @@
   function actualizarCarrito() {
     const count = carrito.length;
     document.getElementById('carrito-count').textContent = count;
-
-    const total = carrito.reduce((sum, c) => sum + c.precio * c.cantidad, 0);
-    document.getElementById('carrito-total').textContent = '$' + total.toFixed(2);
-
-    const btnPagar = document.getElementById('btn-pagar');
-    btnPagar.disabled = count === 0;
-
-    const itemsEl = document.getElementById('carrito-items');
-    if (count === 0) {
-      itemsEl.innerHTML = '<div class="carrito-vacio">Tu carrito está vacío 😢</div>';
-      return;
-    }
-
-    itemsEl.innerHTML = carrito.map(c => `
+    document.getElementById('carrito-total').textContent = '$' + carrito.reduce((s, c) => s + c.precio, 0).toFixed(2);
+    document.getElementById('btn-pagar').disabled = count === 0;
+    const el = document.getElementById('carrito-items');
+    if (!count) { el.innerHTML = '<div class="carrito-vacio">Tu carrito está vacío 😢</div>'; return; }
+    el.innerHTML = carrito.map(c => `
       <div class="carrito-item">
         <div class="carrito-item-emoji">${c.emoji || '🎮'}</div>
         <div class="carrito-item-info">
@@ -703,131 +577,77 @@
     document.getElementById('carrito-panel').classList.remove('abierto');
   }
 
-  // ── STRIPE PAGO ──
   async function pagar() {
     const btn = document.getElementById('btn-pagar');
-    btn.disabled = true;
-    btn.textContent = '⏳ Redirigiendo...';
-
+    btn.disabled = true; btn.textContent = '⏳ Redirigiendo...';
     try {
       const res = await fetch('/api/shop/crear-sesion', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer ' + localStorage.getItem('token')
-        },
+        headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('token') },
         body: JSON.stringify({ items: carrito })
       });
       const data = await res.json();
-      if (data.url) {
-        window.location.href = data.url;
-      } else {
-        alert('Error al crear sesión de pago');
-        btn.disabled = false;
-        btn.textContent = '💳 Pagar con Stripe';
-      }
-    } catch (err) {
-      alert('Error de conexión');
-      btn.disabled = false;
-      btn.textContent = '💳 Pagar con Stripe';
-    }
+      if (data.url) window.location.href = data.url;
+      else { alert('Error al crear sesión'); btn.disabled = false; btn.textContent = '💳 Pagar con Stripe'; }
+    } catch { alert('Error de conexión'); btn.disabled = false; btn.textContent = '💳 Pagar con Stripe'; }
   }
 
-  // ── JUEGOS ──
   function cargarJuegos() {
-    const lista = document.getElementById('lista-juegos');
-    lista.innerHTML = juegos.map((j, i) => {
-      const enCarrito = carrito.find(c => c.nombre === j.nombre);
-      return `
-        <div class="juego">
-          <div class="juego-img">
-            ${j.img
-              ? `<img src="${j.img}" onerror="this.parentNode.innerHTML='${j.emoji || '🎮'}'"/>`
-              : j.emoji || '🎮'}
-          </div>
-          <div class="juego-info">
-            <div class="juego-nombre">${j.nombre}</div>
-            <div class="juego-plataforma">${j.plataforma}</div>
-            <div class="juego-precios">
-              <span class="precio-original">$${j.original}</span>
-              <span class="precio-nuevo">$${j.precio}</span>
-              <span class="descuento">-${j.descuento}%</span>
-            </div>
-            <button class="btn-agregar ${enCarrito ? 'agregado' : ''}" onclick="agregarAlCarrito(${i})">
-              ${enCarrito ? '✅ Agregado' : '🛒 Agregar'}
-            </button>
-          </div>
+    document.getElementById('lista-juegos').innerHTML = juegos.map((j, i) => `
+      <div class="juego" onclick="abrirDetalle(${i})">
+        <div class="juego-img">
+          ${j.img ? `<img src="${j.img}" onerror="this.parentNode.innerHTML='${j.emoji}'">` : j.emoji}
         </div>
-      `;
-    }).join('');
-  }
-
-  // ── MODAL KEY ──
-  function generarKey() {
-    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-    return Array.from({length: 4}, () =>
-      Array.from({length: 4}, () => chars[Math.floor(Math.random() * chars.length)]).join('')
-    ).join('-');
+        <div class="juego-info">
+          <div class="juego-nombre">${j.nombre}</div>
+          <div class="juego-plataforma">${j.plataforma}</div>
+          <div class="juego-precios">
+            <span class="precio-original">$${j.original}</span>
+            <span class="precio-nuevo">$${j.precio}</span>
+            <span class="descuento">-${j.descuento}%</span>
+          </div>
+          <button class="btn-ver">Ver detalles →</button>
+        </div>
+      </div>
+    `).join('');
   }
 
   function copiarKey() {
-    const key = document.getElementById('modal-key').textContent;
-    navigator.clipboard.writeText(key);
+    navigator.clipboard.writeText(document.getElementById('modal-key').textContent);
     document.querySelector('.btn-copiar').textContent = '✅ Copiado!';
     setTimeout(() => document.querySelector('.btn-copiar').textContent = '📋 Copiar key', 2000);
   }
 
-  function cerrarModal() {
-    document.getElementById('modal').classList.remove('abierto');
-  }
+  function cerrarModal() { document.getElementById('modal').classList.remove('abierto'); }
 
-  // ── AUTH ──
   function mostrarTab(tab) {
     document.getElementById('form-registro').style.display = tab === 'registro' ? 'block' : 'none';
     document.getElementById('form-login').style.display = tab === 'login' ? 'block' : 'none';
-    document.querySelectorAll('.tab').forEach((t, i) => {
-      t.classList.toggle('activo', (tab === 'registro' && i === 0) || (tab === 'login' && i === 1));
-    });
+    document.querySelectorAll('.tab').forEach((t, i) => t.classList.toggle('activo', (tab === 'registro' && i === 0) || (tab === 'login' && i === 1)));
     ocultarMensaje();
   }
 
   function mostrarMensaje(texto, tipo) {
     const el = document.getElementById('mensaje');
-    el.textContent = texto;
-    el.className = 'mensaje ' + tipo;
-    el.style.display = 'block';
+    el.textContent = texto; el.className = 'mensaje ' + tipo; el.style.display = 'block';
   }
 
-  function ocultarMensaje() {
-    document.getElementById('mensaje').style.display = 'none';
-  }
+  function ocultarMensaje() { document.getElementById('mensaje').style.display = 'none'; }
 
   async function registrar() {
     const nombre = document.getElementById('reg-nombre').value;
     const email = document.getElementById('reg-email').value;
     const password = document.getElementById('reg-pass').value;
-    const res = await fetch('/api/auth/registro', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ nombre, email, password })
-    });
+    const res = await fetch('/api/auth/registro', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ nombre, email, password }) });
     const data = await res.json();
-    if (res.ok) {
-      mostrarMensaje('¡Cuenta creada! Ahora inicia sesión.', 'ok');
-      setTimeout(() => mostrarTab('login'), 1500);
-    } else {
-      mostrarMensaje(data.error || data.errores?.[0]?.msg || 'Error al registrar', 'error');
-    }
+    if (res.ok) { mostrarMensaje('¡Cuenta creada! Ahora inicia sesión.', 'ok'); setTimeout(() => mostrarTab('login'), 1500); }
+    else mostrarMensaje(data.error || data.errores?.[0]?.msg || 'Error al registrar', 'error');
   }
 
   async function login() {
     const email = document.getElementById('log-email').value;
     const password = document.getElementById('log-pass').value;
-    const res = await fetch('/api/auth/login', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email, password })
-    });
+    const res = await fetch('/api/auth/login', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, password }) });
     const data = await res.json();
     if (res.ok) {
       localStorage.setItem('token', data.token);
@@ -835,19 +655,17 @@
       document.getElementById('tienda').style.display = 'block';
       document.getElementById('nav-nombre').textContent = '👾 ' + data.nombre;
       cargarJuegos();
-    } else {
-      mostrarMensaje(data.error || 'Error al iniciar sesión', 'error');
-    }
+    } else mostrarMensaje(data.error || 'Error al iniciar sesión', 'error');
   }
 
   function cerrarSesion() {
-    localStorage.removeItem('token');
-    carrito = [];
-    actualizarCarrito();
+    localStorage.removeItem('token'); carrito = []; actualizarCarrito();
     document.getElementById('tienda').style.display = 'none';
     document.getElementById('auth').style.display = 'flex';
     mostrarTab('login');
   }
+
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrarDetalle(); });
 </script>
 </body>
 </html>
