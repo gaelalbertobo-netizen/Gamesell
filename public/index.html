@@ -215,7 +215,7 @@
 <div id="auth">
   <div class="tarjeta">
     <div class="logo-auth">
-      <div class="logo"><img src="/img/logoweb.gif" style="height:40px; vertical-align:middle; margin-right:8px;"> Game<span>Keys</span></div>
+      <div class="logo"><img src="/img/logoweb.gif" style="height:70px; vertical-align:middle; margin-right:8px;"> Game<span>Keys</span></div>
       <p>Keys de videojuegos al mejor precio</p>
     </div>
     <div class="tabs">
@@ -240,7 +240,7 @@
 <!-- TIENDA -->
 <div id="tienda">
   <nav>
-   <div class="logo"><img src="/img/logoweb.gif" style="height:40px; vertical-align:middle; margin-right:8px;"> Game<span>Keys</span></div>
+   <div class="logo"><img src="/img/logoweb.gif" style="height: 70px; vertical-align:middle; margin-right:8px;"> Game<span>Keys</span></div>
     <div class="nav-right">
       <span class="nav-user" id="nav-nombre"></span>
       <button class="btn-carrito-nav" onclick="abrirCarrito()">
@@ -254,9 +254,18 @@
     <p>Activa tu juego al instante en Steam, Epic Games y más</p>
   </div>
   <div class="seccion">
-    <h3>🔥 Ofertas destacadas</h3>
-    <div class="juegos" id="lista-juegos"></div>
+  <div style="display:flex; align-items:center; gap:16px; margin-bottom:24px; flex-wrap:wrap;">
+    <h3 style="margin:0; border:none; padding:0;">🔥 Ofertas destacadas</h3>
+    <input 
+      id="buscador" 
+      type="text" 
+      placeholder="🔍 Buscar juego..." 
+      oninput="buscarJuegos(this.value)"
+      style="flex:1; min-width:200px; margin:0; max-width:400px;"
+    >
   </div>
+  <div class="juegos" id="lista-juegos"></div>
+</div>
 </div>
 
 <!-- CARRITO -->
@@ -370,7 +379,9 @@
   // Ejemplo: imgs: ["url1.jpg", "url2.jpg", "url3.jpg", "url4.jpg"]
   // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
   const juegos = [
+    
   {
+    
       nombre: "Cyberpunk 2077",
       plataforma: "Steam",
       emoji: "🤖",
@@ -840,7 +851,41 @@
     mostrarTab('login');
   }
 
+
   document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrarDetalle(); });
+        function buscarJuegos(texto) {
+  const filtrados = juegos.filter(j =>
+    j.nombre.toLowerCase().includes(texto.toLowerCase()) ||
+    j.plataforma.toLowerCase().includes(texto.toLowerCase()) ||
+    j.generos.some(g => g.toLowerCase().includes(texto.toLowerCase()))
+  );
+  const lista = document.getElementById('lista-juegos');
+  if (!filtrados.length) {
+    lista.innerHTML = '<p style="color:var(--muted); padding:20px;">No se encontraron juegos 😢</p>';
+    return;
+  }
+  lista.innerHTML = filtrados.map((j) => {
+    const i = juegos.indexOf(j);
+    const imgPortada = j.imgs && j.imgs.length > 0 ? j.imgs[0] : null;
+    return `
+      <div class="juego" onclick="abrirDetalle(${i})">
+        <div class="juego-img">
+          ${imgPortada ? `<img src="${imgPortada}" onerror="this.parentNode.innerHTML='${j.emoji}'">` : j.emoji}
+        </div>
+        <div class="juego-info">
+          <div class="juego-nombre">${j.nombre}</div>
+          <div class="juego-plataforma">${j.plataforma}</div>
+          <div class="juego-precios">
+            <span class="precio-original">$${j.original}</span>
+            <span class="precio-nuevo">$${j.precio}</span>
+            <span class="descuento">-${j.descuento}%</span>
+          </div>
+          <button class="btn-ver">Ver detalles</button>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
 </script>
 </body>
 </html>
