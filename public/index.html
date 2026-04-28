@@ -347,9 +347,24 @@
   <!-- BANNER SUPERIOR -->
   <!-- Para poner tu banner: reemplaza el div.banner-top-placeholder por <img src="/img/tu-banner.jpg"> -->
   <div class="banner-top">
-        <img src="img/bs.jpeg">
-      </div>
-    </div>
+  <img src="img/bs.jpeg" alt="Banner">
+</div>
+
+<style>
+.banner-top {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.banner-top img {
+  width: 970px;   /* tamaño que quieres */
+  height: 140px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+</style>
   </div>
 
   <!-- LAYOUT CON BANNERS LATERALES -->
