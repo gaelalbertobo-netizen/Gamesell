@@ -324,6 +324,7 @@
       <input id="log-email" type="email" placeholder="Tu email">
       <input id="log-pass" type="password" placeholder="Tu contrasena">
       <button class="btn-principal" onclick="login()">Entrar a la tienda</button>
+
     </div>
     <div class="mensaje" id="mensaje"></div>
   </div>
@@ -550,6 +551,7 @@
   </div>
 </div>
 
+<div class="productos"
 <script>
 const juegos = [
   { nombre:"Cyberpunk 2077", plataforma:"Steam", emoji:"🤖", imgs:["img/cyberpunk1.jpeg"], original:59.99, precio:5.99, descuento:78, desarrollador:"CD Projekt Red", fecha:"10 Dic, 2020", generos:["RPG","Accion","Open World"], descripcion:"Cyberpunk 2077 es un RPG de accion en mundo abierto ambientado en Night City. Asumes el papel de V, un mercenario en busca de un implante unico que es la clave de la inmortalidad.", rating:4.2, resenas:[{usuario:"ShadowRun_MX",avatar:"S",texto:"Increible juego, la historia es epica.",positiva:true,fecha:"Ene 2024"}], requisitos:{minimos:{SO:"Windows 10 64-bit",CPU:"Intel Core i7-6700K",RAM:"12 GB",GPU:"NVIDIA GTX 1060 6GB",Disco:"70 GB SSD"},recomendados:{SO:"Windows 11 64-bit",CPU:"Intel Core i7-8700K",RAM:"16 GB",GPU:"NVIDIA RTX 2060",Disco:"70 GB SSD"}} },
@@ -586,8 +588,8 @@ const juegos = [
   { nombre:"It Takes Two", plataforma:"Steam", emoji:"👫", imgs:["img/it takes two.jpeg"], original:39.99, precio:14.99, descuento:63, desarrollador:"Hazelight Studios", fecha:"26 Mar, 2021", generos:["Cooperativo","Plataformas","Aventura"], descripcion:"It Takes Two es el cooperativo del ano. Cody y May deben trabajar juntos para salvar su matrimonio en una aventura magica y variada.", rating:4.9, resenas:[{usuario:"CoopFan",avatar:"C",texto:"El mejor juego cooperativo de la decada.",positiva:true,fecha:"Abr 2021"}], requisitos:{minimos:{SO:"Windows 10",CPU:"Intel Core i3-6100T",RAM:"8 GB",GPU:"NVIDIA GTX 660",Disco:"50 GB SSD"},recomendados:{SO:"Windows 10",CPU:"Intel Core i5-8600K",RAM:"16 GB",GPU:"NVIDIA RTX 2060",Disco:"50 GB SSD"}} },
   { nombre:"Monster Hunter: World", plataforma:"Steam", emoji:"🐉", imgs:["img/mh.jpeg"], original:29.99, precio:9.99, descuento:67, desarrollador:"Capcom", fecha:"9 Ago, 2018", generos:["RPG","Accion","Cooperativo"], descripcion:"Caza monstruos colosales en el Nuevo Mundo. Con el DLC Iceborne, es el Monster Hunter mas grande y completo jamas creado.", rating:4.7, resenas:[{usuario:"HunterPro",avatar:"H",texto:"Cientos de horas de contenido. El mejor Monster Hunter.",positiva:true,fecha:"Feb 2024"}], requisitos:{minimos:{SO:"Windows 7/8/10",CPU:"Intel Core i5-4460",RAM:"8 GB",GPU:"NVIDIA GTX 760",Disco:"30 GB SSD"},recomendados:{SO:"Windows 10",CPU:"Intel Core i7-3770",RAM:"8 GB",GPU:"NVIDIA GTX 1060",Disco:"30 GB SSD"}} },
   { nombre:"Death Stranding", plataforma:"Steam", emoji:"📦", imgs:["img/ds.jpeg"], original:39.99, precio:12.99, descuento:68, desarrollador:"Kojima Productions", fecha:"14 Jul, 2020", generos:["Accion","Aventura","Sci-Fi"], descripcion:"Sam Porter Bridges conecta a una civilizacion fracturada de America. El juego mas unico de Hideo Kojima. Una experiencia cinematica sin igual.", rating:4.3, resenas:[{usuario:"KojimaFan",avatar:"K",texto:"Una experiencia unica. No hay otro juego igual.",positiva:true,fecha:"Ago 2020"}], requisitos:{minimos:{SO:"Windows 10",CPU:"Intel Core i5-3470",RAM:"8 GB",GPU:"NVIDIA GTX 1060 3GB",Disco:"80 GB SSD"},recomendados:{SO:"Windows 10",CPU:"Intel Core i7-3770",RAM:"8 GB",GPU:"NVIDIA GTX 1080",Disco:"80 GB SSD"}} },
-];
-
+</div>
+  ];
 const masVendidos = [0, 2, 8, 6, 11, 14, 21, 22]; // indices de juegos mas vendidos
 
 let carrito = [];
