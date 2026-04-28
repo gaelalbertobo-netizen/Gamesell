@@ -47,8 +47,10 @@
     <div class="mensaje" id="mensaje"></div>
   </div>
 </div>
-    /* TIENDA */
-    #tienda { display: none; 
+
+        /* TIENDA */
+    #tienda { display: none; }  /* ← CERRÉ LA LLAVE AQUÍ */
+
     nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; background: rgba(8,8,16,0.97); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 50; backdrop-filter: blur(12px); }
     .logo { font-family: 'Rajdhani', sans-serif; font-size: 22px; font-weight: 700; color: #fff; display: flex; align-items: center; gap: 8px; }
     .logo span { color: var(--purple2); }
@@ -68,7 +70,7 @@
       border-bottom: 1px solid var(--border);
       overflow: hidden;
       position: relative;
-    }
+    }s
     .banner-top-inner {
       height: 180px;
       display: flex;
@@ -308,7 +310,6 @@
     ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
     @media (max-width: 1100px) { .tienda-layout { grid-template-columns: 150px 1fr 150px; } }
     @media (max-width: 800px) { .tienda-layout { grid-template-columns: 1fr; } .banner-lateral { display: none; } .detalle-body { grid-template-columns: 1fr; } .detalle-main { border-right: none; border-bottom: 1px solid var(--border); } .requisitos-grid { grid-template-columns: 1fr; } }
-  </style>
 </head>
 <body>
 
