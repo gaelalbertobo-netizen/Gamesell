@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GameKeys — Keys al mejor precio</title>
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GameKeys — Keys al mejor precio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #080810;
@@ -19,13 +26,12 @@
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
-
+ 
     /* AUTH */
     #auth { display: flex; justify-content: center; align-items: center; min-height: 100vh; background: radial-gradient(ellipse at 60% 40%, #1a0a2e 0%, var(--bg) 70%); }
     .tarjeta { background: var(--bg2); border: 1px solid var(--border); border-radius: 20px; padding: 40px 36px; width: 100%; max-width: 420px; box-shadow: 0 0 60px rgba(124,58,237,0.12); }
     .logo-auth { text-align: center; margin-bottom: 28px; }
-    .logo-auth img { width: 70px; height: auto; margin-bottom: 15px; border-radius: 16px; }
-    .logo-auth .brand { font-family: 'Rajdhani', sans-serif; font-size: 28px; font-weight: 700; color: #fff; }
+    .logo-auth .brand { font-family: 'Rajdhani', sans-serif; font-size: 32px; font-weight: 700; color: #fff; }
     .logo-auth .brand span { color: var(--purple2); }
     .logo-auth p { color: var(--muted); font-size: 13px; margin-top: 6px; }
     .tabs { display: flex; background: var(--bg); border-radius: 10px; padding: 4px; margin-bottom: 24px; border: 1px solid var(--border); }
@@ -38,49 +44,119 @@
     .mensaje { margin-top: 14px; padding: 10px 14px; border-radius: 8px; font-size: 13px; display: none; }
     .ok { background: #052e16; color: #4ade80; border: 1px solid #166534; }
     .error { background: #2d0a0a; color: #f87171; border: 1px solid #7f1d1d; }
-
+ 
     /* TIENDA */
     #tienda { display: none; }
-    nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; background: rgba(8,8,16,0.97); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 50; backdrop-filter: blur(12px); flex-wrap: wrap; gap: 10px; }
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; background: rgba(8,8,16,0.97); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 50; backdrop-filter: blur(12px); }
     .logo { font-family: 'Rajdhani', sans-serif; font-size: 22px; font-weight: 700; color: #fff; display: flex; align-items: center; gap: 8px; }
     .logo span { color: var(--purple2); }
-    .logo img { height: 32px; width: auto; }
-    .nav-right { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .logo img { height: 36px; }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
     .nav-user { font-size: 13px; color: var(--muted); }
     .btn-carrito-nav { background: var(--bg3); border: 1px solid var(--border); color: var(--text); padding: 8px 14px; border-radius: 8px; cursor: pointer; font-size: 14px; display: flex; align-items: center; gap: 6px; transition: border-color 0.2s; }
     .btn-carrito-nav:hover { border-color: var(--purple); }
     .carrito-badge { background: var(--purple); color: #fff; font-size: 11px; font-weight: 700; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
     .btn-salir { background: none; border: 1px solid var(--border); color: var(--muted); padding: 8px 12px; border-radius: 8px; cursor: pointer; font-size: 13px; transition: all 0.2s; }
     .btn-salir:hover { border-color: #f87171; color: #f87171; }
-
-    /* BANNER SUPERIOR (limpio) */
-    .banner-top { width: 100%; display: flex; justify-content: center; padding: 20px 0; background: linear-gradient(135deg, #0f0820 0%, #1a0a2e 50%, var(--bg) 100%); }
-    .banner-top img { max-width: 500px; width: 90%; height: auto; border-radius: 12px; }
-
+ 
+    /* BANNER SUPERIOR */
+    .banner-top {
+      width: 100%;
+      background: linear-gradient(135deg, #0f0820 0%, #1a0a2e 50%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+      position: relative;
+    }
+    .banner-top-inner {
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+    .banner-top-placeholder {
+      border: 2px dashed rgba(124,58,237,0.4);
+      border-radius: 12px;
+      padding: 20px 40px;
+      color: var(--muted);
+      font-size: 13px;
+      cursor: pointer;
+      transition: border-color 0.2s;
+      width: calc(100% - 48px);
+      height: 140px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .banner-top-placeholder:hover { border-color: var(--purple); color: var(--purple2); }
+    .banner-top-placeholder .banner-icon { font-size: 28px; }
+    .banner-top img { width: 100%; height: 180px; object-fit: cover; }
+ 
     /* LAYOUT PRINCIPAL */
-    .tienda-layout { display: grid; grid-template-columns: 180px 1fr 180px; gap: 20px; max-width: 1400px; margin: 0 auto; padding: 24px 16px; align-items: start; }
-
-    /* BANNERS LATERALES SIN BORDES */
-    .banner-lateral { position: sticky; top: 80px; display: flex; flex-direction: column; gap: 20px; }
-    .banner-slot { background: transparent; border: none; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-    .banner-slot img { width: 100%; height: auto; border-radius: 12px; object-fit: cover; }
-    .banner-slot.tall img { height: 300px; object-fit: cover; }
-    .banner-slot.medium img { height: 200px; object-fit: cover; }
-    .banner-slot.small img { height: 120px; object-fit: cover; }
-
+    .tienda-layout {
+      display: grid;
+      grid-template-columns: 180px 1fr 180px;
+      gap: 0;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 24px 16px;
+      align-items: start;
+    }
+ 
+    /* BANNERS LATERALES */
+    .banner-lateral {
+      position: sticky;
+      top: 80px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .banner-slot {
+      background: var(--bg2);
+      border: 2px dashed rgba(124,58,237,0.3);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 11px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+      padding: 12px 8px;
+    }
+    .banner-slot:hover { border-color: var(--purple); color: var(--purple2); }
+    .banner-slot .slot-icon { font-size: 24px; }
+    .banner-slot.tall { height: 300px; }
+    .banner-slot.medium { height: 200px; }
+    .banner-slot.small { height: 120px; }
+    .banner-slot img { width: 100%; height: 100%; object-fit: cover; border-radius: 10px; }
+ 
     /* CONTENIDO CENTRAL */
     .tienda-centro { padding: 0 16px; }
-    .seccion-header { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; flex-wrap: wrap; }
+ 
+    .seccion-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
     .seccion-header h3 { font-family: 'Rajdhani', sans-serif; font-size: 22px; color: #fff; margin: 0; }
     .buscador-wrap { flex: 1; max-width: 360px; position: relative; }
-    .buscador-wrap input { margin: 0; padding-left: 36px; width: 100%; }
+    .buscador-wrap input { margin: 0; padding-left: 36px; }
     .buscador-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 14px; pointer-events: none; }
-
+ 
     /* FILTROS */
     .filtros { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
     .filtro-btn { padding: 6px 14px; background: var(--bg3); border: 1px solid var(--border); border-radius: 20px; color: var(--muted); font-size: 12px; cursor: pointer; transition: all 0.2s; }
     .filtro-btn:hover, .filtro-btn.activo { background: var(--purple); border-color: var(--purple); color: #fff; }
-
+ 
     /* GRID JUEGOS */
     .juegos { display: grid; grid-template-columns: repeat(auto-fill, minmax(175px, 1fr)); gap: 14px; }
     .juego { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: all 0.2s; cursor: pointer; }
@@ -96,11 +172,26 @@
     .descuento { background: var(--purple); color: #fff; font-size: 9px; padding: 2px 5px; border-radius: 4px; font-weight: 700; }
     .btn-ver { width: 100%; padding: 7px; background: var(--bg3); color: var(--text); border: 1px solid var(--border); border-radius: 6px; cursor: pointer; font-size: 11px; font-weight: 600; transition: all 0.2s; }
     .btn-ver:hover { background: var(--purple); border-color: var(--purple); color: #fff; }
-
-    /* BANNER HORIZONTAL MEDIO (limpio) */
-    .banner-medio { margin: 28px 0; background: transparent; border: none; display: flex; align-items: center; justify-content: center; }
-    .banner-medio img { width: 100%; max-width: 728px; border-radius: 12px; }
-
+ 
+    /* BANNER ENTRE SECCIONES */
+    .banner-medio {
+      margin: 28px 0;
+      height: 100px;
+      background: var(--bg2);
+      border: 2px dashed rgba(124,58,237,0.3);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 13px;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+    .banner-medio:hover { border-color: var(--purple); color: var(--purple2); }
+    .banner-medio img { width: 100%; height: 100%; object-fit: cover; border-radius: 10px; }
+ 
     /* CARRITO */
     .carrito-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 200; }
     .carrito-overlay.abierto { display: block; }
@@ -122,12 +213,12 @@
     .carrito-footer { padding: 20px 24px; border-top: 1px solid var(--border); }
     .carrito-total { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
     .carrito-total span:first-child { color: var(--muted); font-size: 14px; }
-    .carrito-total span:last-child { font-size: 22px; font-weight: 700; color: var(--green); }
-    .btn-pagar { width: 100%; padding: 14px; background: var(--purple); color: #fff; border: none; border-radius: 10px; font-size: 15px; font-weight: 700; cursor: pointer; }
+    .carrito-total span:last-child { font-size: 22px; font-weight: 700; color: var(--green); font-family: 'Rajdhani', sans-serif; }
+    .btn-pagar { width: 100%; padding: 14px; background: var(--purple); color: #fff; border: none; border-radius: 10px; font-size: 15px; font-weight: 700; cursor: pointer; transition: all 0.2s; font-family: 'Rajdhani', sans-serif; }
     .btn-pagar:hover { background: #6d28d9; }
     .btn-pagar:disabled { background: var(--muted); cursor: not-allowed; }
-
-    /* DETALLE MODAL (resumido pero completo) */
+ 
+    /* DETALLE MODAL */
     .detalle-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 300; overflow-y: auto; padding: 20px; }
     .detalle-overlay.abierto { display: block; }
     .detalle-modal { max-width: 960px; margin: 0 auto; background: var(--bg2); border-radius: 16px; overflow: hidden; border: 1px solid var(--border); position: relative; }
@@ -137,19 +228,21 @@
     .detalle-header-info { position: absolute; bottom: 20px; left: 28px; right: 28px; z-index: 2; }
     .detalle-tags { display: flex; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
     .detalle-tag { background: rgba(124,58,237,0.3); border: 1px solid rgba(124,58,237,0.5); color: var(--purple2); font-size: 11px; padding: 3px 10px; border-radius: 20px; }
-    .detalle-titulo { font-size: 32px; font-weight: 700; color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
+    .detalle-titulo { font-family: 'Rajdhani', sans-serif; font-size: 32px; font-weight: 700; color: #fff; margin-bottom: 4px; text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
     .detalle-desarrollador { color: #aaa; font-size: 13px; }
+    .detalle-desarrollador span { color: var(--purple2); }
     .detalle-btn-cerrar { position: absolute; top: 14px; right: 14px; background: rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.1); color: #fff; width: 34px; height: 34px; border-radius: 50%; cursor: pointer; font-size: 15px; display: flex; align-items: center; justify-content: center; z-index: 10; }
     .detalle-btn-cerrar:hover { background: rgba(200,0,0,0.6); }
     .detalle-body { display: grid; grid-template-columns: 1fr 270px; }
     .detalle-main { padding: 28px; border-right: 1px solid var(--border); }
     .galeria-principal { width: 100%; height: 240px; border-radius: 10px; overflow: hidden; background: var(--bg3); margin-bottom: 10px; display: flex; align-items: center; justify-content: center; font-size: 80px; }
     .galeria-principal img { width: 100%; height: 100%; object-fit: cover; }
-    .galeria-thumbs { display: flex; gap: 8px; margin-bottom: 24px; overflow-x: auto; }
-    .galeria-thumb { width: 80px; height: 50px; border-radius: 6px; overflow: hidden; cursor: pointer; border: 2px solid transparent; flex-shrink: 0; background: var(--bg3); display: flex; align-items: center; justify-content: center; font-size: 18px; }
+    .galeria-thumbs { display: flex; gap: 8px; margin-bottom: 24px; overflow-x: auto; padding-bottom: 4px; }
+    .galeria-thumb { width: 80px; height: 50px; border-radius: 6px; overflow: hidden; cursor: pointer; border: 2px solid transparent; flex-shrink: 0; background: var(--bg3); display: flex; align-items: center; justify-content: center; font-size: 18px; transition: border-color 0.2s; }
     .galeria-thumb.activo, .galeria-thumb:hover { border-color: var(--purple); }
+    .galeria-thumb img { width: 100%; height: 100%; object-fit: cover; }
     .detalle-tabs { display: flex; gap: 4px; margin-bottom: 18px; border-bottom: 1px solid var(--border); }
-    .detalle-tab { padding: 9px 14px; background: none; border: none; color: var(--muted); cursor: pointer; font-size: 13px; font-weight: 500; border-bottom: 2px solid transparent; margin-bottom: -1px; }
+    .detalle-tab { padding: 9px 14px; background: none; border: none; color: var(--muted); cursor: pointer; font-size: 13px; font-weight: 500; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: all 0.2s; }
     .detalle-tab.activo { color: var(--purple2); border-bottom-color: var(--purple); }
     .detalle-tab-content { display: none; }
     .detalle-tab-content.activo { display: block; }
@@ -157,27 +250,73 @@
     .resena { background: var(--bg3); border-radius: 10px; padding: 14px; margin-bottom: 10px; border: 1px solid var(--border); }
     .resena-positiva { border-left: 3px solid var(--green); }
     .resena-negativa { border-left: 3px solid #f87171; }
-    .form-opinion { background: var(--bg3); border-radius: 10px; padding: 18px; margin-top: 16px; }
+    .resena-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .resena-avatar { width: 30px; height: 30px; border-radius: 50%; background: var(--purple); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: #fff; flex-shrink: 0; }
+    .resena-usuario { font-size: 13px; font-weight: 600; color: #fff; }
+    .resena-fecha { font-size: 11px; color: var(--muted); }
+    .resena-rating { margin-left: auto; font-size: 12px; }
+    .resena-texto { font-size: 13px; color: #aaa; line-height: 1.6; }
+    .form-opinion { background: var(--bg3); border-radius: 10px; padding: 18px; border: 1px solid var(--border); margin-top: 16px; }
+    .form-opinion h4 { font-family: 'Rajdhani', sans-serif; font-size: 16px; color: #fff; margin-bottom: 14px; }
+    .form-opinion textarea { width: 100%; padding: 10px; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-size: 13px; resize: vertical; min-height: 70px; outline: none; font-family: 'Inter', sans-serif; }
+    .form-opinion textarea:focus { border-color: var(--purple); }
+    .form-rating { display: flex; gap: 6px; margin: 10px 0; align-items: center; }
+    .form-rating span { color: var(--muted); font-size: 13px; }
+    .estrella-btn { background: none; border: none; font-size: 22px; cursor: pointer; color: var(--muted); }
+    .estrella-btn.activo { color: #fbbf24; }
+    .form-tipo { display: flex; gap: 8px; margin-bottom: 10px; }
+    .btn-tipo { padding: 7px 14px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--muted); cursor: pointer; font-size: 12px; transition: all 0.2s; }
+    .btn-tipo.activo-pos { background: rgba(74,222,128,0.15); border-color: var(--green); color: var(--green); }
+    .btn-tipo.activo-neg { background: rgba(248,113,113,0.15); border-color: #f87171; color: #f87171; }
+    .btn-enviar-opinion { margin-top: 10px; padding: 9px 18px; background: var(--purple); color: #fff; border: none; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 600; }
+    .btn-enviar-opinion:hover { background: #6d28d9; }
+    .requisitos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .req-col { background: var(--bg3); border-radius: 10px; padding: 16px; border: 1px solid var(--border); }
+    .req-col h4 { font-family: 'Rajdhani', sans-serif; font-size: 15px; color: #fff; margin-bottom: 14px; }
+    .req-item { display: flex; gap: 8px; margin-bottom: 10px; font-size: 12px; }
+    .req-label { color: var(--muted); min-width: 75px; }
+    .req-valor { color: var(--text); }
     .detalle-sidebar { padding: 24px 18px; }
-    .detalle-precio-box { background: var(--bg3); border-radius: 12px; padding: 18px; margin-bottom: 14px; }
-    .detalle-precio-nuevo { font-size: 28px; font-weight: 700; color: var(--green); }
-    .btn-agregar-detalle { width: 100%; padding: 13px; background: var(--green); color: #000; border: none; border-radius: 10px; font-weight: 700; cursor: pointer; }
+    .detalle-precio-box { background: var(--bg3); border-radius: 12px; padding: 18px; margin-bottom: 14px; border: 1px solid var(--border); }
+    .detalle-precio-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+    .detalle-descuento { background: var(--purple); color: #fff; font-size: 13px; font-weight: 700; padding: 3px 8px; border-radius: 6px; }
+    .detalle-precio-original { font-size: 12px; color: var(--muted); text-decoration: line-through; }
+    .detalle-precio-nuevo { font-size: 28px; font-weight: 700; color: var(--green); font-family: 'Rajdhani', sans-serif; }
+    .btn-agregar-detalle { width: 100%; padding: 13px; background: var(--green); color: #000; border: none; border-radius: 10px; font-size: 14px; font-weight: 700; cursor: pointer; transition: all 0.2s; margin-bottom: 10px; }
+    .btn-agregar-detalle:hover { background: #22c55e; }
+    .btn-agregar-detalle.agregado { background: var(--bg3); color: var(--muted); border: 1px solid var(--border); cursor: default; }
+    .detalle-rating-global { background: var(--bg3); border-radius: 12px; padding: 14px; margin: 14px 0; border: 1px solid var(--border); text-align: center; }
+    .detalle-rating-numero { font-family: 'Rajdhani', sans-serif; font-size: 38px; font-weight: 700; color: var(--green); }
+    .detalle-rating-estrellas { color: #fbbf24; font-size: 16px; margin: 4px 0; }
+    .detalle-rating-total { font-size: 11px; color: var(--muted); }
+    .detalle-info-item { display: flex; justify-content: space-between; padding: 9px 0; border-bottom: 1px solid var(--border); font-size: 12px; }
+    .detalle-info-item span:first-child { color: var(--muted); }
+    .detalle-info-item span:last-child { color: #fff; font-weight: 500; text-align: right; }
     .modal-fondo { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 400; justify-content: center; align-items: center; }
     .modal-fondo.abierto { display: flex; }
-    .modal { background: var(--bg2); border-radius: 20px; padding: 36px; max-width: 400px; text-align: center; border: 1px solid var(--purple); }
+    .modal { background: var(--bg2); border-radius: 20px; padding: 36px; max-width: 400px; width: 90%; border: 1px solid var(--purple); text-align: center; }
+    .modal h3 { font-family: 'Rajdhani', sans-serif; font-size: 24px; color: #fff; margin-bottom: 8px; }
+    .modal p { color: var(--muted); font-size: 14px; margin-bottom: 20px; }
     .key-box { background: var(--bg); border: 1px dashed var(--purple); border-radius: 10px; padding: 18px; font-family: monospace; font-size: 20px; color: var(--purple2); letter-spacing: 4px; margin-bottom: 20px; }
+    .modal-btns { display: flex; gap: 10px; justify-content: center; }
+    .btn-copiar { padding: 10px 24px; background: var(--purple); color: #fff; border: none; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 600; }
+    .btn-cerrar-modal { padding: 10px 24px; background: var(--bg3); color: var(--muted); border: 1px solid var(--border); border-radius: 8px; cursor: pointer; font-size: 14px; }
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
     @media (max-width: 1100px) { .tienda-layout { grid-template-columns: 150px 1fr 150px; } }
-    @media (max-width: 800px) { .tienda-layout { grid-template-columns: 1fr; } .banner-lateral { display: none; } .detalle-body { grid-template-columns: 1fr; } }
+    @media (max-width: 800px) { .tienda-layout { grid-template-columns: 1fr; } .banner-lateral { display: none; } .detalle-body { grid-template-columns: 1fr; } .detalle-main { border-right: none; border-bottom: 1px solid var(--border); } .requisitos-grid { grid-template-columns: 1fr; } }
   </style>
+
 </head>
 <body>
 
-<!-- AUTH (login/registro) -->
+<!-- AUTH -->
 <div id="auth">
   <div class="tarjeta">
     <div class="logo-auth">
-      <img src="/img/logoweb.gif" alt="GameKeys Logo" onerror="this.style.display='none'">
-      <div class="brand">Game<span>Sell</span></div>
+       <img src="/img/logoweb.gif" onerror="this.style.display='none'"> Game<span>sell</span>
+      <div class="brand">🎮 Game<span>Sell</span></div>
       <p>Keys de videojuegos al mejor precio</p>
     </div>
     <div class="tabs">
@@ -192,7 +331,7 @@
     </div>
     <div id="form-login" style="display:none">
       <input id="log-email" type="email" placeholder="Tu email">
-      <input id="log-pass" type="password" placeholder="Tu contraseña">
+      <input id="log-pass" type="password" placeholder="Tu contrasena">
       <button class="btn-principal" onclick="login()">Entrar a la tienda</button>
     </div>
     <div class="mensaje" id="mensaje"></div>
@@ -203,28 +342,50 @@
 <div id="tienda">
   <nav>
     <div class="logo">
-      <img src="/img/logoweb.gif" onerror="this.style.display='none'"> Game<span>Sell</span>
+      <img src="/img/logoweb.gif" onerror="this.style.display='none'"> Game<span>sell</span>
     </div>
     <div class="nav-right">
       <span class="nav-user" id="nav-nombre"></span>
-      <button class="btn-carrito-nav" onclick="abrirCarrito()">🛒 Carrito <span class="carrito-badge" id="carrito-count">0</span></button>
+      <button class="btn-carrito-nav" onclick="abrirCarrito()">
+        🛒 Carrito <span class="carrito-badge" id="carrito-count">0</span>
+      </button>
       <button class="btn-salir" onclick="cerrarSesion()">Salir</button>
     </div>
   </nav>
 
   <!-- BANNER SUPERIOR -->
+  <!-- Para poner tu banner: reemplaza el div.banner-top-placeholder por <img src="/img/tu-banner.jpg"> -->
   <div class="banner-top">
-    <img src="img/bs.jpeg" alt="Banner superior" onerror="this.parentElement.innerHTML='<div style=\color:gray;text-align:center\>Banner top</div>'">
+    <div class="banner-top-inner">
+      <div class="banner-top-placeholder">
+        <span class="banner-icon">🖼️</span>
+        <strong>Banner Superior (728 x 90 o 970 x 140)</strong>
+        <span>Reemplaza este div con: &lt;img src="/img/tu-banner.jpg"&gt;</span>
+      </div>
+    </div>
   </div>
 
+  <!-- LAYOUT CON BANNERS LATERALES -->
   <div class="tienda-layout">
+
     <!-- BANNER IZQUIERDO -->
     <div class="banner-lateral">
+      <!-- Banner 1 izquierdo - 160x300 -->
       <div class="banner-slot tall">
-        <img src="img/ble.jpeg" alt="Banner izquierdo 160x300" onerror="this.style.display='none'">
+        <span class="slot-icon">📢</span>
+        <span>Banner<br>160x300</span>
+        <span style="font-size:9px;margin-top:4px;">img src="/img/banner-izq-1.jpg"</span>
       </div>
+      <!-- Banner 2 izquierdo - 160x200 -->
       <div class="banner-slot medium">
-        <img src="img/banner-izq-2.jpg" alt="Banner izquierdo 160x200" onerror="this.style.display='none'">
+        <span class="slot-icon">📢</span>
+        <span>Banner<br>160x200</span>
+        <span style="font-size:9px;margin-top:4px;">img src="/img/banner-izq-2.jpg"</span>
+      </div>
+      <!-- Banner 3 izquierdo - 160x120 -->
+      <div class="banner-slot small">
+        <span class="slot-icon">📢</span>
+        <span>Banner<br>160x120</span>
       </div>
     </div>
 
@@ -234,59 +395,89 @@
         <h3>🔥 Ofertas destacadas</h3>
         <div class="buscador-wrap">
           <span class="buscador-icon">🔍</span>
-          <input type="text" id="buscador" placeholder="Buscar juego, genero, plataforma...">
+          <input type="text" placeholder="Buscar juego, genero, plataforma..." oninput="buscarJuegos(this.value)" style="padding-left:36px;">
         </div>
       </div>
+
+      <!-- FILTROS POR GENERO -->
       <div class="filtros">
-        <button class="filtro-btn activo" data-genero="Todos" onclick="filtrarGenero('Todos', this)">Todos</button>
-        <button class="filtro-btn" data-genero="RPG" onclick="filtrarGenero('RPG', this)">RPG</button>
-        <button class="filtro-btn" data-genero="Accion" onclick="filtrarGenero('Accion', this)">Accion</button>
-        <button class="filtro-btn" data-genero="FPS" onclick="filtrarGenero('FPS', this)">FPS</button>
-        <button class="filtro-btn" data-genero="Deportes" onclick="filtrarGenero('Deportes', this)">Deportes</button>
-        <button class="filtro-btn" data-genero="Open World" onclick="filtrarGenero('Open World', this)">Open World</button>
-        <button class="filtro-btn" data-genero="Multijugador" onclick="filtrarGenero('Multijugador', this)">Multijugador</button>
-        <button class="filtro-btn" data-genero="Sandbox" onclick="filtrarGenero('Sandbox', this)">Sandbox</button>
-        <button class="filtro-btn" data-genero="Carreras" onclick="filtrarGenero('Carreras', this)">Carreras</button>
+        <button class="filtro-btn activo" onclick="filtrarGenero('Todos', this)">Todos</button>
+        <button class="filtro-btn" onclick="filtrarGenero('RPG', this)">RPG</button>
+        <button class="filtro-btn" onclick="filtrarGenero('Accion', this)">Accion</button>
+        <button class="filtro-btn" onclick="filtrarGenero('FPS', this)">FPS</button>
+        <button class="filtro-btn" onclick="filtrarGenero('Deportes', this)">Deportes</button>
+        <button class="filtro-btn" onclick="filtrarGenero('Open World', this)">Open World</button>
+        <button class="filtro-btn" onclick="filtrarGenero('Multijugador', this)">Multijugador</button>
+        <button class="filtro-btn" onclick="filtrarGenero('Sandbox', this)">Sandbox</button>
+        <button class="filtro-btn" onclick="filtrarGenero('Carreras', this)">Carreras</button>
       </div>
+
       <div class="juegos" id="lista-juegos"></div>
 
-      <!-- BANNER HORIZONTAL MEDIO -->
+      <!-- BANNER ENTRE SECCIONES -->
+      <!-- Para poner tu banner: reemplaza el contenido del div.banner-medio -->
       <div class="banner-medio">
-        <img src="img/banner.jpg" alt="Banner horizontal" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\color:gray;text-align:center\>Banner horizontal</div>'">
+        <span style="font-size:24px;">🖼️</span>
+        <div>
+          <strong>Banner Horizontal (728 x 90)</strong><br>
+          <span style="font-size:11px;">Reemplaza con: &lt;img src="/img/banner-medio.jpg"&gt;</span>
+        </div>
       </div>
 
-      <h3 style="font-family:'Rajdhani'; font-size:20px; margin:16px 0;">⭐ Mas vendidos</h3>
+      <!-- SEGUNDA SECCION -->
+      <h3 style="font-family:'Rajdhani',sans-serif;font-size:20px;color:#fff;margin-bottom:16px;">⭐ Mas vendidos</h3>
       <div class="juegos" id="lista-mas-vendidos"></div>
     </div>
 
     <!-- BANNER DERECHO -->
     <div class="banner-lateral">
       <div class="banner-slot tall">
-        <img src="img/blr.jpeg" alt="Banner derecho 160x300" onerror="this.style.display='none'">
+        <span class="slot-icon">📢</span>
+        <span>Banner<br>160x300</span>
+        <span style="font-size:9px;margin-top:4px;">img src="/img/banner-der-1.jpg"</span>
       </div>
       <div class="banner-slot medium">
-        <img src="img/banner-der-2.jpg" alt="Banner derecho 160x200" onerror="this.style.display='none'">
+        <span class="slot-icon">📢</span>
+        <span>Banner<br>160x200</span>
+        <span style="font-size:9px;margin-top:4px;">img src="/img/banner-der-2.jpg"</span>
       </div>
       <div class="banner-slot small">
-        <img src="img/banner-der-3.jpg" alt="Banner derecho 160x120" onerror="this.style.display='none'">
+        <span class="slot-icon">📢</span>
+        <span>Banner<br>160x120</span>
       </div>
     </div>
+
   </div>
 </div>
 
-<!-- CARRITO PANEL -->
+<!-- CARRITO -->
 <div class="carrito-overlay" id="carrito-overlay" onclick="cerrarCarrito()"></div>
 <div class="carrito-panel" id="carrito-panel">
-  <div class="carrito-header"><h3>🛒 Tu carrito</h3><button class="btn-cerrar-carrito" onclick="cerrarCarrito()">✕</button></div>
-  <div class="carrito-items" id="carrito-items"><div class="carrito-vacio">Tu carrito esta vacio</div></div>
-  <div class="carrito-footer"><div class="carrito-total"><span>Total</span><span id="carrito-total">$0.00</span></div><button class="btn-pagar" id="btn-pagar" onclick="pagar()" disabled>💳 Pagar con Stripe</button></div>
+  <div class="carrito-header">
+    <h3>🛒 Tu carrito</h3>
+    <button class="btn-cerrar-carrito" onclick="cerrarCarrito()">✕</button>
+  </div>
+  <div class="carrito-items" id="carrito-items">
+    <div class="carrito-vacio">Tu carrito esta vacio</div>
+  </div>
+  <div class="carrito-footer">
+    <div class="carrito-total"><span>Total</span><span id="carrito-total">$0.00</span></div>
+    <button class="btn-pagar" id="btn-pagar" onclick="pagar()" disabled>💳 Pagar con Stripe</button>
+  </div>
 </div>
 
-<!-- DETALLE MODAL -->
+<!-- DETALLE JUEGO -->
 <div class="detalle-overlay" id="detalle-overlay">
   <div class="detalle-modal">
     <button class="detalle-btn-cerrar" onclick="cerrarDetalle()">✕</button>
-    <div class="detalle-header" id="detalle-header"><div class="detalle-header-overlay"></div><div class="detalle-header-info"><div class="detalle-tags" id="detalle-tags"></div><div class="detalle-titulo" id="detalle-titulo"></div><div class="detalle-desarrollador">por <span id="detalle-dev"></span></div></div></div>
+    <div class="detalle-header" id="detalle-header">
+      <div class="detalle-header-overlay"></div>
+      <div class="detalle-header-info">
+        <div class="detalle-tags" id="detalle-tags"></div>
+        <div class="detalle-titulo" id="detalle-titulo"></div>
+        <div class="detalle-desarrollador">por <span id="detalle-dev"></span></div>
+      </div>
+    </div>
     <div class="detalle-body">
       <div class="detalle-main">
         <div class="galeria-principal" id="galeria-principal"></div>
@@ -296,14 +487,47 @@
           <button class="detalle-tab" onclick="cambiarTab('resenas')">💬 Resenas</button>
           <button class="detalle-tab" onclick="cambiarTab('requisitos')">💻 Requisitos</button>
         </div>
-        <div class="detalle-tab-content activo" id="tab-descripcion"><div class="detalle-descripcion" id="detalle-descripcion"></div></div>
-        <div class="detalle-tab-content" id="tab-resenas"><div id="detalle-resenas"></div><div class="form-opinion"><h4>✍️ Deja tu resena</h4><div class="form-tipo"><button class="btn-tipo" id="btn-pos" onclick="selTipo(true)">👍 Recomendado</button><button class="btn-tipo" id="btn-neg" onclick="selTipo(false)">👎 No recomendado</button></div><div class="form-rating"><span>Calificacion:</span><button class="estrella-btn" onclick="selEstrella(1)">★</button><button class="estrella-btn" onclick="selEstrella(2)">★</button><button class="estrella-btn" onclick="selEstrella(3)">★</button><button class="estrella-btn" onclick="selEstrella(4)">★</button><button class="estrella-btn" onclick="selEstrella(5)">★</button></div><textarea id="opinion-texto" placeholder="Escribe tu opinion..."></textarea><button class="btn-enviar-opinion" onclick="enviarOpinion()">Publicar resena</button></div></div>
-        <div class="detalle-tab-content" id="tab-requisitos"><div class="requisitos-grid" id="detalle-requisitos"></div></div>
+        <div class="detalle-tab-content activo" id="tab-descripcion">
+          <div class="detalle-descripcion" id="detalle-descripcion"></div>
+        </div>
+        <div class="detalle-tab-content" id="tab-resenas">
+          <div id="detalle-resenas"></div>
+          <div class="form-opinion">
+            <h4>✍️ Deja tu resena</h4>
+            <div class="form-tipo">
+              <button class="btn-tipo" id="btn-pos" onclick="selTipo(true)">👍 Recomendado</button>
+              <button class="btn-tipo" id="btn-neg" onclick="selTipo(false)">👎 No recomendado</button>
+            </div>
+            <div class="form-rating">
+              <span>Calificacion:</span>
+              <button class="estrella-btn" onclick="selEstrella(1)">★</button>
+              <button class="estrella-btn" onclick="selEstrella(2)">★</button>
+              <button class="estrella-btn" onclick="selEstrella(3)">★</button>
+              <button class="estrella-btn" onclick="selEstrella(4)">★</button>
+              <button class="estrella-btn" onclick="selEstrella(5)">★</button>
+            </div>
+            <textarea id="opinion-texto" placeholder="Escribe tu opinion..."></textarea>
+            <button class="btn-enviar-opinion" onclick="enviarOpinion()">Publicar resena</button>
+          </div>
+        </div>
+        <div class="detalle-tab-content" id="tab-requisitos">
+          <div class="requisitos-grid" id="detalle-requisitos"></div>
+        </div>
       </div>
       <div class="detalle-sidebar">
-        <div class="detalle-precio-box"><div class="detalle-precio-row"><span class="detalle-descuento" id="detalle-desc-badge"></span><span class="detalle-precio-original" id="detalle-precio-orig"></span></div><div class="detalle-precio-nuevo" id="detalle-precio-nuevo"></div></div>
+        <div class="detalle-precio-box">
+          <div class="detalle-precio-row">
+            <span class="detalle-descuento" id="detalle-desc-badge"></span>
+            <span class="detalle-precio-original" id="detalle-precio-orig"></span>
+          </div>
+          <div class="detalle-precio-nuevo" id="detalle-precio-nuevo"></div>
+        </div>
         <button class="btn-agregar-detalle" id="btn-agregar-detalle" onclick="agregarDesdeDetalle()">🛒 Agregar al carrito</button>
-        <div class="detalle-rating-global"><div class="detalle-rating-numero" id="detalle-rating-num"></div><div class="detalle-rating-estrellas" id="detalle-rating-stars"></div><div class="detalle-rating-total" id="detalle-rating-total"></div></div>
+        <div class="detalle-rating-global">
+          <div class="detalle-rating-numero" id="detalle-rating-num"></div>
+          <div class="detalle-rating-estrellas" id="detalle-rating-stars"></div>
+          <div class="detalle-rating-total" id="detalle-rating-total"></div>
+        </div>
         <div id="detalle-info-lista"></div>
       </div>
     </div>
@@ -311,13 +535,22 @@
 </div>
 
 <!-- MODAL KEY -->
-<div class="modal-fondo" id="modal"><div class="modal"><h3>🎉 Tu key esta lista!</h3><p id="modal-juego"></p><div class="key-box" id="modal-key">XXXX-XXXX-XXXX-XXXX</div><div class="modal-btns"><button class="btn-copiar" onclick="copiarKey()">📋 Copiar key</button><button class="btn-cerrar-modal" onclick="cerrarModal()">Cerrar</button></div></div></div>
+<div class="modal-fondo" id="modal">
+  <div class="modal">
+    <h3>🎉 Tu key esta lista!</h3>
+    <p id="modal-juego"></p>
+    <div class="key-box" id="modal-key">XXXX-XXXX-XXXX-XXXX</div>
+    <div class="modal-btns">
+      <button class="btn-copiar" onclick="copiarKey()">📋 Copiar key</button>
+      <button class="btn-cerrar-modal" onclick="cerrarModal()">Cerrar</button>
+    </div>
+  </div>
+</div>
 
 <script>
-// ====================== JUEGOS COMPLETOS (con rutas locales) ======================
 const juegos = [
-  { nombre:"Cyberpunk 2077", plataforma:"Steam", emoji:"🤖", imgs:["img/cyberpunk1.jpeg"], original:59.99, precio:5.99, descuento:78, desarrollador:"CD Projekt Red", fecha:"10 Dic, 2020", generos:["RPG","Accion","Open World"], descripcion:"Cyberpunk 2077 es un RPG de accion en mundo abierto...", rating:4.2, resenas:[{usuario:"ShadowRun_MX",avatar:"S",texto:"Increible juego",positiva:true,fecha:"Ene 2024"}], requisitos:{minimos:{SO:"Windows 10",CPU:"Intel Core i7-6700K",RAM:"12 GB",GPU:"NVIDIA GTX 1060",Disco:"70 GB"},recomendados:{SO:"Windows 11",CPU:"Intel Core i7-8700K",RAM:"16 GB",GPU:"NVIDIA RTX 2060",Disco:"70 GB"}} },
-  { nombre:"Elden Ring", plataforma:"Steam", emoji:"⚔️", imgs:["img/eldenring.jpeg"], original:59.99, precio:29.99, descuento:50, desarrollador:"FromSoftware", fecha:"25 Feb, 2022", generos:["RPG","Souls-like","Fantasia"], descripcion:"Elden Ring es un RPG de accion...", rating:4.8, resenas:[{usuario:"DarkSoulsVet",avatar:"D",texto:"El mejor",positiva:true,fecha:"Abr 2024"}], requisitos:{minimos:{SO:"Windows 10",CPU:"Intel Core i5-8400",RAM:"12 GB",GPU:"NVIDIA GTX 1060",Disco:"60 GB"},recomendados:{SO:"Windows 11",CPU:"Intel Core i7-8700K",RAM:"16 GB",GPU:"NVIDIA GTX 1070",Disco:"60 GB"}} },
+  { nombre:"Cyberpunk 2077", plataforma:"Steam", emoji:"🤖", imgs:["img/cyberpunk1.jpeg"], original:59.99, precio:5.99, descuento:78, desarrollador:"CD Projekt Red", fecha:"10 Dic, 2020", generos:["RPG","Accion","Open World"], descripcion:"Cyberpunk 2077...", rating:4.2, resenas:[{usuario:"ShadowRun_MX",avatar:"S",texto:"Increible juego",positiva:true,fecha:"Ene 2024"}], requisitos:{minimos:{SO:"Windows 10",CPU:"Intel Core i7-6700K",RAM:"12 GB",GPU:"NVIDIA GTX 1060",Disco:"70 GB"},recomendados:{SO:"Windows 11",CPU:"Intel Core i7-8700K",RAM:"16 GB",GPU:"NVIDIA RTX 2060",Disco:"70 GB"}} },
+  { nombre:"Elden Ring", plataforma:"Steam", emoji:"⚔️", imgs:["img/eldenring.jpeg"], original:59.99, precio:29.99, descuento:50, desarrollador:"FromSoftware", fecha:"25 Feb, 2022", generos:["RPG","Souls-like","Fantasia"], descripcion:"Elden Ring...", rating:4.8, resenas:[{usuario:"DarkSoulsVet",avatar:"D",texto:"El mejor",positiva:true,fecha:"Abr 2024"}], requisitos:{minimos:{SO:"Windows 10",CPU:"Intel Core i5-8400",RAM:"12 GB",GPU:"NVIDIA GTX 1060",Disco:"60 GB"},recomendados:{SO:"Windows 11",CPU:"Intel Core i7-8700K",RAM:"16 GB",GPU:"NVIDIA GTX 1070",Disco:"60 GB"}} },
   { nombre:"Red Dead Redemption 2", plataforma:"Steam", emoji:"🤠", imgs:["img/rdr2.jpeg"], original:69.99, precio:19.99, descuento:67, desarrollador:"Rockstar Games", fecha:"5 Nov, 2019", generos:["Accion","Aventura","Western"], descripcion:"Red Dead 2...", rating:4.9, resenas:[{usuario:"CowboyGamer",avatar:"C",texto:"La mejor historia",positiva:true,fecha:"Ene 2024"}], requisitos:{minimos:{SO:"Windows 10",CPU:"Intel Core i5-2500K",RAM:"8 GB",GPU:"NVIDIA GTX 770",Disco:"150 GB"},recomendados:{SO:"Windows 10",CPU:"Intel Core i7-4770K",RAM:"12 GB",GPU:"NVIDIA GTX 1060",Disco:"150 GB"}} },
   { nombre:"Hogwarts Legacy", plataforma:"Steam", emoji:"🧙", imgs:["img/hl.jpeg"], original:59.99, precio:24.99, descuento:58, desarrollador:"Avalanche Software", fecha:"10 Feb, 2023", generos:["RPG","Aventura","Magia"], descripcion:"Hogwarts...", rating:4.3, resenas:[{usuario:"PotterHead_MX",avatar:"P",texto:"Sueño",positiva:true,fecha:"Mar 2024"}], requisitos:{minimos:{SO:"Windows 10",CPU:"Intel Core i5-6600",RAM:"16 GB",GPU:"NVIDIA GTX 960",Disco:"85 GB"},recomendados:{SO:"Windows 11",CPU:"Intel Core i7-8700",RAM:"16 GB",GPU:"NVIDIA RTX 2080 Ti",Disco:"85 GB"}} },
   { nombre:"FIFA 24", plataforma:"EA App", emoji:"⚽", imgs:["img/fifa.jpeg"], original:69.99, precio:14.99, descuento:79, desarrollador:"EA Sports", fecha:"29 Sep, 2023", generos:["Deportes","Futbol"], descripcion:"FIFA 24...", rating:3.8, resenas:[{usuario:"FutboleroMX",avatar:"F",texto:"Mejorado",positiva:true,fecha:"Oct 2023"}], requisitos:{minimos:{SO:"Windows 10",CPU:"Intel Core i5-6600k",RAM:"8 GB",GPU:"NVIDIA GTX 1050 Ti",Disco:"100 GB"},recomendados:{SO:"Windows 10",CPU:"Intel Core i7-6700",RAM:"12 GB",GPU:"NVIDIA GTX 1660",Disco:"100 GB"}} },
@@ -350,39 +583,20 @@ const juegos = [
   { nombre:"Monster Hunter: World", plataforma:"Steam", emoji:"🐉", imgs:["img/mhw.jpeg"], original:29.99, precio:9.99, descuento:67, desarrollador:"Capcom", fecha:"9 Ago, 2018", generos:["RPG","Accion","Cooperativo"], descripcion:"Monster Hunter World...", rating:4.7, resenas:[{usuario:"HunterPro",avatar:"H",texto:"Cientos de horas",positiva:true,fecha:"Feb 2024"}], requisitos:{minimos:{SO:"Windows 7",CPU:"Intel Core i5-4460",RAM:"8 GB",GPU:"NVIDIA GTX 760",Disco:"30 GB"},recomendados:{SO:"Windows 10",CPU:"Intel Core i7-3770",RAM:"8 GB",GPU:"NVIDIA GTX 1060",Disco:"30 GB"}} },
   { nombre:"Death Stranding", plataforma:"Steam", emoji:"📦", imgs:["img/death_stranding.jpeg"], original:39.99, precio:12.99, descuento:68, desarrollador:"Kojima Productions", fecha:"14 Jul, 2020", generos:["Accion","Aventura","Sci-Fi"], descripcion:"Death Stranding...", rating:4.3, resenas:[{usuario:"KojimaFan",avatar:"K",texto:"Experiencia única",positiva:true,fecha:"Ago 2020"}], requisitos:{minimos:{SO:"Windows 10",CPU:"Intel Core i5-3470",RAM:"8 GB",GPU:"NVIDIA GTX 1060 3GB",Disco:"80 GB"},recomendados:{SO:"Windows 10",CPU:"Intel Core i7-3770",RAM:"8 GB",GPU:"NVIDIA GTX 1080",Disco:"80 GB"}} }
 ];
-const masVendidosIndices = [0, 2, 6, 7, 10, 13, 19, 20]; // índices de los más vendidos
+
+const masVendidos = [0, 2, 7, 6, 10, 13, 20, 21]; // Cyberpunk, RDR2, GTAV, Witcher3, L4D2, BioShockInfinite, RE4, GoW // Cyberpunk, RDR2, GTAV, TheWitcher3, Left4Dead2, BioShockInfinite, SpiderMan, Horizon // indices de juegos mas vendidos
 
 let carrito = [];
 let juegoActual = null;
 let opinionPositiva = true;
 let opinionEstrellas = 5;
 
-// ====================== FUNCIONES ======================
-function renderJuegos(lista, containerId) {
-  const el = document.getElementById(containerId);
-  if (!lista.length) { el.innerHTML = '<p style="color:var(--muted);padding:20px;">No se encontraron juegos</p>'; return; }
-  el.innerHTML = lista.map(j => {
-    const i = juegos.indexOf(j);
-    const imgPortada = j.imgs && j.imgs[0];
-    return `<div class="juego" onclick="abrirDetalle(${i})">
-      <div class="juego-img">${imgPortada ? `<img src="${imgPortada}" onerror="this.parentNode.innerHTML='${j.emoji}'">` : j.emoji}</div>
-      <div class="juego-info">
-        <div class="juego-nombre">${j.nombre}</div>
-        <div class="juego-plataforma">${j.plataforma}</div>
-        <div class="juego-precios">
-          <span class="precio-original">${j.precio > 0 ? '$'+j.original : ''}</span>
-          <span class="precio-nuevo">${j.precio > 0 ? '$'+j.precio : 'GRATIS'}</span>
-          ${j.descuento > 0 ? `<span class="descuento">-${j.descuento}%</span>` : ''}
-        </div>
-        <button class="btn-ver">Ver detalles</button>
-      </div>
-    </div>`;
-  }).join('');
-}
-
-function buscarJuegos() {
-  const texto = document.getElementById('buscador').value;
-  const filtrados = texto ? juegos.filter(j => j.nombre.toLowerCase().includes(texto.toLowerCase()) || j.plataforma.toLowerCase().includes(texto.toLowerCase()) || j.generos.some(g => g.toLowerCase().includes(texto.toLowerCase()))) : juegos;
+function buscarJuegos(texto) {
+  const filtrados = texto ? juegos.filter(j =>
+    j.nombre.toLowerCase().includes(texto.toLowerCase()) ||
+    j.plataforma.toLowerCase().includes(texto.toLowerCase()) ||
+    j.generos.some(g => g.toLowerCase().includes(texto.toLowerCase()))
+  ) : juegos;
   renderJuegos(filtrados, 'lista-juegos');
 }
 
@@ -393,20 +607,84 @@ function filtrarGenero(genero, btn) {
   renderJuegos(filtrados, 'lista-juegos');
 }
 
-function cargarJuegos() {
-  renderJuegos(juegos, 'lista-juegos');
-  renderJuegos(masVendidosIndices.map(i => juegos[i]), 'lista-mas-vendidos');
+function renderJuegos(lista, containerId) {
+  const el = document.getElementById(containerId);
+  if (!lista.length) { el.innerHTML = '<p style="color:var(--muted);padding:20px;">No se encontraron juegos</p>'; return; }
+  el.innerHTML = lista.map(j => {
+    const i = juegos.indexOf(j);
+    const imgPortada = j.imgs && j.imgs.length > 0 ? j.imgs[0] : null;
+    return `
+      <div class="juego" onclick="abrirDetalle(${i})">
+        <div class="juego-img">${imgPortada ? `<img src="${imgPortada}" onerror="this.parentNode.innerHTML='${j.emoji}'">` : j.emoji}</div>
+        <div class="juego-info">
+          <div class="juego-nombre">${j.nombre}</div>
+          <div class="juego-plataforma">${j.plataforma}</div>
+          <div class="juego-precios">
+            <span class="precio-original">${j.precio > 0 ? '$'+j.original : ''}</span>
+            <span class="precio-nuevo">${j.precio > 0 ? '$'+j.precio : 'GRATIS'}</span>
+            ${j.descuento > 0 ? `<span class="descuento">-${j.descuento}%</span>` : ''}
+          </div>
+          <button class="btn-ver">Ver detalles</button>
+        </div>
+      </div>`;
+  }).join('');
 }
 
-// Detalle y pestañas
+function cambiarTab(tab) {
+  document.querySelectorAll('.detalle-tab').forEach((t, i) => t.classList.toggle('activo', ['descripcion','resenas','requisitos'][i] === tab));
+  document.querySelectorAll('.detalle-tab-content').forEach(c => c.classList.remove('activo'));
+  document.getElementById('tab-' + tab).classList.add('activo');
+}
+
+function cambiarImagen(url, thumbEl) {
+  const principal = document.getElementById('galeria-principal');
+  principal.innerHTML = url ? `<img src="${url}" onerror="this.parentNode.innerHTML='🎮'">` : juegos[juegoActual].emoji;
+  document.querySelectorAll('.galeria-thumb').forEach(t => t.classList.remove('activo'));
+  thumbEl.classList.add('activo');
+}
+
+function selTipo(positiva) {
+  opinionPositiva = positiva;
+  document.getElementById('btn-pos').className = 'btn-tipo' + (positiva ? ' activo-pos' : '');
+  document.getElementById('btn-neg').className = 'btn-tipo' + (!positiva ? ' activo-neg' : '');
+}
+
+function selEstrella(n) {
+  opinionEstrellas = n;
+  document.querySelectorAll('.estrella-btn').forEach((b, i) => b.classList.toggle('activo', i < n));
+}
+
+function enviarOpinion() {
+  const texto = document.getElementById('opinion-texto').value.trim();
+  if (!texto) { alert('Escribe tu opinion primero'); return; }
+  const j = juegos[juegoActual];
+  const nombre = localStorage.getItem('userName') || 'Usuario';
+  j.resenas.unshift({ usuario: nombre, avatar: nombre[0].toUpperCase(), texto, positiva: opinionPositiva, fecha: new Date().toLocaleDateString('es-MX', { month: 'short', year: 'numeric' }) });
+  document.getElementById('opinion-texto').value = '';
+  renderResenas(j);
+  cambiarTab('resenas');
+  alert('Resena publicada!');
+}
+
+function renderResenas(j) {
+  document.getElementById('detalle-resenas').innerHTML = j.resenas.map(r => `
+    <div class="resena ${r.positiva ? 'resena-positiva' : 'resena-negativa'}">
+      <div class="resena-header">
+        <div class="resena-avatar">${r.avatar}</div>
+        <div><div class="resena-usuario">${r.usuario}</div><div class="resena-fecha">${r.fecha}</div></div>
+        <div class="resena-rating">${r.positiva ? '👍 Recomendado' : '👎 No recomendado'}</div>
+      </div>
+      <div class="resena-texto">${r.texto}</div>
+    </div>`).join('');
+}
+
 function abrirDetalle(i) {
   const j = juegos[i];
   juegoActual = i;
-  // header img
   const header = document.getElementById('detalle-header');
-  const oldImg = header.querySelector('img');
-  if (oldImg) oldImg.remove();
-  if (j.imgs && j.imgs[0]) {
+  const imgAnterior = header.querySelector('img');
+  if (imgAnterior) imgAnterior.remove();
+  if (j.imgs && j.imgs.length > 0) {
     const img = document.createElement('img');
     img.src = j.imgs[0];
     img.onerror = () => img.remove();
@@ -416,145 +694,155 @@ function abrirDetalle(i) {
   document.getElementById('detalle-dev').textContent = j.desarrollador;
   document.getElementById('detalle-tags').innerHTML = j.generos.map(g => `<span class="detalle-tag">${g}</span>`).join('');
   const galPrincipal = document.getElementById('galeria-principal');
-  galPrincipal.innerHTML = (j.imgs && j.imgs[0]) ? `<img src="${j.imgs[0]}" onerror="this.innerHTML='${j.emoji}'">` : j.emoji;
-  document.getElementById('galeria-thumbs').innerHTML = (j.imgs || []).map((url, idx) => `<div class="galeria-thumb ${idx === 0 ? 'activo' : ''}" onclick="cambiarImagen('${url}', this)"><img src="${url}" onerror="this.innerHTML='🖼️'"></div>`).join('') + `<div class="galeria-thumb" onclick="cambiarImagen(null, this)">${j.emoji}</div>`;
+  galPrincipal.innerHTML = j.imgs && j.imgs.length > 0 ? `<img src="${j.imgs[0]}" onerror="this.parentNode.innerHTML='${j.emoji}'">` : j.emoji;
+  document.getElementById('galeria-thumbs').innerHTML = (j.imgs || []).map((url, idx) => `
+    <div class="galeria-thumb ${idx === 0 ? 'activo' : ''}" onclick="cambiarImagen('${url}', this)">
+      <img src="${url}" onerror="this.parentNode.innerHTML='🖼️'">
+    </div>`).join('') + `<div class="galeria-thumb" onclick="cambiarImagen(null, this)">${j.emoji}</div>`;
   document.getElementById('detalle-descripcion').textContent = j.descripcion;
-  document.getElementById('detalle-desc-badge').textContent = j.descuento > 0 ? `-${j.descuento}%` : '';
+  document.getElementById('detalle-desc-badge').textContent = j.descuento > 0 ? `-${j.descuento}%` : 'OFERTA';
   document.getElementById('detalle-precio-orig').textContent = j.precio > 0 ? `$${j.original}` : '';
   document.getElementById('detalle-precio-nuevo').textContent = j.precio > 0 ? `$${j.precio}` : 'GRATIS';
   const enCarrito = carrito.find(c => c.nombre === j.nombre);
   const btn = document.getElementById('btn-agregar-detalle');
   btn.textContent = enCarrito ? '✅ En el carrito' : (j.precio > 0 ? '🛒 Agregar al carrito' : '🎮 Obtener gratis');
   btn.className = 'btn-agregar-detalle' + (enCarrito ? ' agregado' : '');
+  const estrellas = '★'.repeat(Math.round(j.rating)) + '☆'.repeat(5 - Math.round(j.rating));
   document.getElementById('detalle-rating-num').textContent = j.rating.toFixed(1);
-  document.getElementById('detalle-rating-stars').innerHTML = '★'.repeat(Math.round(j.rating)) + '☆'.repeat(5 - Math.round(j.rating));
-  document.getElementById('detalle-rating-total').textContent = `${j.resenas.length} reseñas`;
-  document.getElementById('detalle-info-lista').innerHTML = `<div class="detalle-info-item"><span>Plataforma</span><span>${j.plataforma}</span></div><div class="detalle-info-item"><span>Desarrollador</span><span>${j.desarrollador}</span></div><div class="detalle-info-item"><span>Lanzamiento</span><span>${j.fecha}</span></div><div class="detalle-info-item"><span>Géneros</span><span>${j.generos.join(', ')}</span></div>`;
+  document.getElementById('detalle-rating-stars').textContent = estrellas;
+  document.getElementById('detalle-rating-total').textContent = `${j.resenas.length} resenas`;
+  document.getElementById('detalle-info-lista').innerHTML = `
+    <div class="detalle-info-item"><span>Plataforma</span><span>${j.plataforma}</span></div>
+    <div class="detalle-info-item"><span>Desarrollador</span><span>${j.desarrollador}</span></div>
+    <div class="detalle-info-item"><span>Lanzamiento</span><span>${j.fecha}</span></div>
+    <div class="detalle-info-item"><span>Generos</span><span>${j.generos.join(', ')}</span></div>`;
   renderResenas(j);
   const req = j.requisitos;
-  document.getElementById('detalle-requisitos').innerHTML = `<div class="req-col"><h4>⚙️ Mínimos</h4>${Object.entries(req.minimos).map(([k,v]) => `<div class="req-item"><span class="req-label">${k}</span><span class="req-valor">${v}</span></div>`).join('')}</div><div class="req-col"><h4>🚀 Recomendados</h4>${Object.entries(req.recomendados).map(([k,v]) => `<div class="req-item"><span class="req-label">${k}</span><span class="req-valor">${v}</span></div>`).join('')}</div>`;
+  document.getElementById('detalle-requisitos').innerHTML = `
+    <div class="req-col"><h4>⚙️ Minimos</h4>${Object.entries(req.minimos).map(([k,v]) => `<div class="req-item"><span class="req-label">${k}</span><span class="req-valor">${v}</span></div>`).join('')}</div>
+    <div class="req-col"><h4>🚀 Recomendados</h4>${Object.entries(req.recomendados).map(([k,v]) => `<div class="req-item"><span class="req-label">${k}</span><span class="req-valor">${v}</span></div>`).join('')}</div>`;
   cambiarTab('descripcion');
   selTipo(true);
   selEstrella(5);
   document.getElementById('detalle-overlay').classList.add('abierto');
   document.body.style.overflow = 'hidden';
 }
-function cerrarDetalle() { document.getElementById('detalle-overlay').classList.remove('abierto'); document.body.style.overflow = ''; }
-function cambiarTab(tab) {
-  const tabs = ['descripcion', 'resenas', 'requisitos'];
-  document.querySelectorAll('.detalle-tab').forEach((t, i) => t.classList.toggle('activo', tabs[i] === tab));
-  document.querySelectorAll('.detalle-tab-content').forEach(c => c.classList.remove('activo'));
-  document.getElementById('tab-' + tab).classList.add('activo');
+
+function cerrarDetalle() {
+  document.getElementById('detalle-overlay').classList.remove('abierto');
+  document.body.style.overflow = '';
 }
-function cambiarImagen(url, thumbEl) {
-  const principal = document.getElementById('galeria-principal');
-  principal.innerHTML = url ? `<img src="${url}" onerror="this.parentNode.innerHTML='🎮'">` : juegos[juegoActual].emoji;
-  document.querySelectorAll('.galeria-thumb').forEach(t => t.classList.remove('activo'));
-  thumbEl.classList.add('activo');
-}
-function selTipo(positiva) {
-  opinionPositiva = positiva;
-  document.getElementById('btn-pos').className = 'btn-tipo' + (positiva ? ' activo-pos' : '');
-  document.getElementById('btn-neg').className = 'btn-tipo' + (!positiva ? ' activo-neg' : '');
-}
-function selEstrella(n) {
-  opinionEstrellas = n;
-  document.querySelectorAll('.estrella-btn').forEach((b, i) => b.classList.toggle('activo', i < n));
-}
-function enviarOpinion() {
-  const texto = document.getElementById('opinion-texto').value.trim();
-  if (!texto) { alert('Escribe tu opinión primero'); return; }
-  const j = juegos[juegoActual];
-  const nombre = localStorage.getItem('userName') || 'Usuario';
-  j.resenas.unshift({ usuario: nombre, avatar: nombre[0].toUpperCase(), texto, positiva: opinionPositiva, fecha: new Date().toLocaleDateString('es-MX', { month: 'short', year: 'numeric' }) });
-  document.getElementById('opinion-texto').value = '';
-  renderResenas(j);
-  cambiarTab('resenas');
-  alert('Reseña publicada');
-}
-function renderResenas(j) {
-  document.getElementById('detalle-resenas').innerHTML = j.resenas.map(r => `<div class="resena ${r.positiva ? 'resena-positiva' : 'resena-negativa'}"><div class="resena-header"><div class="resena-avatar">${r.avatar}</div><div><div class="resena-usuario">${r.usuario}</div><div class="resena-fecha">${r.fecha}</div></div><div class="resena-rating">${r.positiva ? '👍' : '👎'}</div></div><div class="resena-texto">${r.texto}</div></div>`).join('');
-}
+
 function agregarDesdeDetalle() {
   if (juegoActual === null) return;
   const j = juegos[juegoActual];
   if (carrito.find(c => c.nombre === j.nombre)) return;
   carrito.push({ ...j, cantidad: 1 });
   actualizarCarrito();
+  cargarJuegos();
   const btn = document.getElementById('btn-agregar-detalle');
   btn.textContent = '✅ En el carrito';
-  btn.classList.add('agregado');
+  btn.className = 'btn-agregar-detalle agregado';
 }
-function actualizarCarrito() {
-  const count = carrito.length;
-  document.getElementById('carrito-count').textContent = count;
-  const total = carrito.reduce((s, c) => s + c.precio, 0).toFixed(2);
-  document.getElementById('carrito-total').textContent = '$' + total;
-  document.getElementById('btn-pagar').disabled = count === 0;
-  const el = document.getElementById('carrito-items');
-  if (!count) { el.innerHTML = '<div class="carrito-vacio">Tu carrito está vacío</div>'; return; }
-  el.innerHTML = carrito.map(c => `<div class="carrito-item"><div class="carrito-item-emoji">${c.emoji}</div><div class="carrito-item-info"><div class="carrito-item-nombre">${c.nombre}</div><div class="carrito-item-plat">${c.plataforma}</div></div><div class="carrito-item-precio">$${c.precio}</div><button class="btn-quitar" onclick="quitarDelCarrito('${c.nombre}')">✕</button></div>`).join('');
-}
+
 function quitarDelCarrito(nombre) {
   carrito = carrito.filter(c => c.nombre !== nombre);
   actualizarCarrito();
+  cargarJuegos();
 }
-function abrirCarrito() { document.getElementById('carrito-overlay').classList.add('abierto'); document.getElementById('carrito-panel').classList.add('abierto'); }
-function cerrarCarrito() { document.getElementById('carrito-overlay').classList.remove('abierto'); document.getElementById('carrito-panel').classList.remove('abierto'); }
+
+function actualizarCarrito() {
+  const count = carrito.length;
+  document.getElementById('carrito-count').textContent = count;
+  document.getElementById('carrito-total').textContent = '$' + carrito.reduce((s, c) => s + c.precio, 0).toFixed(2);
+  document.getElementById('btn-pagar').disabled = count === 0;
+  const el = document.getElementById('carrito-items');
+  if (!count) { el.innerHTML = '<div class="carrito-vacio">Tu carrito esta vacio</div>'; return; }
+  el.innerHTML = carrito.map(c => `
+    <div class="carrito-item">
+      <div class="carrito-item-emoji">${c.emoji || '🎮'}</div>
+      <div class="carrito-item-info">
+        <div class="carrito-item-nombre">${c.nombre}</div>
+        <div class="carrito-item-plat">${c.plataforma}</div>
+      </div>
+      <div class="carrito-item-precio">$${c.precio}</div>
+      <button class="btn-quitar" onclick="quitarDelCarrito('${c.nombre}')">✕</button>
+    </div>`).join('');
+}
+
+function abrirCarrito() {
+  document.getElementById('carrito-overlay').classList.add('abierto');
+  document.getElementById('carrito-panel').classList.add('abierto');
+}
+
+function cerrarCarrito() {
+  document.getElementById('carrito-overlay').classList.remove('abierto');
+  document.getElementById('carrito-panel').classList.remove('abierto');
+}
+
 async function pagar() {
-  alert("Sistema de pago simulado. Aquí se mostraría la key después del pago.");
-  if (carrito.length) {
-    const juego = carrito[0];
-    document.getElementById('modal-juego').textContent = `Key para ${juego.nombre}`;
-    document.getElementById('modal-key').textContent = `${juego.nombre.slice(0,4).toUpperCase()}-XXXX-XXXX-XXXX`;
-    document.getElementById('modal').classList.add('abierto');
-    carrito = [];
-    actualizarCarrito();
-  }
+  const btn = document.getElementById('btn-pagar');
+  btn.disabled = true; btn.textContent = '⏳ Redirigiendo...';
+  try {
+    const res = await fetch('/api/shop/crear-sesion', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('token') }, body: JSON.stringify({ items: carrito }) });
+    const data = await res.json();
+    if (data.url) window.location.href = data.url;
+    else { alert('Error al crear sesion'); btn.disabled = false; btn.textContent = '💳 Pagar con Stripe'; }
+  } catch { alert('Error de conexion'); btn.disabled = false; btn.textContent = '💳 Pagar con Stripe'; }
 }
+
+function cargarJuegos() {
+  renderJuegos(juegos, 'lista-juegos');
+  renderJuegos(masVendidos.map(i => juegos[i]), 'lista-mas-vendidos');
+}
+
 function copiarKey() {
   navigator.clipboard.writeText(document.getElementById('modal-key').textContent);
-  alert('Key copiada al portapapeles');
+  document.querySelector('.btn-copiar').textContent = '✅ Copiado!';
+  setTimeout(() => document.querySelector('.btn-copiar').textContent = '📋 Copiar key', 2000);
 }
+
 function cerrarModal() { document.getElementById('modal').classList.remove('abierto'); }
 
-// ====================== SIMULACIÓN DE LOGIN/REGISTRO (sin fetch) ======================
 function mostrarTab(tab) {
   document.getElementById('form-registro').style.display = tab === 'registro' ? 'block' : 'none';
   document.getElementById('form-login').style.display = tab === 'login' ? 'block' : 'none';
   document.querySelectorAll('.tab').forEach((t, i) => t.classList.toggle('activo', (tab === 'registro' && i === 0) || (tab === 'login' && i === 1)));
   ocultarMensaje();
 }
+
 function mostrarMensaje(texto, tipo) {
   const el = document.getElementById('mensaje');
   el.textContent = texto; el.className = 'mensaje ' + tipo; el.style.display = 'block';
 }
+
 function ocultarMensaje() { document.getElementById('mensaje').style.display = 'none'; }
+
 async function registrar() {
   const nombre = document.getElementById('reg-nombre').value;
   const email = document.getElementById('reg-email').value;
   const password = document.getElementById('reg-pass').value;
-  if (!nombre || !email || password.length < 6) {
-    mostrarMensaje('Completa todos los campos y contraseña mín. 6 caracteres', 'error');
-    return;
-  }
-  mostrarMensaje('Cuenta creada! Ahora inicia sesión.', 'ok');
-  setTimeout(() => mostrarTab('login'), 1500);
+  const res = await fetch('/api/auth/registro', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ nombre, email, password }) });
+  const data = await res.json();
+  if (res.ok) { mostrarMensaje('Cuenta creada! Ahora inicia sesion.', 'ok'); setTimeout(() => mostrarTab('login'), 1500); }
+  else mostrarMensaje(data.error || data.errores?.[0]?.msg || 'Error al registrar', 'error');
 }
+
 async function login() {
   const email = document.getElementById('log-email').value;
   const password = document.getElementById('log-pass').value;
-  if (!email || !password) {
-    mostrarMensaje('Ingresa email y contraseña', 'error');
-    return;
-  }
-  localStorage.setItem('token', 'fake-token');
-  localStorage.setItem('userName', email.split('@')[0]);
-  document.getElementById('auth').style.display = 'none';
-  document.getElementById('tienda').style.display = 'block';
-  document.getElementById('nav-nombre').textContent = '👾 ' + localStorage.getItem('userName');
-  cargarJuegos();
+  const res = await fetch('/api/auth/login', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, password }) });
+  const data = await res.json();
+  if (res.ok) {
+    localStorage.setItem('token', data.token);
+    localStorage.setItem('userName', data.nombre);
+    document.getElementById('auth').style.display = 'none';
+    document.getElementById('tienda').style.display = 'block';
+    document.getElementById('nav-nombre').textContent = '👾 ' + data.nombre;
+    cargarJuegos();
+  } else mostrarMensaje(data.error || 'Error al iniciar sesion', 'error');
 }
+
 function cerrarSesion() {
   localStorage.removeItem('token'); localStorage.removeItem('userName');
   carrito = []; actualizarCarrito();
@@ -562,7 +850,7 @@ function cerrarSesion() {
   document.getElementById('auth').style.display = 'flex';
   mostrarTab('login');
 }
-document.getElementById('buscador').addEventListener('input', buscarJuegos);
+
 document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrarDetalle(); });
 </script>
 </body>
