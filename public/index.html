@@ -20,37 +20,26 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
     </style></head>
-    <!-- AUTH -->
-<div id="auth">
-  <div class="tarjeta">
-    <div class="logo-auth">
-      <!-- GIF más grande (120px de ancho) -->
-      <img src="/img/logoweb.gif" alt="GameKeys Logo" style="width: 120px; height: auto; margin-bottom: 15px; border-radius: 16px;" onerror="this.style.display='none'">
-      <div class="brand">Game<span>Sel1</span></div>
-      <p>Keys de videojuegos al mejor precio</p>
-    </div>
-    <div class="tabs">
-      <button class="tab activo" onclick="mostrarTab('registro')">Crear cuenta</button>
-      <button class="tab" onclick="mostrarTab('login')">Iniciar sesion</button>
-    </div>
-    <div id="form-registro">
-      <input id="reg-nombre" type="text" placeholder="Tu nombre">
-      <input id="reg-email" type="email" placeholder="Tu email">
-      <input id="reg-pass" type="password" placeholder="Contrasena (min. 6 caracteres)">
-      <button class="btn-principal" onclick="registrar()">Crear cuenta gratis</button>
-    </div>
-    <div id="form-login" style="display:none">
-      <input id="log-email" type="email" placeholder="Tu email">
-      <input id="log-pass" type="password" placeholder="Tu contraseña">
-      <button class="btn-principal" onclick="login()">Entrar a la tienda</button>
-    </div>
-    <div class="mensaje" id="mensaje"></div>
-  </div>
-</div>
-
-        /* TIENDA */
-    #tienda { display: none; }  /* ← CERRÉ LA LLAVE AQUÍ */
-
+    /* AUTH */
+    #auth { display: flex; justify-content: center; align-items: center; min-height: 100vh; background: radial-gradient(ellipse at 60% 40%, #1a0a2e 0%, var(--bg) 70%); }
+    .tarjeta { background: var(--bg2); border: 1px solid var(--border); border-radius: 20px; padding: 40px 36px; width: 100%; max-width: 420px; box-shadow: 0 0 60px rgba(124,58,237,0.12); }
+    .logo-auth { text-align: center; margin-bottom: 28px; }
+    .logo-auth .brand { font-family: 'Rajdhani', sans-serif; font-size: 32px; font-weight: 700; color: #fff; }
+    .logo-auth .brand span { color: var(--purple2); }
+    .logo-auth p { color: var(--muted); font-size: 13px; margin-top: 6px; }
+    .tabs { display: flex; background: var(--bg); border-radius: 10px; padding: 4px; margin-bottom: 24px; border: 1px solid var(--border); }
+    .tab { flex: 1; padding: 9px; background: none; border: none; color: var(--muted); border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 500; transition: all 0.2s; }
+    .tab.activo { background: var(--purple); color: #fff; }
+    input { width: 100%; padding: 12px 14px; margin-bottom: 12px; border: 1px solid var(--border); border-radius: 10px; background: var(--bg); color: var(--text); font-size: 14px; outline: none; transition: border-color 0.2s; }
+    input:focus { border-color: var(--purple); }
+    .btn-principal { width: 100%; padding: 13px; background: var(--purple); color: #fff; border: none; border-radius: 10px; font-size: 15px; font-weight: 600; cursor: pointer; transition: all 0.2s; margin-top: 4px; }
+    .btn-principal:hover { background: #6d28d9; transform: translateY(-1px); }
+    .mensaje { margin-top: 14px; padding: 10px 14px; border-radius: 8px; font-size: 13px; display: none; }
+    .ok { background: #052e16; color: #4ade80; border: 1px solid #166534; }
+    .error { background: #2d0a0a; color: #f87171; border: 1px solid #7f1d1d; }
+ 
+    /* TIENDA */
+    #tienda { display: none; }
     nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; background: rgba(8,8,16,0.97); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 50; backdrop-filter: blur(12px); }
     .logo { font-family: 'Rajdhani', sans-serif; font-size: 22px; font-weight: 700; color: #fff; display: flex; align-items: center; gap: 8px; }
     .logo span { color: var(--purple2); }
@@ -62,7 +51,7 @@
     .carrito-badge { background: var(--purple); color: #fff; font-size: 11px; font-weight: 700; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
     .btn-salir { background: none; border: 1px solid var(--border); color: var(--muted); padding: 8px 12px; border-radius: 8px; cursor: pointer; font-size: 13px; transition: all 0.2s; }
     .btn-salir:hover { border-color: #f87171; color: #f87171; }
-
+ 
     /* BANNER SUPERIOR */
     .banner-top {
       width: 100%;
@@ -70,7 +59,7 @@
       border-bottom: 1px solid var(--border);
       overflow: hidden;
       position: relative;
-    }s
+    }
     .banner-top-inner {
       height: 180px;
       display: flex;
@@ -98,7 +87,7 @@
     .banner-top-placeholder:hover { border-color: var(--purple); color: var(--purple2); }
     .banner-top-placeholder .banner-icon { font-size: 28px; }
     .banner-top img { width: 100%; height: 180px; object-fit: cover; }
-
+ 
     /* LAYOUT PRINCIPAL */
     .tienda-layout {
       display: grid;
@@ -109,7 +98,7 @@
       padding: 24px 16px;
       align-items: start;
     }
-
+ 
     /* BANNERS LATERALES */
     .banner-lateral {
       position: sticky;
@@ -140,10 +129,10 @@
     .banner-slot.medium { height: 200px; }
     .banner-slot.small { height: 120px; }
     .banner-slot img { width: 100%; height: 100%; object-fit: cover; border-radius: 10px; }
-
+ 
     /* CONTENIDO CENTRAL */
     .tienda-centro { padding: 0 16px; }
-
+ 
     .seccion-header {
       display: flex;
       align-items: center;
@@ -155,12 +144,12 @@
     .buscador-wrap { flex: 1; max-width: 360px; position: relative; }
     .buscador-wrap input { margin: 0; padding-left: 36px; }
     .buscador-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 14px; pointer-events: none; }
-
+ 
     /* FILTROS */
     .filtros { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
     .filtro-btn { padding: 6px 14px; background: var(--bg3); border: 1px solid var(--border); border-radius: 20px; color: var(--muted); font-size: 12px; cursor: pointer; transition: all 0.2s; }
     .filtro-btn:hover, .filtro-btn.activo { background: var(--purple); border-color: var(--purple); color: #fff; }
-
+ 
     /* GRID JUEGOS */
     .juegos { display: grid; grid-template-columns: repeat(auto-fill, minmax(175px, 1fr)); gap: 14px; }
     .juego { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: all 0.2s; cursor: pointer; }
@@ -176,7 +165,7 @@
     .descuento { background: var(--purple); color: #fff; font-size: 9px; padding: 2px 5px; border-radius: 4px; font-weight: 700; }
     .btn-ver { width: 100%; padding: 7px; background: var(--bg3); color: var(--text); border: 1px solid var(--border); border-radius: 6px; cursor: pointer; font-size: 11px; font-weight: 600; transition: all 0.2s; }
     .btn-ver:hover { background: var(--purple); border-color: var(--purple); color: #fff; }
-
+ 
     /* BANNER ENTRE SECCIONES */
     .banner-medio {
       margin: 28px 0;
@@ -195,7 +184,7 @@
     }
     .banner-medio:hover { border-color: var(--purple); color: var(--purple2); }
     .banner-medio img { width: 100%; height: 100%; object-fit: cover; border-radius: 10px; }
-
+ 
     /* CARRITO */
     .carrito-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 200; }
     .carrito-overlay.abierto { display: block; }
@@ -221,7 +210,7 @@
     .btn-pagar { width: 100%; padding: 14px; background: var(--purple); color: #fff; border: none; border-radius: 10px; font-size: 15px; font-weight: 700; cursor: pointer; transition: all 0.2s; font-family: 'Rajdhani', sans-serif; }
     .btn-pagar:hover { background: #6d28d9; }
     .btn-pagar:disabled { background: var(--muted); cursor: not-allowed; }
-
+ 
     /* DETALLE MODAL */
     .detalle-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 300; overflow-y: auto; padding: 20px; }
     .detalle-overlay.abierto { display: block; }
@@ -310,6 +299,7 @@
     ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
     @media (max-width: 1100px) { .tienda-layout { grid-template-columns: 150px 1fr 150px; } }
     @media (max-width: 800px) { .tienda-layout { grid-template-columns: 1fr; } .banner-lateral { display: none; } .detalle-body { grid-template-columns: 1fr; } .detalle-main { border-right: none; border-bottom: 1px solid var(--border); } .requisitos-grid { grid-template-columns: 1fr; } }
+  </style>
 </head>
 <body>
 
