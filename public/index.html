@@ -621,7 +621,7 @@ function renderJuegos(lista, containerId) {
     const i = juegos.indexOf(j);
     const imgPortada = j.imgs && j.imgs.length > 0 ? j.imgs[0] : null;
     return `
-      <div class="juego" onclick="abrirDetalle(${i})">
+      <div class="juego" onclick="abrirDetalle({i})">
         <div class="juego-img">${imgPortada ? `<img src="${imgPortada}" onerror="this.parentNode.innerHTML='${j.emoji}'">` : j.emoji}</div>
         <div class="juego-info">
           <div class="juego-nombre">${j.nombre}</div>
