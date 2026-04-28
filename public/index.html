@@ -56,18 +56,28 @@
       width: 100%;
       background: linear-gradient(135deg, #0f0820 0%, #1a0a2e 50%, var(--bg) 100%);
       border-bottom: 1px solid var(--border);
-      overflow: hidden;
-      position: relative;
       display: flex;
       justify-content: center;
+      align-items: center;
       padding: 20px 0;
     }
     .banner-top img {
-      max-width: 500px;
-      width: 90%;
+      max-width: 90%;
+      width: auto;
       height: auto;
+      max-height: 180px;
       border-radius: 12px;
       border: 1px solid var(--border);
+      object-fit: contain;
+    }
+    .banner-top-placeholder {
+      background: var(--bg2);
+      border: 2px dashed var(--purple);
+      border-radius: 12px;
+      padding: 20px 40px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
     }
 
     /* LAYOUT PRINCIPAL */
@@ -87,7 +97,7 @@
       top: 80px;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 20px;
     }
     .banner-slot {
       background: var(--bg2);
@@ -102,13 +112,19 @@
       font-size: 11px;
       text-align: center;
       padding: 12px 8px;
+      overflow: hidden;
     }
     .banner-slot:hover { border-color: var(--purple); color: var(--purple2); }
     .banner-slot .slot-icon { font-size: 24px; }
     .banner-slot.tall { height: 300px; }
     .banner-slot.medium { height: 200px; }
     .banner-slot.small { height: 120px; }
-    .banner-slot img { width: 100%; height: 100%; object-fit: cover; border-radius: 10px; }
+    .banner-slot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+    }
 
     /* CONTENIDO CENTRAL */
     .tienda-centro { padding: 0 16px; }
@@ -165,7 +181,7 @@
     .banner-medio:hover { border-color: var(--purple); color: var(--purple2); }
     .banner-medio img { width: 100%; height: 100%; object-fit: cover; border-radius: 10px; }
 
-    /* CARRITO */
+    /* CARRITO, DETALLE, MODAL (sin cambios, igual que antes) */
     .carrito-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 200; }
     .carrito-overlay.abierto { display: block; }
     .carrito-panel { position: fixed; top: 0; right: -420px; width: 400px; height: 100vh; background: var(--bg2); border-left: 1px solid var(--border); z-index: 201; transition: right 0.3s ease; display: flex; flex-direction: column; }
@@ -191,7 +207,6 @@
     .btn-pagar:hover { background: #6d28d9; }
     .btn-pagar:disabled { background: var(--muted); cursor: not-allowed; }
 
-    /* DETALLE MODAL */
     .detalle-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 300; overflow-y: auto; padding: 20px; }
     .detalle-overlay.abierto { display: block; }
     .detalle-modal { max-width: 960px; margin: 0 auto; background: var(--bg2); border-radius: 16px; overflow: hidden; border: 1px solid var(--border); position: relative; }
@@ -320,24 +335,24 @@
     </div>
   </nav>
 
-  <!-- BANNER SUPERIOR -->
+  <!-- BANNER SUPERIOR (reemplaza con tu imagen) -->
   <div class="banner-top">
-    <img src="img/bs.jpeg" alt="Banner principal" onerror="this.style.display='none'">
+    <img src="img/bs.jpeg" alt="Banner superior" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'banner-top-placeholder\'><span>📢 Banner top (728x90)</span><br>Reemplaza con: &lt;img src=&quot;/img/banner-top.jpg&quot;&gt;</div>';">
   </div>
 
   <!-- LAYOUT CON BANNERS LATERALES -->
   <div class="tienda-layout">
-    <!-- BANNER IZQUIERDO -->
+    <!-- BANNER IZQUIERDO (2 banners) -->
     <div class="banner-lateral">
       <div class="banner-slot tall">
         <span class="slot-icon">📢</span>
         <span>Banner 160x300</span>
-        <img src="img/ble.jpeg" style="width:100%; height:auto; margin-top:8px;" onerror="this.style.display='none'">
+        <img src="img/ble.jpeg" alt="Banner izquierdo 1" onerror="this.style.display='none'; this.parentElement.querySelector('.slot-icon').style.display='block';">
       </div>
       <div class="banner-slot medium">
         <span class="slot-icon">📢</span>
         <span>Banner 160x200</span>
-        <img src="img/banner-izq-2.jpg" style="width:100%; height:auto; margin-top:8px;" onerror="this.style.display='none'">
+        <img src="img/banner-izq-2.jpg" alt="Banner izquierdo 2" onerror="this.style.display='none';">
       </div>
     </div>
 
@@ -365,7 +380,7 @@
 
       <div class="juegos" id="lista-juegos"></div>
 
-      <!-- BANNER ENTRE SECCIONES -->
+      <!-- BANNER HORIZONTAL MEDIO -->
       <div class="banner-medio">
         <span style="font-size:24px;">🖼️</span>
         <div>
@@ -378,27 +393,28 @@
       <div class="juegos" id="lista-mas-vendidos"></div>
     </div>
 
-    <!-- BANNER DERECHO -->
+    <!-- BANNER DERECHO (3 banners) -->
     <div class="banner-lateral">
       <div class="banner-slot tall">
         <span class="slot-icon">📢</span>
         <span>Banner 160x300</span>
-        <img src="img/blr.jpeg" style="width:100%; height:auto; margin-top:8px;" onerror="this.style.display='none'">
+        <img src="img/blr.jpeg" alt="Banner derecho 1" onerror="this.style.display='none';">
       </div>
       <div class="banner-slot medium">
         <span class="slot-icon">📢</span>
         <span>Banner 160x200</span>
-        <img src="img/banner-der-2.jpg" style="width:100%; height:auto; margin-top:8px;" onerror="this.style.display='none'">
+        <img src="img/banner-der-2.jpg" alt="Banner derecho 2" onerror="this.style.display='none';">
       </div>
       <div class="banner-slot small">
         <span class="slot-icon">📢</span>
         <span>Banner 160x120</span>
+        <img src="img/banner-der-3.jpg" alt="Banner derecho 3" onerror="this.style.display='none';">
       </div>
     </div>
   </div>
 </div>
 
-<!-- CARRITO -->
+<!-- CARRITO, DETALLE, MODAL (igual que antes) -->
 <div class="carrito-overlay" id="carrito-overlay" onclick="cerrarCarrito()"></div>
 <div class="carrito-panel" id="carrito-panel">
   <div class="carrito-header">
@@ -414,7 +430,6 @@
   </div>
 </div>
 
-<!-- DETALLE JUEGO -->
 <div class="detalle-overlay" id="detalle-overlay">
   <div class="detalle-modal">
     <button class="detalle-btn-cerrar" onclick="cerrarDetalle()">✕</button>
@@ -482,7 +497,6 @@
   </div>
 </div>
 
-<!-- MODAL KEY -->
 <div class="modal-fondo" id="modal">
   <div class="modal">
     <h3>🎉 Tu key esta lista!</h3>
@@ -507,14 +521,14 @@ const juegos = [
   { nombre:"The Witcher 3", plataforma:"GOG", emoji:"🐺", imgs:["img/thewitcher.jpeg"], original:39.99, precio:4.99, descuento:88, desarrollador:"CD Projekt Red", fecha:"19 May, 2015", generos:["RPG","Fantasia","Open World"], descripcion:"Geralt de Rivia busca a Ciri en un mundo abierto masivo. Historia sin igual con dos DLCs epicos incluidos.", rating:4.9, resenas:[{usuario:"WitcherFan",avatar:"W",texto:"El mejor RPG de todos los tiempos.",positiva:true,fecha:"Mar 2024"}], requisitos:{minimos:{SO:"Windows 7/8/10",CPU:"Intel Core i5-2500K",RAM:"6 GB",GPU:"NVIDIA GTX 660",Disco:"35 GB SSD"},recomendados:{SO:"Windows 10",CPU:"Intel Core i7-3770",RAM:"8 GB",GPU:"NVIDIA GTX 770",Disco:"35 GB SSD"}} },
   { nombre:"GTA V", plataforma:"Steam", emoji:"🚗", imgs:["img/gtaV.jpeg"], original:29.99, precio:8.99, descuento:70, desarrollador:"Rockstar Games", fecha:"14 Abr, 2015", generos:["Accion","Open World","Multijugador"], descripcion:"GTA V sigue a tres criminales en Los Santos. Con GTA Online, sigue siendo el mas jugado del mundo.", rating:4.7, resenas:[{usuario:"RockstarFan",avatar:"R",texto:"Online sigue siendo adictivo despues de 10 anos.",positiva:true,fecha:"Mar 2024"}], requisitos:{minimos:{SO:"Windows 10",CPU:"Intel Core i5-3470",RAM:"8 GB",GPU:"NVIDIA GTX 660 2GB",Disco:"72 GB SSD"},recomendados:{SO:"Windows 10",CPU:"Intel Core i7-3770",RAM:"16 GB",GPU:"NVIDIA GTX 1060 6GB",Disco:"72 GB SSD"}} }
 ];
-const masVendidosIndices = [0, 2, 6, 7]; // varios
+const masVendidosIndices = [0, 2, 6, 7];
 
 let carrito = [];
 let juegoActual = null;
 let opinionPositiva = true;
 let opinionEstrellas = 5;
 
-// ====================== FUNCIONES DE TIENDA ======================
+// Funciones de renderizado y lógica (igual que antes, sin cambios)
 function renderJuegos(lista, containerId) {
   const el = document.getElementById(containerId);
   if (!lista.length) { el.innerHTML = '<p style="color:var(--muted);padding:20px;">No se encontraron juegos</p>'; return; }
@@ -559,7 +573,6 @@ function cargarJuegos() {
   renderJuegos(masVendidos, 'lista-mas-vendidos');
 }
 
-// ====================== DETALLE ======================
 function cambiarTab(tab) {
   document.querySelectorAll('.detalle-tab').forEach((t, i) => t.classList.toggle('activo', ['descripcion','resenas','requisitos'][i] === tab));
   document.querySelectorAll('.detalle-tab-content').forEach(c => c.classList.remove('activo'));
@@ -674,7 +687,6 @@ function agregarDesdeDetalle() {
   btn.className = 'btn-agregar-detalle agregado';
 }
 
-// ====================== CARRITO ======================
 function actualizarCarrito() {
   const count = carrito.length;
   document.getElementById('carrito-count').textContent = count;
@@ -720,7 +732,7 @@ async function pagar() {
   } catch { alert('Error de conexion'); btn.disabled = false; btn.textContent = '💳 Pagar con Stripe'; }
 }
 
-// ====================== AUTH (SIMULADO) ======================
+// ====================== AUTH SIMULADO ======================
 function mostrarTab(tab) {
   document.getElementById('form-registro').style.display = tab === 'registro' ? 'block' : 'none';
   document.getElementById('form-login').style.display = tab === 'login' ? 'block' : 'none';
@@ -739,7 +751,6 @@ async function registrar() {
   const nombre = document.getElementById('reg-nombre').value;
   const email = document.getElementById('reg-email').value;
   const password = document.getElementById('reg-pass').value;
-  // Simulación: siempre crea cuenta (para pruebas, porque no hay backend real)
   if (!nombre || !email || password.length < 6) {
     mostrarMensaje('Completa todos los campos y contraseña mín. 6 caracteres', 'error');
     return;
@@ -755,7 +766,6 @@ async function login() {
     mostrarMensaje('Ingresa email y contraseña', 'error');
     return;
   }
-  // Simulación de login exitoso (sin backend)
   localStorage.setItem('token', 'fake-token');
   localStorage.setItem('userName', email.split('@')[0]);
   document.getElementById('auth').style.display = 'none';
@@ -772,7 +782,6 @@ function cerrarSesion() {
   mostrarTab('login');
 }
 
-// ====================== MODAL KEY ======================
 function copiarKey() {
   navigator.clipboard.writeText(document.getElementById('modal-key').textContent);
   document.querySelector('.btn-copiar').textContent = '✅ Copiado!';
@@ -781,7 +790,6 @@ function copiarKey() {
 
 function cerrarModal() { document.getElementById('modal').classList.remove('abierto'); }
 
-// Cerrar modal con escape
 document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrarDetalle(); });
 </script>
 </body>
