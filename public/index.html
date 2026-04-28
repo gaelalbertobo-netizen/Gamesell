@@ -40,42 +40,150 @@
 
     /* TIENDA */
     #tienda { display: none; }
-    nav { display: flex; align-items: center; justify-content: space-between; padding: 16px 32px; background: rgba(8,8,16,0.95); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 50; backdrop-filter: blur(12px); }
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 14px 24px; background: rgba(8,8,16,0.97); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 50; backdrop-filter: blur(12px); }
     .logo { font-family: 'Rajdhani', sans-serif; font-size: 22px; font-weight: 700; color: #fff; display: flex; align-items: center; gap: 8px; }
     .logo span { color: var(--purple2); }
     .logo img { height: 36px; }
-    .nav-right { display: flex; align-items: center; gap: 16px; }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
     .nav-user { font-size: 13px; color: var(--muted); }
-    .btn-carrito-nav { background: var(--bg3); border: 1px solid var(--border); color: var(--text); padding: 8px 16px; border-radius: 8px; cursor: pointer; font-size: 14px; display: flex; align-items: center; gap: 6px; transition: border-color 0.2s; }
+    .btn-carrito-nav { background: var(--bg3); border: 1px solid var(--border); color: var(--text); padding: 8px 14px; border-radius: 8px; cursor: pointer; font-size: 14px; display: flex; align-items: center; gap: 6px; transition: border-color 0.2s; }
     .btn-carrito-nav:hover { border-color: var(--purple); }
     .carrito-badge { background: var(--purple); color: #fff; font-size: 11px; font-weight: 700; width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-    .btn-salir { background: none; border: 1px solid var(--border); color: var(--muted); padding: 8px 14px; border-radius: 8px; cursor: pointer; font-size: 13px; transition: all 0.2s; }
+    .btn-salir { background: none; border: 1px solid var(--border); color: var(--muted); padding: 8px 12px; border-radius: 8px; cursor: pointer; font-size: 13px; transition: all 0.2s; }
     .btn-salir:hover { border-color: #f87171; color: #f87171; }
-    .hero { background: linear-gradient(135deg, #0f0820 0%, var(--bg) 60%); padding: 60px 32px; text-align: center; border-bottom: 1px solid var(--border); position: relative; overflow: hidden; }
-    .hero::before { content: ''; position: absolute; top: -50%; left: 50%; transform: translateX(-50%); width: 600px; height: 300px; background: radial-gradient(ellipse, rgba(124,58,237,0.15) 0%, transparent 70%); pointer-events: none; }
-    .hero h2 { font-family: 'Rajdhani', sans-serif; font-size: 42px; font-weight: 700; color: #fff; margin-bottom: 10px; }
-    .hero h2 span { color: var(--purple2); }
-    .hero p { color: var(--muted); font-size: 16px; }
-    .seccion { padding: 40px 32px; max-width: 1300px; margin: 0 auto; }
-    .seccion-header { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }
+
+    /* BANNER SUPERIOR */
+    .banner-top {
+      width: 100%;
+      background: linear-gradient(135deg, #0f0820 0%, #1a0a2e 50%, var(--bg) 100%);
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+      position: relative;
+    }
+    .banner-top-inner {
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+    .banner-top-placeholder {
+      border: 2px dashed rgba(124,58,237,0.4);
+      border-radius: 12px;
+      padding: 20px 40px;
+      color: var(--muted);
+      font-size: 13px;
+      cursor: pointer;
+      transition: border-color 0.2s;
+      width: calc(100% - 48px);
+      height: 140px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .banner-top-placeholder:hover { border-color: var(--purple); color: var(--purple2); }
+    .banner-top-placeholder .banner-icon { font-size: 28px; }
+    .banner-top img { width: 100%; height: 180px; object-fit: cover; }
+
+    /* LAYOUT PRINCIPAL */
+    .tienda-layout {
+      display: grid;
+      grid-template-columns: 180px 1fr 180px;
+      gap: 0;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 24px 16px;
+      align-items: start;
+    }
+
+    /* BANNERS LATERALES */
+    .banner-lateral {
+      position: sticky;
+      top: 80px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .banner-slot {
+      background: var(--bg2);
+      border: 2px dashed rgba(124,58,237,0.3);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 11px;
+      text-align: center;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+      padding: 12px 8px;
+    }
+    .banner-slot:hover { border-color: var(--purple); color: var(--purple2); }
+    .banner-slot .slot-icon { font-size: 24px; }
+    .banner-slot.tall { height: 300px; }
+    .banner-slot.medium { height: 200px; }
+    .banner-slot.small { height: 120px; }
+    .banner-slot img { width: 100%; height: 100%; object-fit: cover; border-radius: 10px; }
+
+    /* CONTENIDO CENTRAL */
+    .tienda-centro { padding: 0 16px; }
+
+    .seccion-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
     .seccion-header h3 { font-family: 'Rajdhani', sans-serif; font-size: 22px; color: #fff; margin: 0; }
-    .buscador-wrap { flex: 1; max-width: 400px; position: relative; }
+    .buscador-wrap { flex: 1; max-width: 360px; position: relative; }
     .buscador-wrap input { margin: 0; padding-left: 36px; }
     .buscador-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 14px; pointer-events: none; }
-    .juegos { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 16px; }
-    .juego { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; transition: all 0.2s; cursor: pointer; }
-    .juego:hover { border-color: var(--purple); transform: translateY(-4px); box-shadow: 0 8px 30px rgba(124,58,237,0.2); }
-    .juego-img { width: 100%; height: 120px; background: var(--bg3); display: flex; align-items: center; justify-content: center; font-size: 40px; overflow: hidden; }
+
+    /* FILTROS */
+    .filtros { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+    .filtro-btn { padding: 6px 14px; background: var(--bg3); border: 1px solid var(--border); border-radius: 20px; color: var(--muted); font-size: 12px; cursor: pointer; transition: all 0.2s; }
+    .filtro-btn:hover, .filtro-btn.activo { background: var(--purple); border-color: var(--purple); color: #fff; }
+
+    /* GRID JUEGOS */
+    .juegos { display: grid; grid-template-columns: repeat(auto-fill, minmax(175px, 1fr)); gap: 14px; }
+    .juego { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: all 0.2s; cursor: pointer; }
+    .juego:hover { border-color: var(--purple); transform: translateY(-3px); box-shadow: 0 6px 24px rgba(124,58,237,0.2); }
+    .juego-img { width: 100%; height: 110px; background: var(--bg3); display: flex; align-items: center; justify-content: center; font-size: 36px; overflow: hidden; }
     .juego-img img { width: 100%; height: 100%; object-fit: cover; }
-    .juego-info { padding: 14px; }
-    .juego-nombre { font-size: 13px; font-weight: 600; color: #fff; margin-bottom: 4px; }
-    .juego-plataforma { font-size: 11px; color: var(--muted); margin-bottom: 10px; }
-    .juego-precios { display: flex; align-items: center; gap: 6px; margin-bottom: 12px; flex-wrap: wrap; }
-    .precio-original { font-size: 11px; color: var(--muted); text-decoration: line-through; }
-    .precio-nuevo { font-size: 17px; font-weight: 700; color: var(--green); }
-    .descuento { background: var(--purple); color: #fff; font-size: 10px; padding: 2px 6px; border-radius: 4px; font-weight: 700; }
-    .btn-ver { width: 100%; padding: 8px; background: var(--bg3); color: var(--text); border: 1px solid var(--border); border-radius: 8px; cursor: pointer; font-size: 12px; font-weight: 600; transition: all 0.2s; }
+    .juego-info { padding: 12px; }
+    .juego-nombre { font-size: 12px; font-weight: 600; color: #fff; margin-bottom: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .juego-plataforma { font-size: 10px; color: var(--muted); margin-bottom: 8px; }
+    .juego-precios { display: flex; align-items: center; gap: 5px; margin-bottom: 10px; flex-wrap: wrap; }
+    .precio-original { font-size: 10px; color: var(--muted); text-decoration: line-through; }
+    .precio-nuevo { font-size: 15px; font-weight: 700; color: var(--green); }
+    .descuento { background: var(--purple); color: #fff; font-size: 9px; padding: 2px 5px; border-radius: 4px; font-weight: 700; }
+    .btn-ver { width: 100%; padding: 7px; background: var(--bg3); color: var(--text); border: 1px solid var(--border); border-radius: 6px; cursor: pointer; font-size: 11px; font-weight: 600; transition: all 0.2s; }
     .btn-ver:hover { background: var(--purple); border-color: var(--purple); color: #fff; }
+
+    /* BANNER ENTRE SECCIONES */
+    .banner-medio {
+      margin: 28px 0;
+      height: 100px;
+      background: var(--bg2);
+      border: 2px dashed rgba(124,58,237,0.3);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 13px;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+    .banner-medio:hover { border-color: var(--purple); color: var(--purple2); }
+    .banner-medio img { width: 100%; height: 100%; object-fit: cover; border-radius: 10px; }
 
     /* CARRITO */
     .carrito-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 200; }
@@ -107,75 +215,74 @@
     .detalle-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.85); z-index: 300; overflow-y: auto; padding: 20px; }
     .detalle-overlay.abierto { display: block; }
     .detalle-modal { max-width: 960px; margin: 0 auto; background: var(--bg2); border-radius: 16px; overflow: hidden; border: 1px solid var(--border); position: relative; }
-    .detalle-header { position: relative; height: 320px; overflow: hidden; background: var(--bg3); display: flex; align-items: center; justify-content: center; font-size: 100px; }
+    .detalle-header { position: relative; height: 300px; overflow: hidden; background: var(--bg3); display: flex; align-items: center; justify-content: center; font-size: 100px; }
     .detalle-header img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
     .detalle-header-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,15,26,1) 0%, rgba(15,15,26,0.2) 60%, transparent 100%); }
-    .detalle-header-info { position: absolute; bottom: 24px; left: 32px; right: 32px; z-index: 2; }
-    .detalle-tags { display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
+    .detalle-header-info { position: absolute; bottom: 20px; left: 28px; right: 28px; z-index: 2; }
+    .detalle-tags { display: flex; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
     .detalle-tag { background: rgba(124,58,237,0.3); border: 1px solid rgba(124,58,237,0.5); color: var(--purple2); font-size: 11px; padding: 3px 10px; border-radius: 20px; }
-    .detalle-titulo { font-family: 'Rajdhani', sans-serif; font-size: 36px; font-weight: 700; color: #fff; margin-bottom: 6px; text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
+    .detalle-titulo { font-family: 'Rajdhani', sans-serif; font-size: 32px; font-weight: 700; color: #fff; margin-bottom: 4px; text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
     .detalle-desarrollador { color: #aaa; font-size: 13px; }
     .detalle-desarrollador span { color: var(--purple2); }
-    .detalle-btn-cerrar { position: absolute; top: 16px; right: 16px; background: rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.1); color: #fff; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; z-index: 10; }
+    .detalle-btn-cerrar { position: absolute; top: 14px; right: 14px; background: rgba(0,0,0,0.6); border: 1px solid rgba(255,255,255,0.1); color: #fff; width: 34px; height: 34px; border-radius: 50%; cursor: pointer; font-size: 15px; display: flex; align-items: center; justify-content: center; z-index: 10; }
     .detalle-btn-cerrar:hover { background: rgba(200,0,0,0.6); }
-    .detalle-body { display: grid; grid-template-columns: 1fr 290px; }
-    .detalle-main { padding: 32px; border-right: 1px solid var(--border); }
-    .galeria-principal { width: 100%; height: 260px; border-radius: 10px; overflow: hidden; background: var(--bg3); margin-bottom: 10px; display: flex; align-items: center; justify-content: center; font-size: 80px; }
+    .detalle-body { display: grid; grid-template-columns: 1fr 270px; }
+    .detalle-main { padding: 28px; border-right: 1px solid var(--border); }
+    .galeria-principal { width: 100%; height: 240px; border-radius: 10px; overflow: hidden; background: var(--bg3); margin-bottom: 10px; display: flex; align-items: center; justify-content: center; font-size: 80px; }
     .galeria-principal img { width: 100%; height: 100%; object-fit: cover; }
-    .galeria-thumbs { display: flex; gap: 8px; margin-bottom: 28px; overflow-x: auto; padding-bottom: 4px; }
-    .galeria-thumb { width: 90px; height: 56px; border-radius: 6px; overflow: hidden; cursor: pointer; border: 2px solid transparent; flex-shrink: 0; background: var(--bg3); display: flex; align-items: center; justify-content: center; font-size: 20px; transition: border-color 0.2s; }
+    .galeria-thumbs { display: flex; gap: 8px; margin-bottom: 24px; overflow-x: auto; padding-bottom: 4px; }
+    .galeria-thumb { width: 80px; height: 50px; border-radius: 6px; overflow: hidden; cursor: pointer; border: 2px solid transparent; flex-shrink: 0; background: var(--bg3); display: flex; align-items: center; justify-content: center; font-size: 18px; transition: border-color 0.2s; }
     .galeria-thumb.activo, .galeria-thumb:hover { border-color: var(--purple); }
     .galeria-thumb img { width: 100%; height: 100%; object-fit: cover; }
-    .detalle-seccion-titulo { font-family: 'Rajdhani', sans-serif; font-size: 18px; color: #fff; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
-    .detalle-descripcion { color: #aaa; font-size: 14px; line-height: 1.7; margin-bottom: 28px; }
-    .detalle-tabs { display: flex; gap: 4px; margin-bottom: 20px; border-bottom: 1px solid var(--border); }
-    .detalle-tab { padding: 10px 16px; background: none; border: none; color: var(--muted); cursor: pointer; font-size: 13px; font-weight: 500; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: all 0.2s; }
+    .detalle-tabs { display: flex; gap: 4px; margin-bottom: 18px; border-bottom: 1px solid var(--border); }
+    .detalle-tab { padding: 9px 14px; background: none; border: none; color: var(--muted); cursor: pointer; font-size: 13px; font-weight: 500; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: all 0.2s; }
     .detalle-tab.activo { color: var(--purple2); border-bottom-color: var(--purple); }
     .detalle-tab-content { display: none; }
     .detalle-tab-content.activo { display: block; }
-    .resena { background: var(--bg3); border-radius: 10px; padding: 16px; margin-bottom: 12px; border: 1px solid var(--border); }
+    .detalle-descripcion { color: #aaa; font-size: 14px; line-height: 1.7; }
+    .resena { background: var(--bg3); border-radius: 10px; padding: 14px; margin-bottom: 10px; border: 1px solid var(--border); }
     .resena-positiva { border-left: 3px solid var(--green); }
     .resena-negativa { border-left: 3px solid #f87171; }
     .resena-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
-    .resena-avatar { width: 32px; height: 32px; border-radius: 50%; background: var(--purple); display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; color: #fff; flex-shrink: 0; }
+    .resena-avatar { width: 30px; height: 30px; border-radius: 50%; background: var(--purple); display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; color: #fff; flex-shrink: 0; }
     .resena-usuario { font-size: 13px; font-weight: 600; color: #fff; }
     .resena-fecha { font-size: 11px; color: var(--muted); }
     .resena-rating { margin-left: auto; font-size: 12px; }
     .resena-texto { font-size: 13px; color: #aaa; line-height: 1.6; }
-    .form-opinion { background: var(--bg3); border-radius: 10px; padding: 20px; border: 1px solid var(--border); margin-top: 20px; }
-    .form-opinion h4 { font-family: 'Rajdhani', sans-serif; font-size: 16px; color: #fff; margin-bottom: 16px; }
-    .form-opinion textarea { width: 100%; padding: 12px; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-size: 13px; resize: vertical; min-height: 80px; outline: none; font-family: 'Inter', sans-serif; }
+    .form-opinion { background: var(--bg3); border-radius: 10px; padding: 18px; border: 1px solid var(--border); margin-top: 16px; }
+    .form-opinion h4 { font-family: 'Rajdhani', sans-serif; font-size: 16px; color: #fff; margin-bottom: 14px; }
+    .form-opinion textarea { width: 100%; padding: 10px; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; color: var(--text); font-size: 13px; resize: vertical; min-height: 70px; outline: none; font-family: 'Inter', sans-serif; }
     .form-opinion textarea:focus { border-color: var(--purple); }
-    .form-rating { display: flex; gap: 8px; margin: 12px 0; align-items: center; }
+    .form-rating { display: flex; gap: 6px; margin: 10px 0; align-items: center; }
     .form-rating span { color: var(--muted); font-size: 13px; }
-    .estrella-btn { background: none; border: none; font-size: 24px; cursor: pointer; color: var(--muted); transition: color 0.1s; }
+    .estrella-btn { background: none; border: none; font-size: 22px; cursor: pointer; color: var(--muted); }
     .estrella-btn.activo { color: #fbbf24; }
-    .form-tipo { display: flex; gap: 10px; margin-bottom: 12px; }
-    .btn-tipo { padding: 8px 16px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--muted); cursor: pointer; font-size: 13px; transition: all 0.2s; }
+    .form-tipo { display: flex; gap: 8px; margin-bottom: 10px; }
+    .btn-tipo { padding: 7px 14px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--muted); cursor: pointer; font-size: 12px; transition: all 0.2s; }
     .btn-tipo.activo-pos { background: rgba(74,222,128,0.15); border-color: var(--green); color: var(--green); }
     .btn-tipo.activo-neg { background: rgba(248,113,113,0.15); border-color: #f87171; color: #f87171; }
-    .btn-enviar-opinion { margin-top: 12px; padding: 10px 20px; background: var(--purple); color: #fff; border: none; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 600; transition: background 0.2s; }
+    .btn-enviar-opinion { margin-top: 10px; padding: 9px 18px; background: var(--purple); color: #fff; border: none; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 600; }
     .btn-enviar-opinion:hover { background: #6d28d9; }
-    .requisitos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .req-col { background: var(--bg3); border-radius: 10px; padding: 20px; border: 1px solid var(--border); }
-    .req-col h4 { font-family: 'Rajdhani', sans-serif; font-size: 16px; color: #fff; margin-bottom: 16px; }
-    .req-item { display: flex; gap: 10px; margin-bottom: 12px; font-size: 13px; }
-    .req-label { color: var(--muted); min-width: 80px; }
+    .requisitos-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .req-col { background: var(--bg3); border-radius: 10px; padding: 16px; border: 1px solid var(--border); }
+    .req-col h4 { font-family: 'Rajdhani', sans-serif; font-size: 15px; color: #fff; margin-bottom: 14px; }
+    .req-item { display: flex; gap: 8px; margin-bottom: 10px; font-size: 12px; }
+    .req-label { color: var(--muted); min-width: 75px; }
     .req-valor { color: var(--text); }
-    .detalle-sidebar { padding: 28px 20px; }
-    .detalle-precio-box { background: var(--bg3); border-radius: 12px; padding: 20px; margin-bottom: 16px; border: 1px solid var(--border); }
-    .detalle-precio-row { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
-    .detalle-descuento { background: var(--purple); color: #fff; font-size: 14px; font-weight: 700; padding: 4px 10px; border-radius: 6px; }
-    .detalle-precio-original { font-size: 13px; color: var(--muted); text-decoration: line-through; }
-    .detalle-precio-nuevo { font-size: 30px; font-weight: 700; color: var(--green); font-family: 'Rajdhani', sans-serif; }
-    .btn-agregar-detalle { width: 100%; padding: 14px; background: var(--green); color: #000; border: none; border-radius: 10px; font-size: 15px; font-weight: 700; cursor: pointer; transition: all 0.2s; margin-bottom: 10px; }
+    .detalle-sidebar { padding: 24px 18px; }
+    .detalle-precio-box { background: var(--bg3); border-radius: 12px; padding: 18px; margin-bottom: 14px; border: 1px solid var(--border); }
+    .detalle-precio-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+    .detalle-descuento { background: var(--purple); color: #fff; font-size: 13px; font-weight: 700; padding: 3px 8px; border-radius: 6px; }
+    .detalle-precio-original { font-size: 12px; color: var(--muted); text-decoration: line-through; }
+    .detalle-precio-nuevo { font-size: 28px; font-weight: 700; color: var(--green); font-family: 'Rajdhani', sans-serif; }
+    .btn-agregar-detalle { width: 100%; padding: 13px; background: var(--green); color: #000; border: none; border-radius: 10px; font-size: 14px; font-weight: 700; cursor: pointer; transition: all 0.2s; margin-bottom: 10px; }
     .btn-agregar-detalle:hover { background: #22c55e; }
     .btn-agregar-detalle.agregado { background: var(--bg3); color: var(--muted); border: 1px solid var(--border); cursor: default; }
-    .detalle-rating-global { background: var(--bg3); border-radius: 12px; padding: 16px; margin: 16px 0; border: 1px solid var(--border); text-align: center; }
-    .detalle-rating-numero { font-family: 'Rajdhani', sans-serif; font-size: 40px; font-weight: 700; color: var(--green); }
-    .detalle-rating-estrellas { color: #fbbf24; font-size: 18px; margin: 4px 0; }
-    .detalle-rating-total { font-size: 12px; color: var(--muted); }
-    .detalle-info-item { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 13px; }
+    .detalle-rating-global { background: var(--bg3); border-radius: 12px; padding: 14px; margin: 14px 0; border: 1px solid var(--border); text-align: center; }
+    .detalle-rating-numero { font-family: 'Rajdhani', sans-serif; font-size: 38px; font-weight: 700; color: var(--green); }
+    .detalle-rating-estrellas { color: #fbbf24; font-size: 16px; margin: 4px 0; }
+    .detalle-rating-total { font-size: 11px; color: var(--muted); }
+    .detalle-info-item { display: flex; justify-content: space-between; padding: 9px 0; border-bottom: 1px solid var(--border); font-size: 12px; }
     .detalle-info-item span:first-child { color: var(--muted); }
     .detalle-info-item span:last-child { color: #fff; font-weight: 500; text-align: right; }
     .modal-fondo { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.8); z-index: 400; justify-content: center; align-items: center; }
@@ -190,11 +297,8 @@
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
     ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
-    @media (max-width: 700px) {
-      .detalle-body { grid-template-columns: 1fr; }
-      .detalle-main { border-right: none; border-bottom: 1px solid var(--border); }
-      .requisitos-grid { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 1100px) { .tienda-layout { grid-template-columns: 150px 1fr 150px; } }
+    @media (max-width: 800px) { .tienda-layout { grid-template-columns: 1fr; } .banner-lateral { display: none; } .detalle-body { grid-template-columns: 1fr; } .detalle-main { border-right: none; border-bottom: 1px solid var(--border); } .requisitos-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -239,19 +343,101 @@
       <button class="btn-salir" onclick="cerrarSesion()">Salir</button>
     </div>
   </nav>
-  <div class="hero">
-    <h2>Keys de videojuegos <span>hasta 88% off</span></h2>
-    <p>Activa tu juego al instante en Steam, Epic Games y mas</p>
-  </div>
-  <div class="seccion">
-    <div class="seccion-header">
-      <h3>🔥 Ofertas destacadas</h3>
-      <div class="buscador-wrap">
-        <span class="buscador-icon">🔍</span>
-        <input type="text" placeholder="Buscar juego, genero, plataforma..." oninput="buscarJuegos(this.value)" style="padding-left:36px;">
+
+  <!-- BANNER SUPERIOR -->
+  <!-- Para poner tu banner: reemplaza el div.banner-top-placeholder por <img src="/img/tu-banner.jpg"> -->
+  <div class="banner-top">
+    <div class="banner-top-inner">
+      <div class="banner-top-placeholder">
+        <span class="banner-icon">🖼️</span>
+        <strong>Banner Superior (728 x 90 o 970 x 140)</strong>
+        <span>Reemplaza este div con: &lt;img src="/img/tu-banner.jpg"&gt;</span>
       </div>
     </div>
-    <div class="juegos" id="lista-juegos"></div>
+  </div>
+
+  <!-- LAYOUT CON BANNERS LATERALES -->
+  <div class="tienda-layout">
+
+    <!-- BANNER IZQUIERDO -->
+    <div class="banner-lateral">
+      <!-- Banner 1 izquierdo - 160x300 -->
+      <div class="banner-slot tall">
+        <span class="slot-icon">📢</span>
+        <span>Banner<br>160x300</span>
+        <span style="font-size:9px;margin-top:4px;">img src="/img/banner-izq-1.jpg"</span>
+      </div>
+      <!-- Banner 2 izquierdo - 160x200 -->
+      <div class="banner-slot medium">
+        <span class="slot-icon">📢</span>
+        <span>Banner<br>160x200</span>
+        <span style="font-size:9px;margin-top:4px;">img src="/img/banner-izq-2.jpg"</span>
+      </div>
+      <!-- Banner 3 izquierdo - 160x120 -->
+      <div class="banner-slot small">
+        <span class="slot-icon">📢</span>
+        <span>Banner<br>160x120</span>
+      </div>
+    </div>
+
+    <!-- CONTENIDO CENTRAL -->
+    <div class="tienda-centro">
+      <div class="seccion-header">
+        <h3>🔥 Ofertas destacadas</h3>
+        <div class="buscador-wrap">
+          <span class="buscador-icon">🔍</span>
+          <input type="text" placeholder="Buscar juego, genero, plataforma..." oninput="buscarJuegos(this.value)" style="padding-left:36px;">
+        </div>
+      </div>
+
+      <!-- FILTROS POR GENERO -->
+      <div class="filtros">
+        <button class="filtro-btn activo" onclick="filtrarGenero('Todos', this)">Todos</button>
+        <button class="filtro-btn" onclick="filtrarGenero('RPG', this)">RPG</button>
+        <button class="filtro-btn" onclick="filtrarGenero('Accion', this)">Accion</button>
+        <button class="filtro-btn" onclick="filtrarGenero('FPS', this)">FPS</button>
+        <button class="filtro-btn" onclick="filtrarGenero('Deportes', this)">Deportes</button>
+        <button class="filtro-btn" onclick="filtrarGenero('Open World', this)">Open World</button>
+        <button class="filtro-btn" onclick="filtrarGenero('Multijugador', this)">Multijugador</button>
+        <button class="filtro-btn" onclick="filtrarGenero('Sandbox', this)">Sandbox</button>
+        <button class="filtro-btn" onclick="filtrarGenero('Carreras', this)">Carreras</button>
+      </div>
+
+      <div class="juegos" id="lista-juegos"></div>
+
+      <!-- BANNER ENTRE SECCIONES -->
+      <!-- Para poner tu banner: reemplaza el contenido del div.banner-medio -->
+      <div class="banner-medio">
+        <span style="font-size:24px;">🖼️</span>
+        <div>
+          <strong>Banner Horizontal (728 x 90)</strong><br>
+          <span style="font-size:11px;">Reemplaza con: &lt;img src="/img/banner-medio.jpg"&gt;</span>
+        </div>
+      </div>
+
+      <!-- SEGUNDA SECCION -->
+      <h3 style="font-family:'Rajdhani',sans-serif;font-size:20px;color:#fff;margin-bottom:16px;">⭐ Mas vendidos</h3>
+      <div class="juegos" id="lista-mas-vendidos"></div>
+    </div>
+
+    <!-- BANNER DERECHO -->
+    <div class="banner-lateral">
+      <div class="banner-slot tall">
+        <span class="slot-icon">📢</span>
+        <span>Banner<br>160x300</span>
+        <span style="font-size:9px;margin-top:4px;">img src="/img/banner-der-1.jpg"</span>
+      </div>
+      <div class="banner-slot medium">
+        <span class="slot-icon">📢</span>
+        <span>Banner<br>160x200</span>
+        <span style="font-size:9px;margin-top:4px;">img src="/img/banner-der-2.jpg"</span>
+      </div>
+      <div class="banner-slot small">
+        <span class="slot-icon">📢</span>
+        <span>Banner<br>160x120</span>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -354,643 +540,310 @@
 
 <script>
 const juegos = [
-  {
-    nombre: "Cyberpunk 2077", plataforma: "Steam", emoji: "🤖",
-    imgs: [
-      "https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/ss_382929e2065b9f14bcdb82ad5df96c7b83c1cdc.jpg",
-      "https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/ss_d59c89b5f02e52d0f3a1f59f4a699d6ceaab1a7.jpg",
-      "https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/ss_b11b6b7e7cb3ee70a9c1f35b50432bc30891d30.jpg",
-    ],
-    original: 59.99, precio: 5.99, descuento: 78,
-    desarrollador: "CD Projekt Red", fecha: "10 Dic, 2020",
-    generos: ["RPG", "Accion", "Open World"],
-    descripcion: "Cyberpunk 2077 es un RPG de accion en mundo abierto ambientado en Night City. Asumes el papel de V, un mercenario en busca de un implante unico que es la clave de la inmortalidad.",
-    rating: 4.2,
-    resenas: [
-      { usuario: "ShadowRun_MX", avatar: "S", texto: "Increible juego, la historia es epica.", positiva: true, fecha: "Ene 2024" },
-      { usuario: "NightCityFan", avatar: "N", texto: "Historia 10/10 con Phantom Liberty.", positiva: true, fecha: "Feb 2024" },
-    ],
-    requisitos: {
-      minimos: { SO: "Windows 10 64-bit", CPU: "Intel Core i7-6700K", RAM: "12 GB", GPU: "NVIDIA GTX 1060 6GB", Disco: "70 GB SSD" },
-      recomendados: { SO: "Windows 11 64-bit", CPU: "Intel Core i7-8700K", RAM: "16 GB", GPU: "NVIDIA RTX 2060", Disco: "70 GB SSD" }
-    }
-  },
-  {
-    nombre: "Elden Ring", plataforma: "Steam", emoji: "⚔️",
-    imgs: [
-      "https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/ss_5510c702c3b88d2cf7a2e3b0e2a8b82618f73c5.jpg",
-      "https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/ss_1f56c8e8f7e4d2b37d57bddd3a3c8e3c7d1f2a9.jpg",
-    ],
-    original: 59.99, precio: 29.99, descuento: 50,
-    desarrollador: "FromSoftware", fecha: "25 Feb, 2022",
-    generos: ["RPG", "Souls-like", "Fantasia"],
-    descripcion: "Elden Ring es un RPG de accion desarrollado por FromSoftware con George R.R. Martin. Explora las Tierras Intermedias en un vasto mundo abierto lleno de secretos y jefes brutales.",
-    rating: 4.8,
-    resenas: [
-      { usuario: "DarkSoulsVet", avatar: "D", texto: "El mejor juego de FromSoftware.", positiva: true, fecha: "Abr 2024" },
-    ],
-    requisitos: {
-      minimos: { SO: "Windows 10/11 64-bit", CPU: "Intel Core i5-8400", RAM: "12 GB", GPU: "NVIDIA GTX 1060 3GB", Disco: "60 GB SSD" },
-      recomendados: { SO: "Windows 10/11 64-bit", CPU: "Intel Core i7-8700K", RAM: "16 GB", GPU: "NVIDIA GTX 1070 8GB", Disco: "60 GB SSD" }
-    }
-  },
-  {
-    nombre: "Red Dead Redemption 2", plataforma: "Steam", emoji: "🤠",
-    imgs: [
-      "https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/ss_bfa83ccd9a4ac7ea3bcebaa5bb5b1a4c4e0c3f8a.jpg",
-      "https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/ss_66b553f4c209476d3f4af0e37ebb2be1a5e6f1b.jpg",
-      "https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/ss_a3a74c2f5fe6dce37fa96f77a83f3fcbf3db23c.jpg",
-    ],
-    original: 69.99, precio: 19.99, descuento: 67,
-    desarrollador: "Rockstar Games", fecha: "5 Nov, 2019",
-    generos: ["Accion", "Aventura", "Western"],
-    descripcion: "Una epica historia del fin de la era de los forajidos. Arthur Morgan y la banda Van der Linde deben robar, huir y luchar para sobrevivir en un pais que se moderniza a su pesar.",
-    rating: 4.9,
-    resenas: [
-      { usuario: "CowboyGamer", avatar: "C", texto: "La mejor historia en un videojuego.", positiva: true, fecha: "Ene 2024" },
-      { usuario: "OpenWorldFan", avatar: "O", texto: "El mundo mas detallado que he visto.", positiva: true, fecha: "Feb 2024" },
-    ],
-    requisitos: {
-      minimos: { SO: "Windows 10 64-bit", CPU: "Intel Core i5-2500K", RAM: "8 GB", GPU: "NVIDIA GTX 770 2GB", Disco: "150 GB SSD" },
-      recomendados: { SO: "Windows 10 64-bit", CPU: "Intel Core i7-4770K", RAM: "12 GB", GPU: "NVIDIA GTX 1060 6GB", Disco: "150 GB SSD" }
-    }
-  },
-  {
-    nombre: "Hogwarts Legacy", plataforma: "Steam", emoji: "🧙",
-    imgs: [
-      "https://cdn.cloudflare.steamstatic.com/steam/apps/990080/ss_5ba9b5b8b1ba6c87b8e0a0a5c7c0b2f1a4e2d9c.jpg",
-      "https://cdn.cloudflare.steamstatic.com/steam/apps/990080/ss_8c2c4d6a7f3e1b9d5f8c2b4e6d7a3c1b9e5f7a.jpg",
-    ],
-    original: 59.99, precio: 24.99, descuento: 58,
-    desarrollador: "Avalanche Software", fecha: "10 Feb, 2023",
-    generos: ["RPG", "Aventura", "Magia"],
-    descripcion: "Vive la experiencia de ser estudiante en Hogwarts en el siglo XIX. Explora el castillo, aprende hechizos y descubre un misterio antiguo que amenaza el mundo magico.",
-    rating: 4.3,
-    resenas: [
-      { usuario: "PotterHead_MX", avatar: "P", texto: "Sueno de cualquier fan de Harry Potter.", positiva: true, fecha: "Mar 2024" },
-    ],
-    requisitos: {
-      minimos: { SO: "Windows 10 64-bit", CPU: "Intel Core i5-6600", RAM: "16 GB", GPU: "NVIDIA GTX 960 4GB", Disco: "85 GB SSD" },
-      recomendados: { SO: "Windows 11 64-bit", CPU: "Intel Core i7-8700", RAM: "16 GB", GPU: "NVIDIA RTX 2080 Ti", Disco: "85 GB SSD" }
-    }
-  },
-  {
-    nombre: "FIFA 24", plataforma: "EA App", emoji: "⚽",
-    imgs: [
-      "https://media.contentapi.ea.com/content/dam/eafc/fc24/common/fc24-key-art-16x9.jpg.adapt.crop16x9.1023w.jpg",
-      "https://media.contentapi.ea.com/content/dam/eafc/fc24/common/fc24-gameplay-ss1.jpg.adapt.crop16x9.1023w.jpg",
-    ],
-    original: 69.99, precio: 14.99, descuento: 79,
-    desarrollador: "EA Sports", fecha: "29 Sep, 2023",
-    generos: ["Deportes", "Futbol", "Multijugador"],
-    descripcion: "EA Sports FC 24 redefine el futbol virtual con HyperMotionV. Juega con mas de 19,000 jugadores en mas de 700 equipos de todo el mundo.",
-    rating: 3.8,
-    resenas: [
-      { usuario: "FutboleroMX", avatar: "F", texto: "Modo carrera mejorado pero UT igual.", positiva: false, fecha: "Oct 2023" },
-    ],
-    requisitos: {
-      minimos: { SO: "Windows 10 64-bit", CPU: "Intel Core i5-6600k", RAM: "8 GB", GPU: "NVIDIA GTX 1050 Ti", Disco: "100 GB SSD" },
-      recomendados: { SO: "Windows 10 64-bit", CPU: "Intel Core i7-6700", RAM: "12 GB", GPU: "NVIDIA GTX 1660", Disco: "100 GB SSD" }
-    }
-  },
-  {
-    nombre: "Minecraft", plataforma: "Microsoft", emoji: "⛏️",
-    imgs: [
-      "https://www.minecraft.net/content/dam/games/minecraft/key-art/MC_Java_Edition_KA_1920x1080.jpg",
-      "https://www.minecraft.net/content/dam/games/minecraft/screenshots/1-19-screenshot.jpg",
-    ],
-    original: 26.99, precio: 9.99, descuento: 63,
-    desarrollador: "Mojang Studios", fecha: "18 Nov, 2011",
-    generos: ["Sandbox", "Supervivencia", "Creativo"],
-    descripcion: "Minecraft es el juego sandbox mas popular del mundo. Construye, explora y sobrevive en mundos infinitos generados proceduralmente.",
-    rating: 4.7,
-    resenas: [
-      { usuario: "CraftMaster", avatar: "C", texto: "El juego mas jugado de la historia.", positiva: true, fecha: "Ene 2024" },
-    ],
-    requisitos: {
-      minimos: { SO: "Windows 10", CPU: "Intel Core i3-3210", RAM: "4 GB", GPU: "Intel HD 4000", Disco: "4 GB" },
-      recomendados: { SO: "Windows 10/11", CPU: "Intel Core i5-4690", RAM: "8 GB", GPU: "NVIDIA GTX 700", Disco: "8 GB SSD" }
-    }
-  },
-  {
-    nombre: "The Witcher 3", plataforma: "GOG", emoji: "🐺",
-    imgs: [
-      "https://cdn.cloudflare.steamstatic.com/steam/apps/292030/ss_107600c1337accc09104f7a8aa7f275f23cad78.jpg",
-      "https://cdn.cloudflare.steamstatic.com/steam/apps/292030/ss_64eb66dc02dcb4b8d4fa8a74551f21e1e70bb7a.jpg",
-      "https://cdn.cloudflare.steamstatic.com/steam/apps/292030/ss_b51e8dbdce1c2f2b94812a41fb6e65b3c64f0f7.jpg",
-    ],
-    original: 39.99, precio: 4.99, descuento: 88,
-    desarrollador: "CD Projekt Red", fecha: "19 May, 2015",
-    generos: ["RPG", "Fantasia", "Open World"],
-    descripcion: "Geralt de Rivia busca a su hija adoptiva Ciri en un mundo abierto masivo. Historia sin igual con dos DLCs epicos incluidos.",
-    rating: 4.9,
-    resenas: [
-      { usuario: "WitcherFan", avatar: "W", texto: "El mejor RPG de todos los tiempos.", positiva: true, fecha: "Mar 2024" },
-      { usuario: "FantasyRPG", avatar: "F", texto: "A este precio es un robo. Compra ya.", positiva: true, fecha: "Abr 2024" },
-    ],
-    requisitos: {
-      minimos: { SO: "Windows 7/8/10 64-bit", CPU: "Intel Core i5-2500K", RAM: "6 GB", GPU: "NVIDIA GTX 660", Disco: "35 GB SSD" },
-      recomendados: { SO: "Windows 10 64-bit", CPU: "Intel Core i7-3770", RAM: "8 GB", GPU: "NVIDIA GTX 770", Disco: "35 GB SSD" }
-    }
-  },
-  {
-    nombre: "GTA VI", plataforma: "PC / PS5 / Xbox", emoji: "🌆",
-    imgs: [
-      "https://upload.wikimedia.org/wikipedia/en/thumb/a/a5/Grand_Theft_Auto_VI_Logo.png/300px-Grand_Theft_Auto_VI_Logo.png",
-      "https://staticg.sportskeeda.com/editor/2023/12/a48c8-17018498688300-1920.jpg",
-    ],
-    original: 79.99, precio: 59.99, descuento: 25,
-    desarrollador: "Rockstar Games", fecha: "2025",
-    generos: ["Accion", "Open World", "Crimen"],
-    descripcion: "Grand Theft Auto VI regresa a Vice City con la primera protagonista femenina de la saga principal. El mundo abierto mas grande y detallado de Rockstar hasta la fecha.",
-    rating: 4.9,
-    resenas: [
-      { usuario: "GTAFan_MX", avatar: "G", texto: "El juego mas esperado de la decada. No decepciona.", positiva: true, fecha: "2025" },
-    ],
-    requisitos: {
-      minimos: { SO: "Windows 11 64-bit", CPU: "Intel Core i7-10700K", RAM: "16 GB", GPU: "NVIDIA RTX 3060", Disco: "150 GB SSD" },
-      recomendados: { SO: "Windows 11 64-bit", CPU: "Intel Core i9-12900K", RAM: "32 GB", GPU: "NVIDIA RTX 4080", Disco: "150 GB SSD" }
-    }
-  },
-  {
-    nombre: "GTA V", plataforma: "Steam", emoji: "🚗",
-    imgs: [
-      "https://cdn.cloudflare.steamstatic.com/steam/apps/271590/ss_718d6e29f8e61efc5c14a43f10c56c2c0d7dc5d.jpg",
-      "https://cdn.cloudflare.steamstatic.com/steam/apps/271590/ss_c4e15a9edfd07c1b40b8dfbb1b2e43f5c571cf3.jpg",
-      "https://cdn.cloudflare.steamstatic.com/steam/apps/271590/ss_a2f9b1e30b3c8b7e88b1c5c3d2f5a9e4b7c1d8.jpg",
-    ],
-    original: 29.99, precio: 8.99, descuento: 70,
-    desarrollador: "Rockstar Games", fecha: "14 Abr, 2015",
-    generos: ["Accion", "Open World", "Multijugador"],
-    descripcion: "GTA V sigue a tres criminales mientras planean atracos bajo la presion de una agencia gubernamental. Con GTA Online, el juego sigue siendo el mas jugado del mundo.",
-    rating: 4.7,
-    resenas: [
-      { usuario: "RockstarFan", avatar: "R", texto: "Online sigue siendo adictivo despues de 10 anos.", positiva: true, fecha: "Mar 2024" },
-      { usuario: "OpenWorld99", avatar: "O", texto: "Historia increible, Los Santos es un mundo vivo.", positiva: true, fecha: "Ene 2024" },
-    ],
-    requisitos: {
-      minimos: { SO: "Windows 10 64-bit", CPU: "Intel Core i5-3470", RAM: "8 GB", GPU: "NVIDIA GTX 660 2GB", Disco: "72 GB SSD" },
-      recomendados: { SO: "Windows 10 64-bit", CPU: "Intel Core i7-3770", RAM: "16 GB", GPU: "NVIDIA GTX 1060 6GB", Disco: "72 GB SSD" }
-    }
-  },
-  {
-    nombre: "Call of Duty: Modern Warfare III", plataforma: "Battle.net", emoji: "🔫",
-    imgs: [
-      "https://cdn.cloudflare.steamstatic.com/steam/apps/2519060/ss_8a2f4b1c3e5d7f9a0b2c4e6d8f0a2b4c6e8d0.jpg",
-      "https://cdn.cloudflare.steamstatic.com/steam/apps/2519060/ss_1b3c5e7d9f1a3b5c7e9d1f3a5b7c9e1d3f5.jpg",
-    ],
-    original: 69.99, precio: 29.99, descuento: 57,
-    desarrollador: "Sledgehammer Games", fecha: "10 Nov, 2023",
-    generos: ["FPS", "Accion", "Multijugador"],
-    descripcion: "Call of Duty: Modern Warfare III trae de regreso a Vladimir Makarov como el villano principal. Incluye el mapa de Warzone mas grande jamas creado y todos los mapas clasicos de MW2 (2009).",
-    rating: 3.9,
-    resenas: [
-      { usuario: "CODPlayer", avatar: "C", texto: "Los mapas clasicos de MW2 son un sueno hecho realidad.", positiva: true, fecha: "Nov 2023" },
-      { usuario: "FPSGamer", avatar: "F", texto: "Campana corta pero Warzone sigue siendo adictivo.", positiva: false, fecha: "Dic 2023" },
-    ],
-    requisitos: {
-      minimos: { SO: "Windows 10 64-bit", CPU: "Intel Core i5-6600K", RAM: "8 GB", GPU: "NVIDIA GTX 1060", Disco: "102 GB SSD" },
-      recomendados: { SO: "Windows 10/11 64-bit", CPU: "Intel Core i7-8700K", RAM: "16 GB", GPU: "NVIDIA RTX 2080", Disco: "102 GB SSD" }
-    }
-  },
-  {
-    nombre: "Call of Duty: Black Ops 6", plataforma: "Battle.net", emoji: "💀",
-    imgs: [
-      "https://www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/blog/hero/mw-wwii/MWII_hero_Image.jpg",
-      "https://www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/blog/hero/bo6/BO6_hero.jpg",
-    ],
-    original: 69.99, precio: 34.99, descuento: 50,
-    desarrollador: "Treyarch", fecha: "25 Oct, 2024",
-    generos: ["FPS", "Accion", "Multijugador"],
-    descripcion: "Black Ops 6 regresa con movimiento omnidireccional, campana de alta tension ambientada en los anos 90 y el mejor multijugador de la saga en anos. Disponible en Game Pass.",
-    rating: 4.4,
-    resenas: [
-      { usuario: "BOFan", avatar: "B", texto: "El mejor Black Ops desde BO2. Campana increible.", positiva: true, fecha: "Nov 2024" },
-      { usuario: "TacticalShooter", avatar: "T", texto: "El movimiento omnidireccional cambia todo.", positiva: true, fecha: "Nov 2024" },
-    ],
-    requisitos: {
-      minimos: { SO: "Windows 10 64-bit", CPU: "Intel Core i5-6600K", RAM: "8 GB", GPU: "NVIDIA GTX 1060", Disco: "102 GB SSD" },
-      recomendados: { SO: "Windows 10/11 64-bit", CPU: "Intel Core i7-8700K", RAM: "16 GB", GPU: "NVIDIA RTX 3060", Disco: "102 GB SSD" }
-    }
-  },
-  {
-    nombre: "Left 4 Dead 2", plataforma: "Steam", emoji: "🧟",
-    imgs: [
-      "https://cdn.cloudflare.steamstatic.com/steam/apps/550/ss_a3c4eb927253aa7c8eb2739e3dd4d8b9264c4a7a.jpg",
-      "https://cdn.cloudflare.steamstatic.com/steam/apps/550/ss_9a1e7bfc57e3de7a96ac3b7e0c7c0c8c9d3f5e8.jpg",
-    ],
-    original: 9.99, precio: 1.99, descuento: 80,
-    desarrollador: "Valve", fecha: "17 Nov, 2009",
-    generos: ["FPS", "Zombies", "Cooperativo"],
-    descripcion: "Left 4 Dead 2 es el shooter cooperativo de zombies definitivo. Cuatro supervivientes luchan a traves de campanas llenas de infectados en busca de un lugar seguro. Con enorme comunidad y mods.",
-    rating: 4.8,
-    resenas: [
-      { usuario: "ZombieSurvivor", avatar: "Z", texto: "El mejor juego cooperativo de todos los tiempos.", positiva: true, fecha: "Feb 2024" },
-      { usuario: "ValveFan", avatar: "V", texto: "15 anos despues y sigue siendo insuperable.", positiva: true, fecha: "Mar 2024" },
-    ],
-    requisitos: {
-      minimos: { SO: "Windows 7/Vista/XP", CPU: "Pentium 4 3.0GHz", RAM: "2 GB", GPU: "DirectX 9 compatible", Disco: "13 GB" },
-      recomendados: { SO: "Windows 10", CPU: "Intel Core i5", RAM: "4 GB", GPU: "NVIDIA GTX 650", Disco: "13 GB SSD" }
-    }
-  },
-  {
-    nombre: "Sekiro: Shadows Die Twice", plataforma: "Steam", emoji: "🥷",
-    imgs: [
-      "https://cdn.cloudflare.steamstatic.com/steam/apps/814380/ss_c8b3a64eb9da9c5e1e99b7e7c4c8b5e4d3a2f1.jpg",
-      "https://cdn.cloudflare.steamstatic.com/steam/apps/814380/ss_f2e8b1c7d5a3e9b0c4d8f2a6b0e4c8d2f6a0.jpg",
-    ],
-    original: 59.99, precio: 19.99, descuento: 67,
-    desarrollador: "FromSoftware", fecha: "22 Mar, 2019",
-    generos: ["Accion", "Samurai", "Souls-like"],
-    descripcion: "Sekiro: Shadows Die Twice es un juego de accion ambientado en el Japon feudal. Juegas como el Lobo, un shinobi en busca de venganza. El sistema de combate de postura es unico en su genero.",
-    rating: 4.7,
-    resenas: [
-      { usuario: "SamuraiPro", avatar: "S", texto: "El combate mas satisfactorio que he jugado.", positiva: true, fecha: "Abr 2024" },
-    ],
-    requisitos: {
-      minimos: { SO: "Windows 7/8/10 64-bit", CPU: "Intel Core i5-2500K", RAM: "8 GB", GPU: "NVIDIA GTX 970", Disco: "25 GB SSD" },
-      recomendados: { SO: "Windows 10 64-bit", CPU: "Intel Core i7-8700K", RAM: "16 GB", GPU: "NVIDIA GTX 1080", Disco: "25 GB SSD" }
-    }
-  },
-  {
-    nombre: "Forza Horizon 5", plataforma: "Xbox / PC", emoji: "🏎️",
-    imgs: [
-      "https://cdn.cloudflare.steamstatic.com/steam/apps/1551360/ss_b7d7e3a1c5f9b2e8a4c6d0f3a7b1e5c9d3f7.jpg",
-      "https://cdn.cloudflare.steamstatic.com/steam/apps/1551360/ss_e5c9b3f7a1e5c9b3f7a1e5c9b3f7a1e5c9b3.jpg",
-    ],
-    original: 59.99, precio: 19.99, descuento: 67,
-    desarrollador: "Playground Games", fecha: "5 Nov, 2021",
-    generos: ["Carreras", "Open World", "Multijugador"],
-    descripcion: "Forza Horizon 5 te lleva a Mexico en el festival de carreras mas espectacular. Con mas de 500 autos licenciados, mundo abierto enorme y graficos de ultima generacion.",
-    rating: 4.8,
-    resenas: [
-      { usuario: "RacingFan", avatar: "R", texto: "El mejor juego de carreras del mercado sin duda.", positiva: true, fecha: "Ene 2024" },
-      { usuario: "ForzaPlayer", avatar: "F", texto: "Mexico se ve increible. Graficos de otro nivel.", positiva: true, fecha: "Feb 2024" },
-    ],
-    requisitos: {
-      minimos: { SO: "Windows 10 64-bit", CPU: "Intel Core i5-4460", RAM: "8 GB", GPU: "NVIDIA GTX 970", Disco: "110 GB SSD" },
-      recomendados: { SO: "Windows 10/11 64-bit", CPU: "Intel Core i7-8700K", RAM: "16 GB", GPU: "NVIDIA RTX 3080", Disco: "110 GB SSD" }
-    }
-  },
-  {
-    nombre: "BioShock Infinite", plataforma: "Steam", emoji: "🌊",
-    imgs: [
-      "https://cdn.cloudflare.steamstatic.com/steam/apps/300/ss_e4d37e6b0e0a1b3c5e7f9a1b3c5e7f9a1b3c5.jpg",
-      "https://cdn.cloudflare.steamstatic.com/steam/apps/300/ss_f9a1b3c5e7d9f1a3b5c7e9f1a3b5c7e9f1a3.jpg",
-    ],
-    original: 29.99, precio: 4.99, descuento: 83,
-    desarrollador: "Irrational Games", fecha: "26 Mar, 2013",
-    generos: ["FPS", "Accion", "Historia"],
-    descripcion: "BioShock Infinite lleva al jugador a Columbia, una ciudad flotante en el cielo. Una historia profunda sobre libre albedrio, realidades alternativas y una compania misteriosa llamada Elizabeth.",
-    rating: 4.7,
-    resenas: [
-      { usuario: "StoryGamer", avatar: "S", texto: "Una de las mejores historias en videojuegos.", positiva: true, fecha: "Mar 2024" },
-      { usuario: "FPSLover", avatar: "F", texto: "Columbia es una obra de arte como escenario.", positiva: true, fecha: "Abr 2024" },
-    ],
-    requisitos: {
-      minimos: { SO: "Windows Vista/7/8", CPU: "Intel Core i5-750", RAM: "4 GB", GPU: "NVIDIA GTX 460", Disco: "20 GB" },
-      recomendados: { SO: "Windows 7/8", CPU: "Intel Core i7-870", RAM: "8 GB", GPU: "NVIDIA GTX 560 Ti", Disco: "30 GB SSD" }
-    }
-  },
-  {
-    nombre: "BioShock 1", plataforma: "Steam", emoji: "🔱",
-    imgs: [
-      "https://cdn.cloudflare.steamstatic.com/steam/apps/7670/ss_a1b3c5e7f9a1b3c5e7f9a1b3c5e7f9a1b3c5.jpg",
-      "https://cdn.cloudflare.steamstatic.com/steam/apps/7670/ss_b3c5e7f9a1b3c5e7f9a1b3c5e7f9a1b3c5e7.jpg",
-    ],
-    original: 19.99, precio: 2.99, descuento: 85,
-    desarrollador: "Irrational Games", fecha: "21 Ago, 2007",
-    generos: ["FPS", "Horror", "Historia"],
-    descripcion: "BioShock te sumerge en Rapture, una ciudad submarina utopica que cayo en el caos. Un shooter en primera persona con elementos RPG y una de las narrativas mas memorables del gaming.",
-    rating: 4.8,
-    resenas: [
-      { usuario: "ClassicGamer", avatar: "C", texto: "Un clasico atemporal. Rapture es inolvidable.", positiva: true, fecha: "Feb 2024" },
-    ],
-    requisitos: {
-      minimos: { SO: "Windows XP/Vista", CPU: "Intel Pentium 4 2.4GHz", RAM: "1 GB", GPU: "DirectX 9 / 128MB VRAM", Disco: "8 GB" },
-      recomendados: { SO: "Windows XP/Vista", CPU: "Intel Core 2 Duo", RAM: "2 GB", GPU: "NVIDIA 8800GT", Disco: "8 GB SSD" }
-    }
-  },
-  {
-    nombre: "Dishonored 2", plataforma: "Steam", emoji: "🎭",
-    imgs: [
-      "https://cdn.cloudflare.steamstatic.com/steam/apps/403640/ss_c5e7f9a1b3c5e7f9a1b3c5e7f9a1b3c5e7f9.jpg",
-      "https://cdn.cloudflare.steamstatic.com/steam/apps/403640/ss_e7f9a1b3c5e7f9a1b3c5e7f9a1b3c5e7f9a1.jpg",
-    ],
-    original: 39.99, precio: 5.99, descuento: 85,
-    desarrollador: "Arkane Studios", fecha: "11 Nov, 2016",
-    generos: ["Sigilo", "Accion", "Steampunk"],
-    descripcion: "Dishonored 2 te permite jugar como Emily Kaldwin o Corvo Attano, cada uno con habilidades unicas. Un juego de sigilo y accion con libertad total para elegir tu estilo de juego.",
-    rating: 4.5,
-    resenas: [
-      { usuario: "StealthMaster", avatar: "S", texto: "Libertad de juego increible. Dos personajes muy diferentes.", positiva: true, fecha: "Mar 2024" },
-    ],
-    requisitos: {
-      minimos: { SO: "Windows 7/8/10 64-bit", CPU: "Intel Core i5-2400", RAM: "8 GB", GPU: "NVIDIA GTX 660", Disco: "60 GB SSD" },
-      recomendados: { SO: "Windows 10 64-bit", CPU: "Intel Core i7-4770", RAM: "16 GB", GPU: "NVIDIA GTX 1060 6GB", Disco: "60 GB SSD" }
-    }
-  },
-  {
-    nombre: "Battlefield 2042", plataforma: "Steam", emoji: "💣",
-    imgs: [
-      "https://cdn.cloudflare.steamstatic.com/steam/apps/1517290/ss_f9a1b3c5e7f9a1b3c5e7f9a1b3c5e7f9a1b3.jpg",
-      "https://cdn.cloudflare.steamstatic.com/steam/apps/1517290/ss_a1b3c5e7f9a1b3c5e7f9a1b3c5e7f9a1b3c5.jpg",
-    ],
-    original: 59.99, precio: 9.99, descuento: 83,
-    desarrollador: "DICE", fecha: "19 Nov, 2021",
-    generos: ["FPS", "Multijugador", "Militar"],
-    descripcion: "Battlefield 2042 lleva la guerra al futuro con mapas masivos para 128 jugadores, especialistas con habilidades unicas y condiciones climaticas dinamicas que cambian el campo de batalla.",
-    rating: 3.6,
-    resenas: [
-      { usuario: "BFVet", avatar: "B", texto: "Mejorado mucho desde el lanzamiento. Los mapas son enormes.", positiva: true, fecha: "Ene 2024" },
-      { usuario: "FPSPro", avatar: "F", texto: "Lanzamiento desastroso pero ahora es jugable.", positiva: false, fecha: "Feb 2024" },
-    ],
-    requisitos: {
-      minimos: { SO: "Windows 10 64-bit", CPU: "Intel Core i5-6600K", RAM: "8 GB", GPU: "NVIDIA GTX 1050 Ti", Disco: "100 GB SSD" },
-      recomendados: { SO: "Windows 10 64-bit", CPU: "Intel Core i7-8700K", RAM: "16 GB", GPU: "NVIDIA RTX 3060", Disco: "100 GB SSD" }
-    }
-  },
+  { nombre:"Cyberpunk 2077", plataforma:"Steam", emoji:"🤖", imgs:["https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/ss_382929e2065b9f14bcdb82ad5df96c7b83c1cdc.jpg","https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/ss_d59c89b5f02e52d0f3a1f59f4a699d6ceaab1a7.jpg"], original:59.99, precio:5.99, descuento:78, desarrollador:"CD Projekt Red", fecha:"10 Dic, 2020", generos:["RPG","Accion","Open World"], descripcion:"Cyberpunk 2077 es un RPG de accion en mundo abierto ambientado en Night City. Asumes el papel de V, un mercenario en busca de un implante unico que es la clave de la inmortalidad.", rating:4.2, resenas:[{usuario:"ShadowRun_MX",avatar:"S",texto:"Increible juego, la historia es epica.",positiva:true,fecha:"Ene 2024"}], requisitos:{minimos:{SO:"Windows 10 64-bit",CPU:"Intel Core i7-6700K",RAM:"12 GB",GPU:"NVIDIA GTX 1060 6GB",Disco:"70 GB SSD"},recomendados:{SO:"Windows 11 64-bit",CPU:"Intel Core i7-8700K",RAM:"16 GB",GPU:"NVIDIA RTX 2060",Disco:"70 GB SSD"}} },
+  { nombre:"Elden Ring", plataforma:"Steam", emoji:"⚔️", imgs:["https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/ss_5510c702c3b88d2cf7a2e3b0e2a8b82618f73c5.jpg","https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/ss_1f56c8e8f7e4d2b37d57bddd3a3c8e3c7d1f2a9.jpg"], original:59.99, precio:29.99, descuento:50, desarrollador:"FromSoftware", fecha:"25 Feb, 2022", generos:["RPG","Souls-like","Fantasia"], descripcion:"Elden Ring es un RPG de accion desarrollado por FromSoftware con George R.R. Martin. Explora las Tierras Intermedias en un vasto mundo abierto.", rating:4.8, resenas:[{usuario:"DarkSoulsVet",avatar:"D",texto:"El mejor juego de FromSoftware.",positiva:true,fecha:"Abr 2024"}], requisitos:{minimos:{SO:"Windows 10/11",CPU:"Intel Core i5-8400",RAM:"12 GB",GPU:"NVIDIA GTX 1060 3GB",Disco:"60 GB SSD"},recomendados:{SO:"Windows 10/11",CPU:"Intel Core i7-8700K",RAM:"16 GB",GPU:"NVIDIA GTX 1070 8GB",Disco:"60 GB SSD"}} },
+  { nombre:"Red Dead Redemption 2", plataforma:"Steam", emoji:"🤠", imgs:["https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/ss_bfa83ccd9a4ac7ea3bcebaa5bb5b1a4c4e0c3f8a.jpg","https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/ss_66b553f4c209476d3f4af0e37ebb2be1a5e6f1b.jpg"], original:69.99, precio:19.99, descuento:67, desarrollador:"Rockstar Games", fecha:"5 Nov, 2019", generos:["Accion","Aventura","Western"], descripcion:"Una epica historia del fin de la era de los forajidos. Arthur Morgan y la banda Van der Linde deben robar y luchar para sobrevivir.", rating:4.9, resenas:[{usuario:"CowboyGamer",avatar:"C",texto:"La mejor historia en un videojuego.",positiva:true,fecha:"Ene 2024"}], requisitos:{minimos:{SO:"Windows 10",CPU:"Intel Core i5-2500K",RAM:"8 GB",GPU:"NVIDIA GTX 770 2GB",Disco:"150 GB SSD"},recomendados:{SO:"Windows 10",CPU:"Intel Core i7-4770K",RAM:"12 GB",GPU:"NVIDIA GTX 1060 6GB",Disco:"150 GB SSD"}} },
+  { nombre:"Hogwarts Legacy", plataforma:"Steam", emoji:"🧙", imgs:["https://cdn.cloudflare.steamstatic.com/steam/apps/990080/ss_5ba9b5b8b1ba6c87b8e0a0a5c7c0b2f1a4e2d9c.jpg","https://cdn.cloudflare.steamstatic.com/steam/apps/990080/ss_8c2c4d6a7f3e1b9d5f8c2b4e6d7a3c1b9e5f7a.jpg"], original:59.99, precio:24.99, descuento:58, desarrollador:"Avalanche Software", fecha:"10 Feb, 2023", generos:["RPG","Aventura","Magia"], descripcion:"Vive la experiencia de ser estudiante en Hogwarts en el siglo XIX. Explora el castillo y descubre un misterio antiguo.", rating:4.3, resenas:[{usuario:"PotterHead_MX",avatar:"P",texto:"Sueno de cualquier fan de Harry Potter.",positiva:true,fecha:"Mar 2024"}], requisitos:{minimos:{SO:"Windows 10",CPU:"Intel Core i5-6600",RAM:"16 GB",GPU:"NVIDIA GTX 960 4GB",Disco:"85 GB SSD"},recomendados:{SO:"Windows 11",CPU:"Intel Core i7-8700",RAM:"16 GB",GPU:"NVIDIA RTX 2080 Ti",Disco:"85 GB SSD"}} },
+  { nombre:"FIFA 24", plataforma:"EA App", emoji:"⚽", imgs:["https://media.contentapi.ea.com/content/dam/eafc/fc24/common/fc24-key-art-16x9.jpg.adapt.crop16x9.1023w.jpg","https://media.contentapi.ea.com/content/dam/eafc/fc24/common/fc24-gameplay-ss1.jpg.adapt.crop16x9.1023w.jpg"], original:69.99, precio:14.99, descuento:79, desarrollador:"EA Sports", fecha:"29 Sep, 2023", generos:["Deportes","Futbol","Multijugador"], descripcion:"EA Sports FC 24 redefine el futbol virtual con HyperMotionV. Mas de 19,000 jugadores licenciados.", rating:3.8, resenas:[{usuario:"FutboleroMX",avatar:"F",texto:"Modo carrera mejorado.",positiva:true,fecha:"Oct 2023"}], requisitos:{minimos:{SO:"Windows 10",CPU:"Intel Core i5-6600k",RAM:"8 GB",GPU:"NVIDIA GTX 1050 Ti",Disco:"100 GB SSD"},recomendados:{SO:"Windows 10",CPU:"Intel Core i7-6700",RAM:"12 GB",GPU:"NVIDIA GTX 1660",Disco:"100 GB SSD"}} },
+  { nombre:"Minecraft", plataforma:"Microsoft", emoji:"⛏️", imgs:["https://www.minecraft.net/content/dam/games/minecraft/key-art/MC_Java_Edition_KA_1920x1080.jpg","https://www.minecraft.net/content/dam/games/minecraft/screenshots/1-19-screenshot.jpg"], original:26.99, precio:9.99, descuento:63, desarrollador:"Mojang Studios", fecha:"18 Nov, 2011", generos:["Sandbox","Supervivencia","Creativo"], descripcion:"El juego sandbox mas popular del mundo. Construye, explora y sobrevive en mundos infinitos.", rating:4.7, resenas:[{usuario:"CraftMaster",avatar:"C",texto:"El juego mas jugado de la historia.",positiva:true,fecha:"Ene 2024"}], requisitos:{minimos:{SO:"Windows 10",CPU:"Intel Core i3-3210",RAM:"4 GB",GPU:"Intel HD 4000",Disco:"4 GB"},recomendados:{SO:"Windows 10/11",CPU:"Intel Core i5-4690",RAM:"8 GB",GPU:"NVIDIA GTX 700",Disco:"8 GB SSD"}} },
+  { nombre:"The Witcher 3", plataforma:"GOG", emoji:"🐺", imgs:["https://cdn.cloudflare.steamstatic.com/steam/apps/292030/ss_107600c1337accc09104f7a8aa7f275f23cad78.jpg","https://cdn.cloudflare.steamstatic.com/steam/apps/292030/ss_64eb66dc02dcb4b8d4fa8a74551f21e1e70bb7a.jpg"], original:39.99, precio:4.99, descuento:88, desarrollador:"CD Projekt Red", fecha:"19 May, 2015", generos:["RPG","Fantasia","Open World"], descripcion:"Geralt de Rivia busca a Ciri en un mundo abierto masivo. Historia sin igual con dos DLCs epicos incluidos.", rating:4.9, resenas:[{usuario:"WitcherFan",avatar:"W",texto:"El mejor RPG de todos los tiempos.",positiva:true,fecha:"Mar 2024"}], requisitos:{minimos:{SO:"Windows 7/8/10",CPU:"Intel Core i5-2500K",RAM:"6 GB",GPU:"NVIDIA GTX 660",Disco:"35 GB SSD"},recomendados:{SO:"Windows 10",CPU:"Intel Core i7-3770",RAM:"8 GB",GPU:"NVIDIA GTX 770",Disco:"35 GB SSD"}} },
+  { nombre:"GTA VI", plataforma:"PS5 / Xbox / PC", emoji:"🌆", imgs:["https://upload.wikimedia.org/wikipedia/en/thumb/a/a5/Grand_Theft_Auto_VI_Logo.png/300px-Grand_Theft_Auto_VI_Logo.png","https://staticg.sportskeeda.com/editor/2023/12/a48c8-17018498688300-1920.jpg"], original:79.99, precio:59.99, descuento:25, desarrollador:"Rockstar Games", fecha:"2025", generos:["Accion","Open World","Crimen"], descripcion:"Grand Theft Auto VI regresa a Vice City con la primera protagonista femenina de la saga. El mundo abierto mas grande de Rockstar.", rating:4.9, resenas:[{usuario:"GTAFan_MX",avatar:"G",texto:"El juego mas esperado de la decada.",positiva:true,fecha:"2025"}], requisitos:{minimos:{SO:"Windows 11",CPU:"Intel Core i7-10700K",RAM:"16 GB",GPU:"NVIDIA RTX 3060",Disco:"150 GB SSD"},recomendados:{SO:"Windows 11",CPU:"Intel Core i9-12900K",RAM:"32 GB",GPU:"NVIDIA RTX 4080",Disco:"150 GB SSD"}} },
+  { nombre:"GTA V", plataforma:"Steam", emoji:"🚗", imgs:["https://cdn.cloudflare.steamstatic.com/steam/apps/271590/ss_718d6e29f8e61efc5c14a43f10c56c2c0d7dc5d.jpg","https://cdn.cloudflare.steamstatic.com/steam/apps/271590/ss_c4e15a9edfd07c1b40b8dfbb1b2e43f5c571cf3.jpg"], original:29.99, precio:8.99, descuento:70, desarrollador:"Rockstar Games", fecha:"14 Abr, 2015", generos:["Accion","Open World","Multijugador"], descripcion:"GTA V sigue a tres criminales en Los Santos. Con GTA Online, sigue siendo el mas jugado del mundo.", rating:4.7, resenas:[{usuario:"RockstarFan",avatar:"R",texto:"Online sigue siendo adictivo despues de 10 anos.",positiva:true,fecha:"Mar 2024"}], requisitos:{minimos:{SO:"Windows 10",CPU:"Intel Core i5-3470",RAM:"8 GB",GPU:"NVIDIA GTX 660 2GB",Disco:"72 GB SSD"},recomendados:{SO:"Windows 10",CPU:"Intel Core i7-3770",RAM:"16 GB",GPU:"NVIDIA GTX 1060 6GB",Disco:"72 GB SSD"}} },
+  { nombre:"Call of Duty: Modern Warfare III", plataforma:"Battle.net", emoji:"🔫", imgs:["https://www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/blog/hero/mw-wwii/MWII_hero_Image.jpg","https://www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/blog/hero/mwiii/MWIII_hero.jpg"], original:69.99, precio:29.99, descuento:57, desarrollador:"Sledgehammer Games", fecha:"10 Nov, 2023", generos:["FPS","Accion","Multijugador"], descripcion:"Modern Warfare III regresa con Makarov como villano. Incluye todos los mapas clasicos de MW2 2009 y Warzone.", rating:3.9, resenas:[{usuario:"CODPlayer",avatar:"C",texto:"Los mapas clasicos son increibles.",positiva:true,fecha:"Nov 2023"}], requisitos:{minimos:{SO:"Windows 10",CPU:"Intel Core i5-6600K",RAM:"8 GB",GPU:"NVIDIA GTX 1060",Disco:"102 GB SSD"},recomendados:{SO:"Windows 10/11",CPU:"Intel Core i7-8700K",RAM:"16 GB",GPU:"NVIDIA RTX 2080",Disco:"102 GB SSD"}} },
+  { nombre:"Call of Duty: Black Ops 6", plataforma:"Battle.net", emoji:"💀", imgs:["https://www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/blog/hero/bo6/BO6_hero.jpg","https://www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/blog/hero/bo6/BO6_mp_hero.jpg"], original:69.99, precio:34.99, descuento:50, desarrollador:"Treyarch", fecha:"25 Oct, 2024", generos:["FPS","Accion","Multijugador"], descripcion:"Black Ops 6 regresa con movimiento omnidireccional y campana de alta tension en los anos 90.", rating:4.4, resenas:[{usuario:"BOFan",avatar:"B",texto:"El mejor Black Ops desde BO2.",positiva:true,fecha:"Nov 2024"}], requisitos:{minimos:{SO:"Windows 10",CPU:"Intel Core i5-6600K",RAM:"8 GB",GPU:"NVIDIA GTX 1060",Disco:"102 GB SSD"},recomendados:{SO:"Windows 10/11",CPU:"Intel Core i7-8700K",RAM:"16 GB",GPU:"NVIDIA RTX 3060",Disco:"102 GB SSD"}} },
+  { nombre:"Left 4 Dead 2", plataforma:"Steam", emoji:"🧟", imgs:["https://cdn.cloudflare.steamstatic.com/steam/apps/550/ss_a3c4eb927253aa7c8eb2739e3dd4d8b9264c4a7a.jpg","https://cdn.cloudflare.steamstatic.com/steam/apps/550/ss_9a1e7bfc57e3de7a96ac3b7e0c7c0c8c9d3f5e8.jpg"], original:9.99, precio:1.99, descuento:80, desarrollador:"Valve", fecha:"17 Nov, 2009", generos:["FPS","Zombies","Cooperativo"], descripcion:"El shooter cooperativo de zombies definitivo. Cuatro supervivientes contra hordas de infectados.", rating:4.8, resenas:[{usuario:"ZombieSurvivor",avatar:"Z",texto:"El mejor juego cooperativo de todos los tiempos.",positiva:true,fecha:"Feb 2024"}], requisitos:{minimos:{SO:"Windows XP/Vista/7",CPU:"Pentium 4 3.0GHz",RAM:"2 GB",GPU:"DirectX 9 compatible",Disco:"13 GB"},recomendados:{SO:"Windows 10",CPU:"Intel Core i5",RAM:"4 GB",GPU:"NVIDIA GTX 650",Disco:"13 GB SSD"}} },
+  { nombre:"Sekiro: Shadows Die Twice", plataforma:"Steam", emoji:"🥷", imgs:["https://cdn.cloudflare.steamstatic.com/steam/apps/814380/ss_c8b3a64eb9da9c5e1e99b7e7c4c8b5e4d3a2f1.jpg","https://cdn.cloudflare.steamstatic.com/steam/apps/814380/ss_f2e8b1c7d5a3e9b0c4d8f2a6b0e4c8d2f6a0.jpg"], original:59.99, precio:19.99, descuento:67, desarrollador:"FromSoftware", fecha:"22 Mar, 2019", generos:["Accion","Samurai","Souls-like"], descripcion:"Sekiro es un juego de accion ambientado en el Japon feudal. El sistema de combate de postura es unico en su genero.", rating:4.7, resenas:[{usuario:"SamuraiPro",avatar:"S",texto:"El combate mas satisfactorio que he jugado.",positiva:true,fecha:"Abr 2024"}], requisitos:{minimos:{SO:"Windows 7/8/10",CPU:"Intel Core i5-2500K",RAM:"8 GB",GPU:"NVIDIA GTX 970",Disco:"25 GB SSD"},recomendados:{SO:"Windows 10",CPU:"Intel Core i7-8700K",RAM:"16 GB",GPU:"NVIDIA GTX 1080",Disco:"25 GB SSD"}} },
+  { nombre:"Forza Horizon 5", plataforma:"Xbox / PC", emoji:"🏎️", imgs:["https://cdn.cloudflare.steamstatic.com/steam/apps/1551360/ss_b7d7e3a1c5f9b2e8a4c6d0f3a7b1e5c9d3f7.jpg","https://cdn.cloudflare.steamstatic.com/steam/apps/1551360/ss_e5c9b3f7a1e5c9b3f7a1e5c9b3f7a1e5c9b3.jpg"], original:59.99, precio:19.99, descuento:67, desarrollador:"Playground Games", fecha:"5 Nov, 2021", generos:["Carreras","Open World","Multijugador"], descripcion:"Forza Horizon 5 te lleva a Mexico en el festival de carreras mas espectacular. Con mas de 500 autos licenciados.", rating:4.8, resenas:[{usuario:"RacingFan",avatar:"R",texto:"El mejor juego de carreras del mercado.",positiva:true,fecha:"Ene 2024"}], requisitos:{minimos:{SO:"Windows 10",CPU:"Intel Core i5-4460",RAM:"8 GB",GPU:"NVIDIA GTX 970",Disco:"110 GB SSD"},recomendados:{SO:"Windows 10/11",CPU:"Intel Core i7-8700K",RAM:"16 GB",GPU:"NVIDIA RTX 3080",Disco:"110 GB SSD"}} },
+  { nombre:"BioShock Infinite", plataforma:"Steam", emoji:"🌊", imgs:["https://cdn.cloudflare.steamstatic.com/steam/apps/300/ss_e4d37e6b0e0a1b3c5e7f9a1b3c5e7f9a1b3c5.jpg","https://cdn.cloudflare.steamstatic.com/steam/apps/300/ss_f9a1b3c5e7d9f1a3b5c7e9f1a3b5c7e9f1a3.jpg"], original:29.99, precio:4.99, descuento:83, desarrollador:"Irrational Games", fecha:"26 Mar, 2013", generos:["FPS","Accion","Historia"], descripcion:"BioShock Infinite lleva al jugador a Columbia, una ciudad flotante. Una historia profunda sobre libre albedrio.", rating:4.7, resenas:[{usuario:"StoryGamer",avatar:"S",texto:"Una de las mejores historias en videojuegos.",positiva:true,fecha:"Mar 2024"}], requisitos:{minimos:{SO:"Windows Vista/7",CPU:"Intel Core i5-750",RAM:"4 GB",GPU:"NVIDIA GTX 460",Disco:"20 GB"},recomendados:{SO:"Windows 7/8",CPU:"Intel Core i7-870",RAM:"8 GB",GPU:"NVIDIA GTX 560 Ti",Disco:"30 GB SSD"}} },
+  { nombre:"BioShock 1", plataforma:"Steam", emoji:"🔱", imgs:["https://cdn.cloudflare.steamstatic.com/steam/apps/7670/ss_a1b3c5e7f9a1b3c5e7f9a1b3c5e7f9a1b3c5.jpg","https://cdn.cloudflare.steamstatic.com/steam/apps/7670/ss_b3c5e7f9a1b3c5e7f9a1b3c5e7f9a1b3c5e7.jpg"], original:19.99, precio:2.99, descuento:85, desarrollador:"Irrational Games", fecha:"21 Ago, 2007", generos:["FPS","Horror","Historia"], descripcion:"BioShock te sumerge en Rapture, una ciudad submarina utopica. Shooter con elementos RPG y narrativa memorable.", rating:4.8, resenas:[{usuario:"ClassicGamer",avatar:"C",texto:"Un clasico atemporal. Rapture es inolvidable.",positiva:true,fecha:"Feb 2024"}], requisitos:{minimos:{SO:"Windows XP/Vista",CPU:"Pentium 4 2.4GHz",RAM:"1 GB",GPU:"DirectX 9 128MB",Disco:"8 GB"},recomendados:{SO:"Windows XP/Vista",CPU:"Intel Core 2 Duo",RAM:"2 GB",GPU:"NVIDIA 8800GT",Disco:"8 GB SSD"}} },
+  { nombre:"Dishonored 2", plataforma:"Steam", emoji:"🎭", imgs:["https://cdn.cloudflare.steamstatic.com/steam/apps/403640/ss_c5e7f9a1b3c5e7f9a1b3c5e7f9a1b3c5e7f9.jpg","https://cdn.cloudflare.steamstatic.com/steam/apps/403640/ss_e7f9a1b3c5e7f9a1b3c5e7f9a1b3c5e7f9a1.jpg"], original:39.99, precio:5.99, descuento:85, desarrollador:"Arkane Studios", fecha:"11 Nov, 2016", generos:["Sigilo","Accion","Steampunk"], descripcion:"Dishonored 2 con Emily Kaldwin o Corvo Attano, cada uno con habilidades unicas. Libertad total de juego.", rating:4.5, resenas:[{usuario:"StealthMaster",avatar:"S",texto:"Libertad de juego increible.",positiva:true,fecha:"Mar 2024"}], requisitos:{minimos:{SO:"Windows 7/8/10",CPU:"Intel Core i5-2400",RAM:"8 GB",GPU:"NVIDIA GTX 660",Disco:"60 GB SSD"},recomendados:{SO:"Windows 10",CPU:"Intel Core i7-4770",RAM:"16 GB",GPU:"NVIDIA GTX 1060 6GB",Disco:"60 GB SSD"}} },
+  { nombre:"Battlefield 2042", plataforma:"Steam", emoji:"💣", imgs:["https://cdn.cloudflare.steamstatic.com/steam/apps/1517290/ss_f9a1b3c5e7f9a1b3c5e7f9a1b3c5e7f9a1b3.jpg","https://cdn.cloudflare.steamstatic.com/steam/apps/1517290/ss_a1b3c5e7f9a1b3c5e7f9a1b3c5e7f9a1b3c5.jpg"], original:59.99, precio:9.99, descuento:83, desarrollador:"DICE", fecha:"19 Nov, 2021", generos:["FPS","Multijugador","Militar"], descripcion:"Battlefield 2042 con mapas masivos para 128 jugadores, especialistas con habilidades unicas.", rating:3.6, resenas:[{usuario:"BFVet",avatar:"B",texto:"Mejorado mucho desde el lanzamiento.",positiva:true,fecha:"Ene 2024"}], requisitos:{minimos:{SO:"Windows 10",CPU:"Intel Core i5-6600K",RAM:"8 GB",GPU:"NVIDIA GTX 1050 Ti",Disco:"100 GB SSD"},recomendados:{SO:"Windows 10",CPU:"Intel Core i7-8700K",RAM:"16 GB",GPU:"NVIDIA RTX 3060",Disco:"100 GB SSD"}} },
+  { nombre:"Dark Souls III", plataforma:"Steam", emoji:"💀", imgs:["https://cdn.cloudflare.steamstatic.com/steam/apps/374320/ss_7f4c52e0e43b42756b40e636e09e7bf59fff4c6.jpg","https://cdn.cloudflare.steamstatic.com/steam/apps/374320/ss_c87d3e1f0ba3e1d88e0d5b3e7f9a1b3c5e7f9.jpg"], original:59.99, precio:14.99, descuento:75, desarrollador:"FromSoftware", fecha:"12 Abr, 2016", generos:["RPG","Souls-like","Fantasia"], descripcion:"Dark Souls III es la culminacion de la saga. Combate intenso, jefes memorables y lore profundo en un mundo oscuro y hermoso.", rating:4.8, resenas:[{usuario:"SoulsVet",avatar:"S",texto:"El pinnacle de la saga Dark Souls.",positiva:true,fecha:"Feb 2024"}], requisitos:{minimos:{SO:"Windows 7 SP1",CPU:"Intel Core i3-2100",RAM:"8 GB",GPU:"NVIDIA GTX 750 Ti",Disco:"25 GB SSD"},recomendados:{SO:"Windows 10",CPU:"Intel Core i7-3770",RAM:"8 GB",GPU:"NVIDIA GTX 970",Disco:"25 GB SSD"}} },
+  { nombre:"Hades", plataforma:"Steam", emoji:"🔥", imgs:["https://cdn.cloudflare.steamstatic.com/steam/apps/1145360/ss_b9b4b2e7d3a5c7e9f1a3b5c7e9d1f3a5b7c9.jpg","https://cdn.cloudflare.steamstatic.com/steam/apps/1145360/ss_c7e9f1a3b5c7e9d1f3a5b7c9e1d3f5a7b9c1.jpg"], original:24.99, precio:9.99, descuento:60, desarrollador:"Supergiant Games", fecha:"17 Sep, 2020", generos:["Accion","Roguelite","Mitologia"], descripcion:"Hades es un roguelite de accion donde encarnas a Zagreo, hijo de Hades, intentando escapar del inframundo. Narrado de forma magistral.", rating:4.9, resenas:[{usuario:"MythFan",avatar:"M",texto:"El mejor roguelite jamas hecho. Narrativa increible.",positiva:true,fecha:"Abr 2024"}], requisitos:{minimos:{SO:"Windows 7 SP1",CPU:"Dual Core 2.4GHz",RAM:"8 GB",GPU:"NVIDIA GTX 450",Disco:"20 GB SSD"},recomendados:{SO:"Windows 10",CPU:"Dual Core 3.0GHz",RAM:"16 GB",GPU:"NVIDIA GTX 970",Disco:"20 GB SSD"}} },
+  { nombre:"Resident Evil 4 Remake", plataforma:"Steam", emoji:"🧟‍♂️", imgs:["https://cdn.cloudflare.steamstatic.com/steam/apps/2050650/ss_a1b3c5e7f9a1b3c5e7f9a1b3c5e7f9a1b3c5.jpg","https://cdn.cloudflare.steamstatic.com/steam/apps/2050650/ss_b3c5e7f9a1b3c5e7f9a1b3c5e7f9a1b3c5e7.jpg"], original:59.99, precio:24.99, descuento:58, desarrollador:"Capcom", fecha:"24 Mar, 2023", generos:["Survival Horror","Accion","Tercera Persona"], descripcion:"El remake definitivo de RE4. Leon S. Kennedy en una mision para rescatar a la hija del presidente en un pueblo europeo misterioso.", rating:4.8, resenas:[{usuario:"REFan",avatar:"R",texto:"El remake perfecto. Supera al original.",positiva:true,fecha:"Abr 2023"}], requisitos:{minimos:{SO:"Windows 10",CPU:"Intel Core i7-8700",RAM:"16 GB",GPU:"NVIDIA GTX 1070",Disco:"60 GB SSD"},recomendados:{SO:"Windows 10/11",CPU:"Intel Core i7-9700K",RAM:"16 GB",GPU:"NVIDIA RTX 2080",Disco:"60 GB SSD"}} },
+  { nombre:"God of War (PC)", plataforma:"Steam", emoji:"⚡", imgs:["https://cdn.cloudflare.steamstatic.com/steam/apps/1593500/ss_a3c5e7f9a1b3c5e7f9a1b3c5e7f9a1b3c5e7.jpg","https://cdn.cloudflare.steamstatic.com/steam/apps/1593500/ss_b5c7e9f1a3b5c7e9d1f3a5b7c9e1d3f5a7b9.jpg"], original:49.99, precio:19.99, descuento:60, desarrollador:"Santa Monica Studio", fecha:"14 Ene, 2022", generos:["Accion","Aventura","Mitologia"], descripcion:"Kratos y su hijo Atreus se adentran en la mitologia nordica. Una historia emocionante de padre e hijo en un mundo brutal.", rating:4.9, resenas:[{usuario:"GoWFan",avatar:"G",texto:"Obra de arte. Historia de padre e hijo perfecta.",positiva:true,fecha:"Feb 2022"}], requisitos:{minimos:{SO:"Windows 10",CPU:"Intel Core i5-2500K",RAM:"8 GB",GPU:"NVIDIA GTX 960",Disco:"70 GB SSD"},recomendados:{SO:"Windows 10",CPU:"Intel Core i9-9900K",RAM:"16 GB",GPU:"NVIDIA RTX 3080",Disco:"70 GB SSD"}} },
+  { nombre:"Spider-Man Remastered", plataforma:"Steam", emoji:"🕷️", imgs:["https://cdn.cloudflare.steamstatic.com/steam/apps/1817070/ss_c5e7f9a1b3c5e7f9a1b3c5e7f9a1b3c5e7f9.jpg","https://cdn.cloudflare.steamstatic.com/steam/apps/1817070/ss_e7f9a1b3c5e7f9a1b3c5e7f9a1b3c5e7f9a1.jpg"], original:59.99, precio:29.99, descuento:50, desarrollador:"Insomniac Games", fecha:"12 Ago, 2022", generos:["Accion","Superhero","Open World"], descripcion:"Marvel's Spider-Man Remastered en PC. Columpia por Manhattan, salva a los ciudadanos y enfrenta a los villanos mas icónicos del universo Marvel.", rating:4.8, resenas:[{usuario:"SpiderFan",avatar:"S",texto:"La mejor adaptacion de Spider-Man en videojuegos.",positiva:true,fecha:"Sep 2022"}], requisitos:{minimos:{SO:"Windows 10",CPU:"Intel Core i3-8100",RAM:"16 GB",GPU:"NVIDIA GTX 950",Disco:"75 GB SSD"},recomendados:{SO:"Windows 10/11",CPU:"Intel Core i5-8600",RAM:"16 GB",GPU:"NVIDIA RTX 2060",Disco:"75 GB SSD"}} },
+  { nombre:"Horizon Zero Dawn", plataforma:"Steam", emoji:"🦕", imgs:["https://cdn.cloudflare.steamstatic.com/steam/apps/1151640/ss_a1b3c5e7f9a1b3c5e7f9a1b3c5e7f9a1b3c5.jpg","https://cdn.cloudflare.steamstatic.com/steam/apps/1151640/ss_b3c5e7f9a1b3c5e7f9a1b3c5e7f9a1b3c5e7.jpg"], original:49.99, precio:14.99, descuento:70, desarrollador:"Guerrilla Games", fecha:"7 Ago, 2020", generos:["RPG","Accion","Open World"], descripcion:"Aloy caza maquinas en un futuro post-apocaliptico donde la naturaleza recupero la Tierra. Un mundo abierto espectacular.", rating:4.6, resenas:[{usuario:"HorizonFan",avatar:"H",texto:"Mundo abierto increible y Aloy es una protagonista memorable.",positiva:true,fecha:"Sep 2020"}], requisitos:{minimos:{SO:"Windows 10",CPU:"Intel Core i5-2500K",RAM:"8 GB",GPU:"NVIDIA GTX 780",Disco:"100 GB SSD"},recomendados:{SO:"Windows 10",CPU:"Intel Core i7-4770K",RAM:"16 GB",GPU:"NVIDIA GTX 1060",Disco:"100 GB SSD"}} },
+  { nombre:"The Last of Us Part I", plataforma:"Steam", emoji:"🌿", imgs:["https://cdn.cloudflare.steamstatic.com/steam/apps/1888930/ss_c7e9f1a3b5c7e9d1f3a5b7c9e1d3f5a7b9c1.jpg","https://cdn.cloudflare.steamstatic.com/steam/apps/1888930/ss_e9f1a3b5c7e9d1f3a5b7c9e1d3f5a7b9c1e3.jpg"], original:59.99, precio:29.99, descuento:50, desarrollador:"Naughty Dog", fecha:"28 Mar, 2023", generos:["Survival Horror","Accion","Historia"], descripcion:"Joel y Ellie atraviesan una America post-apocaliptica infectada. Considerado uno de los mejores juegos de la historia.", rating:4.9, resenas:[{usuario:"TLOUFan",avatar:"T",texto:"La mejor historia en videojuegos. Un masterpiece.",positiva:true,fecha:"Abr 2023"}], requisitos:{minimos:{SO:"Windows 10",CPU:"Intel Core i7-8700K",RAM:"16 GB",GPU:"NVIDIA RTX 2070",Disco:"72 GB SSD"},recomendados:{SO:"Windows 10/11",CPU:"Intel Core i9-10900K",RAM:"32 GB",GPU:"NVIDIA RTX 3080",Disco:"72 GB SSD"}} },
+  { nombre:"Stardew Valley", plataforma:"Steam", emoji:"🌾", imgs:["https://cdn.cloudflare.steamstatic.com/steam/apps/413150/ss_a1b3c5e7f9a1b3c5e7f9a1b3c5e7f9a1b3c5.jpg","https://cdn.cloudflare.steamstatic.com/steam/apps/413150/ss_b3c5e7f9a1b3c5e7f9a1b3c5e7f9a1b3c5e7.jpg"], original:14.99, precio:4.99, descuento:67, desarrollador:"ConcernedApe", fecha:"26 Feb, 2016", generos:["Simulacion","RPG","Cooperativo"], descripcion:"Hereda la granja de tu abuelo y construye una nueva vida en el Valle Riachuelo. Cultiva, pesca, mina y haz amigos.", rating:4.9, resenas:[{usuario:"FarmFan",avatar:"F",texto:"Adictivo y relajante. Horas y horas de juego.",positiva:true,fecha:"Mar 2024"}], requisitos:{minimos:{SO:"Windows Vista",CPU:"Dual Core 2.0GHz",RAM:"2 GB",GPU:"256 MB VRAM",Disco:"500 MB"},recomendados:{SO:"Windows 10",CPU:"Intel Core i5",RAM:"4 GB",GPU:"1 GB VRAM",Disco:"500 MB SSD"}} },
+  { nombre:"Among Us", plataforma:"Steam", emoji:"👨‍🚀", imgs:["https://cdn.cloudflare.steamstatic.com/steam/apps/945360/ss_a3c5e7f9a1b3c5e7f9a1b3c5e7f9a1b3c5e7.jpg","https://cdn.cloudflare.steamstatic.com/steam/apps/945360/ss_c5e7f9a1b3c5e7f9a1b3c5e7f9a1b3c5e7f9.jpg"], original:4.99, precio:1.99, descuento:60, desarrollador:"Innersloth", fecha:"15 Nov, 2018", generos:["Multijugador","Social","Estrategia"], descripcion:"Trabaja con tu tripulacion o saboteau como el impostor. El juego social mas popular del mundo.", rating:4.2, resenas:[{usuario:"CrewmateFan",avatar:"C",texto:"Divertidisimo con amigos. El mejor juego de traicion.",positiva:true,fecha:"Oct 2020"}], requisitos:{minimos:{SO:"Windows 7 SP1",CPU:"SSE2",RAM:"1 GB",GPU:"DirectX 10.1",Disco:"250 MB"},recomendados:{SO:"Windows 10",CPU:"Dual Core 2.4GHz",RAM:"2 GB",GPU:"Dedicated GPU",Disco:"250 MB SSD"}} },
+  { nombre:"Fall Guys", plataforma:"Epic Games", emoji:"🫘", imgs:["https://cdn.cloudflare.steamstatic.com/steam/apps/1097150/ss_b5c7e9f1a3b5c7e9d1f3a5b7c9e1d3f5a7b9.jpg","https://cdn.cloudflare.steamstatic.com/steam/apps/1097150/ss_d7f9a1b3c5e7f9a1b3c5e7f9a1b3c5e7f9a1.jpg"], original:19.99, precio:0, descuento:100, desarrollador:"Mediatonic", fecha:"4 Ago, 2020", generos:["Multijugador","Battle Royale","Casual"], descripcion:"Fall Guys es un battle royale de obstaculos para hasta 60 jugadores. Compite en rondas de eliminacion en mapas locos y coloridos.", rating:4.1, resenas:[{usuario:"BeanFan",avatar:"B",texto:"Muy divertido en modo casual. Gratis es un win.",positiva:true,fecha:"Jun 2022"}], requisitos:{minimos:{SO:"Windows 10",CPU:"Intel Core i5",RAM:"8 GB",GPU:"NVIDIA GTX 660",Disco:"2 GB SSD"},recomendados:{SO:"Windows 10",CPU:"Intel Core i7",RAM:"16 GB",GPU:"NVIDIA GTX 1060",Disco:"2 GB SSD"}} },
+  { nombre:"Apex Legends", plataforma:"EA App", emoji:"🎯", imgs:["https://media.contentapi.ea.com/content/dam/apex-legends/common/apex-legends-keyart-16x9.jpg.adapt.crop16x9.1023w.jpg","https://media.contentapi.ea.com/content/dam/apex-legends/common/apex-legends-gameplay-ss1.jpg.adapt.crop16x9.1023w.jpg"], original:0, precio:0, descuento:0, desarrollador:"Respawn Entertainment", fecha:"4 Feb, 2019", generos:["FPS","Battle Royale","Multijugador"], descripcion:"Apex Legends es el battle royale de Respawn. Elige tu leyenda y combina habilidades unicas en equipos de tres para ser el ultimo en pie.", rating:4.3, resenas:[{usuario:"ApexPred",avatar:"A",texto:"El mejor battle royale del mercado. Movimiento fluido.",positiva:true,fecha:"Mar 2024"}], requisitos:{minimos:{SO:"Windows 7 64-bit",CPU:"Intel Core i3-6300",RAM:"6 GB",GPU:"NVIDIA GTX 970",Disco:"56 GB SSD"},recomendados:{SO:"Windows 10 64-bit",CPU:"Intel Core i5-3570K",RAM:"8 GB",GPU:"NVIDIA RTX 2060",Disco:"56 GB SSD"}} },
+  { nombre:"Valorant", plataforma:"Riot Games", emoji:"🎮", imgs:["https://cmsassets.rgpub.io/sanity/images/dsfx7636/news/65b03ef6cdb8be28c1d26db8c4f4e61bdb94b484-1920x1080.jpg","https://cmsassets.rgpub.io/sanity/images/dsfx7636/news/9af06cce-61f6-4e00-b1f0-0a5a31ecdaf1-1920x1080.jpg"], original:0, precio:0, descuento:0, desarrollador:"Riot Games", fecha:"2 Jun, 2020", generos:["FPS","Tactivo","Multijugador"], descripcion:"Valorant es un shooter tactico 5v5 gratuito de Riot Games. Elige a tu agente con habilidades unicas y elimina al equipo contrario.", rating:4.4, resenas:[{usuario:"ValFan",avatar:"V",texto:"El mejor competitivo del mercado. Mecanicas perfectas.",positiva:true,fecha:"Abr 2024"}], requisitos:{minimos:{SO:"Windows 7/8/10",CPU:"Intel Core i3-370M",RAM:"4 GB",GPU:"Intel HD 3000",Disco:"10 GB SSD"},recomendados:{SO:"Windows 10",CPU:"Intel Core i5-4460",RAM:"8 GB",GPU:"NVIDIA GTX 1050 Ti",Disco:"10 GB SSD"}} },
+  { nombre:"Halo Infinite", plataforma:"Xbox / PC", emoji:"🪖", imgs:["https://cdn.cloudflare.steamstatic.com/steam/apps/1240440/ss_a5b7c9e1d3f5a7b9c1e3d5f7a9b1c3e5d7f9.jpg","https://cdn.cloudflare.steamstatic.com/steam/apps/1240440/ss_b7c9e1d3f5a7b9c1e3d5f7a9b1c3e5d7f9a1.jpg"], original:59.99, precio:19.99, descuento:67, desarrollador:"343 Industries", fecha:"8 Dic, 2021", generos:["FPS","Accion","Sci-Fi"], descripcion:"Master Chief regresa en una aventura en mundo abierto. El multiplayer es gratuito y uno de los mejores shooters competitivos.", rating:4.2, resenas:[{usuario:"HaloFan",avatar:"H",texto:"La campana es la mejor desde Halo 3.",positiva:true,fecha:"Dic 2021"}], requisitos:{minimos:{SO:"Windows 10",CPU:"Intel Core i5-4440",RAM:"8 GB",GPU:"NVIDIA GTX 1050 Ti",Disco:"50 GB SSD"},recomendados:{SO:"Windows 10/11",CPU:"Intel Core i7-9700K",RAM:"16 GB",GPU:"NVIDIA RTX 2070",Disco:"50 GB SSD"}} },
+  { nombre:"It Takes Two", plataforma:"Steam", emoji:"👫", imgs:["https://cdn.cloudflare.steamstatic.com/steam/apps/1426210/ss_c9e1d3f5a7b9c1e3d5f7a9b1c3e5d7f9a1b3.jpg","https://cdn.cloudflare.steamstatic.com/steam/apps/1426210/ss_e1d3f5a7b9c1e3d5f7a9b1c3e5d7f9a1b3c5.jpg"], original:39.99, precio:14.99, descuento:63, desarrollador:"Hazelight Studios", fecha:"26 Mar, 2021", generos:["Cooperativo","Plataformas","Aventura"], descripcion:"It Takes Two es el cooperativo del ano. Cody y May deben trabajar juntos para salvar su matrimonio en una aventura magica y variada.", rating:4.9, resenas:[{usuario:"CoopFan",avatar:"C",texto:"El mejor juego cooperativo de la decada.",positiva:true,fecha:"Abr 2021"}], requisitos:{minimos:{SO:"Windows 10",CPU:"Intel Core i3-6100T",RAM:"8 GB",GPU:"NVIDIA GTX 660",Disco:"50 GB SSD"},recomendados:{SO:"Windows 10",CPU:"Intel Core i5-8600K",RAM:"16 GB",GPU:"NVIDIA RTX 2060",Disco:"50 GB SSD"}} },
+  { nombre:"Monster Hunter: World", plataforma:"Steam", emoji:"🐉", imgs:["https://cdn.cloudflare.steamstatic.com/steam/apps/582010/ss_a7b9c1e3d5f7a9b1c3e5d7f9a1b3c5e7d9f1.jpg","https://cdn.cloudflare.steamstatic.com/steam/apps/582010/ss_b9c1e3d5f7a9b1c3e5d7f9a1b3c5e7d9f1a3.jpg"], original:29.99, precio:9.99, descuento:67, desarrollador:"Capcom", fecha:"9 Ago, 2018", generos:["RPG","Accion","Cooperativo"], descripcion:"Caza monstruos colosales en el Nuevo Mundo. Con el DLC Iceborne, es el Monster Hunter mas grande y completo jamas creado.", rating:4.7, resenas:[{usuario:"HunterPro",avatar:"H",texto:"Cientos de horas de contenido. El mejor Monster Hunter.",positiva:true,fecha:"Feb 2024"}], requisitos:{minimos:{SO:"Windows 7/8/10",CPU:"Intel Core i5-4460",RAM:"8 GB",GPU:"NVIDIA GTX 760",Disco:"30 GB SSD"},recomendados:{SO:"Windows 10",CPU:"Intel Core i7-3770",RAM:"8 GB",GPU:"NVIDIA GTX 1060",Disco:"30 GB SSD"}} },
+  { nombre:"Death Stranding", plataforma:"Steam", emoji:"📦", imgs:["https://cdn.cloudflare.steamstatic.com/steam/apps/1190460/ss_c1e3d5f7a9b1c3e5d7f9a1b3c5e7d9f1a3b5.jpg","https://cdn.cloudflare.steamstatic.com/steam/apps/1190460/ss_d3f5a7b9c1e3d5f7a9b1c3e5d7f9a1b3c5e7.jpg"], original:39.99, precio:12.99, descuento:68, desarrollador:"Kojima Productions", fecha:"14 Jul, 2020", generos:["Accion","Aventura","Sci-Fi"], descripcion:"Sam Porter Bridges conecta a una civilizacion fracturada de America. El juego mas unico de Hideo Kojima. Una experiencia cinematica sin igual.", rating:4.3, resenas:[{usuario:"KojimaFan",avatar:"K",texto:"Una experiencia unica. No hay otro juego igual.",positiva:true,fecha:"Ago 2020"}], requisitos:{minimos:{SO:"Windows 10",CPU:"Intel Core i5-3470",RAM:"8 GB",GPU:"NVIDIA GTX 1060 3GB",Disco:"80 GB SSD"},recomendados:{SO:"Windows 10",CPU:"Intel Core i7-3770",RAM:"8 GB",GPU:"NVIDIA GTX 1080",Disco:"80 GB SSD"}} },
 ];
 
-  let carrito = [];
-  let juegoActual = null;
-  let opinionPositiva = true;
-  let opinionEstrellas = 5;
+const masVendidos = [0, 2, 8, 6, 11, 14, 21, 22]; // indices de juegos mas vendidos
 
-  function buscarJuegos(texto) {
-    const filtrados = juegos.filter(j =>
-      j.nombre.toLowerCase().includes(texto.toLowerCase()) ||
-      j.plataforma.toLowerCase().includes(texto.toLowerCase()) ||
-      j.generos.some(g => g.toLowerCase().includes(texto.toLowerCase()))
-    );
-    const lista = document.getElementById('lista-juegos');
-    if (!filtrados.length) {
-      lista.innerHTML = '<p style="color:var(--muted);padding:20px;">No se encontraron juegos</p>';
-      return;
-    }
-    lista.innerHTML = filtrados.map(j => {
-      const i = juegos.indexOf(j);
-      const imgPortada = j.imgs && j.imgs.length > 0 ? j.imgs[0] : null;
-      return `
-        <div class="juego" onclick="abrirDetalle(${i})">
-          <div class="juego-img">${imgPortada ? `<img src="${imgPortada}" onerror="this.parentNode.innerHTML='${j.emoji}'">` : j.emoji}</div>
-          <div class="juego-info">
-            <div class="juego-nombre">${j.nombre}</div>
-            <div class="juego-plataforma">${j.plataforma}</div>
-            <div class="juego-precios">
-              <span class="precio-original">$${j.original}</span>
-              <span class="precio-nuevo">$${j.precio}</span>
-              <span class="descuento">-${j.descuento}%</span>
-            </div>
-            <button class="btn-ver">Ver detalles</button>
+let carrito = [];
+let juegoActual = null;
+let opinionPositiva = true;
+let opinionEstrellas = 5;
+
+function buscarJuegos(texto) {
+  const filtrados = texto ? juegos.filter(j =>
+    j.nombre.toLowerCase().includes(texto.toLowerCase()) ||
+    j.plataforma.toLowerCase().includes(texto.toLowerCase()) ||
+    j.generos.some(g => g.toLowerCase().includes(texto.toLowerCase()))
+  ) : juegos;
+  renderJuegos(filtrados, 'lista-juegos');
+}
+
+function filtrarGenero(genero, btn) {
+  document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('activo'));
+  btn.classList.add('activo');
+  const filtrados = genero === 'Todos' ? juegos : juegos.filter(j => j.generos.some(g => g.toLowerCase().includes(genero.toLowerCase())));
+  renderJuegos(filtrados, 'lista-juegos');
+}
+
+function renderJuegos(lista, containerId) {
+  const el = document.getElementById(containerId);
+  if (!lista.length) { el.innerHTML = '<p style="color:var(--muted);padding:20px;">No se encontraron juegos</p>'; return; }
+  el.innerHTML = lista.map(j => {
+    const i = juegos.indexOf(j);
+    const imgPortada = j.imgs && j.imgs.length > 0 ? j.imgs[0] : null;
+    return `
+      <div class="juego" onclick="abrirDetalle(${i})">
+        <div class="juego-img">${imgPortada ? `<img src="${imgPortada}" onerror="this.parentNode.innerHTML='${j.emoji}'">` : j.emoji}</div>
+        <div class="juego-info">
+          <div class="juego-nombre">${j.nombre}</div>
+          <div class="juego-plataforma">${j.plataforma}</div>
+          <div class="juego-precios">
+            <span class="precio-original">${j.precio > 0 ? '$'+j.original : ''}</span>
+            <span class="precio-nuevo">${j.precio > 0 ? '$'+j.precio : 'GRATIS'}</span>
+            ${j.descuento > 0 ? `<span class="descuento">-${j.descuento}%</span>` : ''}
           </div>
-        </div>`;
-    }).join('');
-  }
-
-  function cambiarTab(tab) {
-    document.querySelectorAll('.detalle-tab').forEach((t, i) => {
-      t.classList.toggle('activo', ['descripcion','resenas','requisitos'][i] === tab);
-    });
-    document.querySelectorAll('.detalle-tab-content').forEach(c => c.classList.remove('activo'));
-    document.getElementById('tab-' + tab).classList.add('activo');
-  }
-
-  function cambiarImagen(url, thumbEl) {
-    const principal = document.getElementById('galeria-principal');
-    principal.innerHTML = url ? `<img src="${url}" onerror="this.parentNode.innerHTML='🎮'">` : juegos[juegoActual].emoji;
-    document.querySelectorAll('.galeria-thumb').forEach(t => t.classList.remove('activo'));
-    thumbEl.classList.add('activo');
-  }
-
-  function selTipo(positiva) {
-    opinionPositiva = positiva;
-    document.getElementById('btn-pos').className = 'btn-tipo' + (positiva ? ' activo-pos' : '');
-    document.getElementById('btn-neg').className = 'btn-tipo' + (!positiva ? ' activo-neg' : '');
-  }
-
-  function selEstrella(n) {
-    opinionEstrellas = n;
-    document.querySelectorAll('.estrella-btn').forEach((b, i) => b.classList.toggle('activo', i < n));
-  }
-
-  function enviarOpinion() {
-    const texto = document.getElementById('opinion-texto').value.trim();
-    if (!texto) { alert('Escribe tu opinion primero'); return; }
-    const j = juegos[juegoActual];
-    const nombre = localStorage.getItem('userName') || 'Usuario';
-    j.resenas.unshift({ usuario: nombre, avatar: nombre[0].toUpperCase(), texto, positiva: opinionPositiva, fecha: new Date().toLocaleDateString('es-MX', { month: 'short', year: 'numeric' }) });
-    document.getElementById('opinion-texto').value = '';
-    renderResenas(j);
-    cambiarTab('resenas');
-    alert('Resena publicada!');
-  }
-
-  function renderResenas(j) {
-    document.getElementById('detalle-resenas').innerHTML = j.resenas.map(r => `
-      <div class="resena ${r.positiva ? 'resena-positiva' : 'resena-negativa'}">
-        <div class="resena-header">
-          <div class="resena-avatar">${r.avatar}</div>
-          <div><div class="resena-usuario">${r.usuario}</div><div class="resena-fecha">${r.fecha}</div></div>
-          <div class="resena-rating">${r.positiva ? '👍 Recomendado' : '👎 No recomendado'}</div>
+          <button class="btn-ver">Ver detalles</button>
         </div>
-        <div class="resena-texto">${r.texto}</div>
-      </div>`).join('');
+      </div>`;
+  }).join('');
+}
+
+function cambiarTab(tab) {
+  document.querySelectorAll('.detalle-tab').forEach((t, i) => t.classList.toggle('activo', ['descripcion','resenas','requisitos'][i] === tab));
+  document.querySelectorAll('.detalle-tab-content').forEach(c => c.classList.remove('activo'));
+  document.getElementById('tab-' + tab).classList.add('activo');
+}
+
+function cambiarImagen(url, thumbEl) {
+  const principal = document.getElementById('galeria-principal');
+  principal.innerHTML = url ? `<img src="${url}" onerror="this.parentNode.innerHTML='🎮'">` : juegos[juegoActual].emoji;
+  document.querySelectorAll('.galeria-thumb').forEach(t => t.classList.remove('activo'));
+  thumbEl.classList.add('activo');
+}
+
+function selTipo(positiva) {
+  opinionPositiva = positiva;
+  document.getElementById('btn-pos').className = 'btn-tipo' + (positiva ? ' activo-pos' : '');
+  document.getElementById('btn-neg').className = 'btn-tipo' + (!positiva ? ' activo-neg' : '');
+}
+
+function selEstrella(n) {
+  opinionEstrellas = n;
+  document.querySelectorAll('.estrella-btn').forEach((b, i) => b.classList.toggle('activo', i < n));
+}
+
+function enviarOpinion() {
+  const texto = document.getElementById('opinion-texto').value.trim();
+  if (!texto) { alert('Escribe tu opinion primero'); return; }
+  const j = juegos[juegoActual];
+  const nombre = localStorage.getItem('userName') || 'Usuario';
+  j.resenas.unshift({ usuario: nombre, avatar: nombre[0].toUpperCase(), texto, positiva: opinionPositiva, fecha: new Date().toLocaleDateString('es-MX', { month: 'short', year: 'numeric' }) });
+  document.getElementById('opinion-texto').value = '';
+  renderResenas(j);
+  cambiarTab('resenas');
+  alert('Resena publicada!');
+}
+
+function renderResenas(j) {
+  document.getElementById('detalle-resenas').innerHTML = j.resenas.map(r => `
+    <div class="resena ${r.positiva ? 'resena-positiva' : 'resena-negativa'}">
+      <div class="resena-header">
+        <div class="resena-avatar">${r.avatar}</div>
+        <div><div class="resena-usuario">${r.usuario}</div><div class="resena-fecha">${r.fecha}</div></div>
+        <div class="resena-rating">${r.positiva ? '👍 Recomendado' : '👎 No recomendado'}</div>
+      </div>
+      <div class="resena-texto">${r.texto}</div>
+    </div>`).join('');
+}
+
+function abrirDetalle(i) {
+  const j = juegos[i];
+  juegoActual = i;
+  const header = document.getElementById('detalle-header');
+  const imgAnterior = header.querySelector('img');
+  if (imgAnterior) imgAnterior.remove();
+  if (j.imgs && j.imgs.length > 0) {
+    const img = document.createElement('img');
+    img.src = j.imgs[0];
+    img.onerror = () => img.remove();
+    header.insertBefore(img, header.firstChild);
   }
+  document.getElementById('detalle-titulo').textContent = j.nombre;
+  document.getElementById('detalle-dev').textContent = j.desarrollador;
+  document.getElementById('detalle-tags').innerHTML = j.generos.map(g => `<span class="detalle-tag">${g}</span>`).join('');
+  const galPrincipal = document.getElementById('galeria-principal');
+  galPrincipal.innerHTML = j.imgs && j.imgs.length > 0 ? `<img src="${j.imgs[0]}" onerror="this.parentNode.innerHTML='${j.emoji}'">` : j.emoji;
+  document.getElementById('galeria-thumbs').innerHTML = (j.imgs || []).map((url, idx) => `
+    <div class="galeria-thumb ${idx === 0 ? 'activo' : ''}" onclick="cambiarImagen('${url}', this)">
+      <img src="${url}" onerror="this.parentNode.innerHTML='🖼️'">
+    </div>`).join('') + `<div class="galeria-thumb" onclick="cambiarImagen(null, this)">${j.emoji}</div>`;
+  document.getElementById('detalle-descripcion').textContent = j.descripcion;
+  document.getElementById('detalle-desc-badge').textContent = j.descuento > 0 ? `-${j.descuento}%` : 'OFERTA';
+  document.getElementById('detalle-precio-orig').textContent = j.precio > 0 ? `$${j.original}` : '';
+  document.getElementById('detalle-precio-nuevo').textContent = j.precio > 0 ? `$${j.precio}` : 'GRATIS';
+  const enCarrito = carrito.find(c => c.nombre === j.nombre);
+  const btn = document.getElementById('btn-agregar-detalle');
+  btn.textContent = enCarrito ? '✅ En el carrito' : (j.precio > 0 ? '🛒 Agregar al carrito' : '🎮 Obtener gratis');
+  btn.className = 'btn-agregar-detalle' + (enCarrito ? ' agregado' : '');
+  const estrellas = '★'.repeat(Math.round(j.rating)) + '☆'.repeat(5 - Math.round(j.rating));
+  document.getElementById('detalle-rating-num').textContent = j.rating.toFixed(1);
+  document.getElementById('detalle-rating-stars').textContent = estrellas;
+  document.getElementById('detalle-rating-total').textContent = `${j.resenas.length} resenas`;
+  document.getElementById('detalle-info-lista').innerHTML = `
+    <div class="detalle-info-item"><span>Plataforma</span><span>${j.plataforma}</span></div>
+    <div class="detalle-info-item"><span>Desarrollador</span><span>${j.desarrollador}</span></div>
+    <div class="detalle-info-item"><span>Lanzamiento</span><span>${j.fecha}</span></div>
+    <div class="detalle-info-item"><span>Generos</span><span>${j.generos.join(', ')}</span></div>`;
+  renderResenas(j);
+  const req = j.requisitos;
+  document.getElementById('detalle-requisitos').innerHTML = `
+    <div class="req-col"><h4>⚙️ Minimos</h4>${Object.entries(req.minimos).map(([k,v]) => `<div class="req-item"><span class="req-label">${k}</span><span class="req-valor">${v}</span></div>`).join('')}</div>
+    <div class="req-col"><h4>🚀 Recomendados</h4>${Object.entries(req.recomendados).map(([k,v]) => `<div class="req-item"><span class="req-label">${k}</span><span class="req-valor">${v}</span></div>`).join('')}</div>`;
+  cambiarTab('descripcion');
+  selTipo(true);
+  selEstrella(5);
+  document.getElementById('detalle-overlay').classList.add('abierto');
+  document.body.style.overflow = 'hidden';
+}
 
-  function abrirDetalle(i) {
-    const j = juegos[i];
-    juegoActual = i;
-    const header = document.getElementById('detalle-header');
-    const imgAnterior = header.querySelector('img');
-    if (imgAnterior) imgAnterior.remove();
-    if (j.imgs && j.imgs.length > 0) {
-      const img = document.createElement('img');
-      img.src = j.imgs[0];
-      img.onerror = () => img.remove();
-      header.insertBefore(img, header.firstChild);
-    }
-    document.getElementById('detalle-titulo').textContent = j.nombre;
-    document.getElementById('detalle-dev').textContent = j.desarrollador;
-    document.getElementById('detalle-tags').innerHTML = j.generos.map(g => `<span class="detalle-tag">${g}</span>`).join('');
-    const galPrincipal = document.getElementById('galeria-principal');
-    galPrincipal.innerHTML = j.imgs && j.imgs.length > 0 ? `<img src="${j.imgs[0]}" onerror="this.parentNode.innerHTML='${j.emoji}'">` : j.emoji;
-    document.getElementById('galeria-thumbs').innerHTML = (j.imgs || []).map((url, idx) => `
-      <div class="galeria-thumb ${idx === 0 ? 'activo' : ''}" onclick="cambiarImagen('${url}', this)">
-        <img src="${url}" onerror="this.parentNode.innerHTML='🖼️'">
-      </div>`).join('') + `<div class="galeria-thumb" onclick="cambiarImagen(null, this)">${j.emoji}</div>`;
-    document.getElementById('detalle-descripcion').textContent = j.descripcion;
-    document.getElementById('detalle-desc-badge').textContent = `-${j.descuento}%`;
-    document.getElementById('detalle-precio-orig').textContent = `$${j.original}`;
-    document.getElementById('detalle-precio-nuevo').textContent = `$${j.precio}`;
-    const enCarrito = carrito.find(c => c.nombre === j.nombre);
-    const btn = document.getElementById('btn-agregar-detalle');
-    btn.textContent = enCarrito ? '✅ En el carrito' : '🛒 Agregar al carrito';
-    btn.className = 'btn-agregar-detalle' + (enCarrito ? ' agregado' : '');
-    const estrellas = '★'.repeat(Math.round(j.rating)) + '☆'.repeat(5 - Math.round(j.rating));
-    document.getElementById('detalle-rating-num').textContent = j.rating.toFixed(1);
-    document.getElementById('detalle-rating-stars').textContent = estrellas;
-    document.getElementById('detalle-rating-total').textContent = `${j.resenas.length} resenas`;
-    document.getElementById('detalle-info-lista').innerHTML = `
-      <div class="detalle-info-item"><span>Plataforma</span><span>${j.plataforma}</span></div>
-      <div class="detalle-info-item"><span>Desarrollador</span><span>${j.desarrollador}</span></div>
-      <div class="detalle-info-item"><span>Lanzamiento</span><span>${j.fecha}</span></div>
-      <div class="detalle-info-item"><span>Generos</span><span>${j.generos.join(', ')}</span></div>`;
-    renderResenas(j);
-    const req = j.requisitos;
-    document.getElementById('detalle-requisitos').innerHTML = `
-      <div class="req-col"><h4>⚙️ Minimos</h4>${Object.entries(req.minimos).map(([k,v]) => `<div class="req-item"><span class="req-label">${k}</span><span class="req-valor">${v}</span></div>`).join('')}</div>
-      <div class="req-col"><h4>🚀 Recomendados</h4>${Object.entries(req.recomendados).map(([k,v]) => `<div class="req-item"><span class="req-label">${k}</span><span class="req-valor">${v}</span></div>`).join('')}</div>`;
-    cambiarTab('descripcion');
-    selTipo(true);
-    selEstrella(5);
-    document.getElementById('detalle-overlay').classList.add('abierto');
-    document.body.style.overflow = 'hidden';
-  }
+function cerrarDetalle() {
+  document.getElementById('detalle-overlay').classList.remove('abierto');
+  document.body.style.overflow = '';
+}
 
-  function cerrarDetalle() {
-    document.getElementById('detalle-overlay').classList.remove('abierto');
-    document.body.style.overflow = '';
-  }
+function agregarDesdeDetalle() {
+  if (juegoActual === null) return;
+  const j = juegos[juegoActual];
+  if (carrito.find(c => c.nombre === j.nombre)) return;
+  carrito.push({ ...j, cantidad: 1 });
+  actualizarCarrito();
+  cargarJuegos();
+  const btn = document.getElementById('btn-agregar-detalle');
+  btn.textContent = '✅ En el carrito';
+  btn.className = 'btn-agregar-detalle agregado';
+}
 
-  function agregarDesdeDetalle() {
-    if (juegoActual === null) return;
-    const j = juegos[juegoActual];
-    if (carrito.find(c => c.nombre === j.nombre)) return;
-    carrito.push({ ...j, cantidad: 1 });
-    actualizarCarrito();
-    cargarJuegos();
-    const btn = document.getElementById('btn-agregar-detalle');
-    btn.textContent = '✅ En el carrito';
-    btn.className = 'btn-agregar-detalle agregado';
-  }
+function quitarDelCarrito(nombre) {
+  carrito = carrito.filter(c => c.nombre !== nombre);
+  actualizarCarrito();
+  cargarJuegos();
+}
 
-  function quitarDelCarrito(nombre) {
-    carrito = carrito.filter(c => c.nombre !== nombre);
-    actualizarCarrito();
-    cargarJuegos();
-  }
+function actualizarCarrito() {
+  const count = carrito.length;
+  document.getElementById('carrito-count').textContent = count;
+  document.getElementById('carrito-total').textContent = '$' + carrito.reduce((s, c) => s + c.precio, 0).toFixed(2);
+  document.getElementById('btn-pagar').disabled = count === 0;
+  const el = document.getElementById('carrito-items');
+  if (!count) { el.innerHTML = '<div class="carrito-vacio">Tu carrito esta vacio</div>'; return; }
+  el.innerHTML = carrito.map(c => `
+    <div class="carrito-item">
+      <div class="carrito-item-emoji">${c.emoji || '🎮'}</div>
+      <div class="carrito-item-info">
+        <div class="carrito-item-nombre">${c.nombre}</div>
+        <div class="carrito-item-plat">${c.plataforma}</div>
+      </div>
+      <div class="carrito-item-precio">$${c.precio}</div>
+      <button class="btn-quitar" onclick="quitarDelCarrito('${c.nombre}')">✕</button>
+    </div>`).join('');
+}
 
-  function actualizarCarrito() {
-    const count = carrito.length;
-    document.getElementById('carrito-count').textContent = count;
-    document.getElementById('carrito-total').textContent = '$' + carrito.reduce((s, c) => s + c.precio, 0).toFixed(2);
-    document.getElementById('btn-pagar').disabled = count === 0;
-    const el = document.getElementById('carrito-items');
-    if (!count) { el.innerHTML = '<div class="carrito-vacio">Tu carrito esta vacio</div>'; return; }
-    el.innerHTML = carrito.map(c => `
-      <div class="carrito-item">
-        <div class="carrito-item-emoji">${c.emoji || '🎮'}</div>
-        <div class="carrito-item-info">
-          <div class="carrito-item-nombre">${c.nombre}</div>
-          <div class="carrito-item-plat">${c.plataforma}</div>
-        </div>
-        <div class="carrito-item-precio">$${c.precio}</div>
-        <button class="btn-quitar" onclick="quitarDelCarrito('${c.nombre}')">✕</button>
-      </div>`).join('');
-  }
+function abrirCarrito() {
+  document.getElementById('carrito-overlay').classList.add('abierto');
+  document.getElementById('carrito-panel').classList.add('abierto');
+}
 
-  function abrirCarrito() {
-    document.getElementById('carrito-overlay').classList.add('abierto');
-    document.getElementById('carrito-panel').classList.add('abierto');
-  }
+function cerrarCarrito() {
+  document.getElementById('carrito-overlay').classList.remove('abierto');
+  document.getElementById('carrito-panel').classList.remove('abierto');
+}
 
-  function cerrarCarrito() {
-    document.getElementById('carrito-overlay').classList.remove('abierto');
-    document.getElementById('carrito-panel').classList.remove('abierto');
-  }
-
-  async function pagar() {
-    const btn = document.getElementById('btn-pagar');
-    btn.disabled = true; btn.textContent = '⏳ Redirigiendo...';
-    try {
-      const res = await fetch('/api/shop/crear-sesion', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('token') },
-        body: JSON.stringify({ items: carrito })
-      });
-      const data = await res.json();
-      if (data.url) window.location.href = data.url;
-      else { alert('Error al crear sesion'); btn.disabled = false; btn.textContent = '💳 Pagar con Stripe'; }
-    } catch { alert('Error de conexion'); btn.disabled = false; btn.textContent = '💳 Pagar con Stripe'; }
-  }
-
-  function cargarJuegos() {
-    document.getElementById('lista-juegos').innerHTML = juegos.map((j, i) => {
-      const imgPortada = j.imgs && j.imgs.length > 0 ? j.imgs[0] : null;
-      return `
-        <div class="juego" onclick="abrirDetalle(${i})">
-          <div class="juego-img">${imgPortada ? `<img src="${imgPortada}" onerror="this.parentNode.innerHTML='${j.emoji}'">` : j.emoji}</div>
-          <div class="juego-info">
-            <div class="juego-nombre">${j.nombre}</div>
-            <div class="juego-plataforma">${j.plataforma}</div>
-            <div class="juego-precios">
-              <span class="precio-original">$${j.original}</span>
-              <span class="precio-nuevo">$${j.precio}</span>
-              <span class="descuento">-${j.descuento}%</span>
-            </div>
-            <button class="btn-ver">Ver detalles</button>
-          </div>
-        </div>`;
-    }).join('');
-  }
-
-  function copiarKey() {
-    navigator.clipboard.writeText(document.getElementById('modal-key').textContent);
-    document.querySelector('.btn-copiar').textContent = '✅ Copiado!';
-    setTimeout(() => document.querySelector('.btn-copiar').textContent = '📋 Copiar key', 2000);
-  }
-
-  function cerrarModal() { document.getElementById('modal').classList.remove('abierto'); }
-
-  function mostrarTab(tab) {
-    document.getElementById('form-registro').style.display = tab === 'registro' ? 'block' : 'none';
-    document.getElementById('form-login').style.display = tab === 'login' ? 'block' : 'none';
-    document.querySelectorAll('.tab').forEach((t, i) => t.classList.toggle('activo', (tab === 'registro' && i === 0) || (tab === 'login' && i === 1)));
-    ocultarMensaje();
-  }
-
-  function mostrarMensaje(texto, tipo) {
-    const el = document.getElementById('mensaje');
-    el.textContent = texto; el.className = 'mensaje ' + tipo; el.style.display = 'block';
-  }
-
-  function ocultarMensaje() { document.getElementById('mensaje').style.display = 'none'; }
-
-  async function registrar() {
-    const nombre = document.getElementById('reg-nombre').value;
-    const email = document.getElementById('reg-email').value;
-    const password = document.getElementById('reg-pass').value;
-    const res = await fetch('/api/auth/registro', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ nombre, email, password }) });
+async function pagar() {
+  const btn = document.getElementById('btn-pagar');
+  btn.disabled = true; btn.textContent = '⏳ Redirigiendo...';
+  try {
+    const res = await fetch('/api/shop/crear-sesion', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + localStorage.getItem('token') }, body: JSON.stringify({ items: carrito }) });
     const data = await res.json();
-    if (res.ok) { mostrarMensaje('Cuenta creada! Ahora inicia sesion.', 'ok'); setTimeout(() => mostrarTab('login'), 1500); }
-    else mostrarMensaje(data.error || data.errores?.[0]?.msg || 'Error al registrar', 'error');
-  }
+    if (data.url) window.location.href = data.url;
+    else { alert('Error al crear sesion'); btn.disabled = false; btn.textContent = '💳 Pagar con Stripe'; }
+  } catch { alert('Error de conexion'); btn.disabled = false; btn.textContent = '💳 Pagar con Stripe'; }
+}
 
-  async function login() {
-    const email = document.getElementById('log-email').value;
-    const password = document.getElementById('log-pass').value;
-    const res = await fetch('/api/auth/login', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, password }) });
-    const data = await res.json();
-    if (res.ok) {
-      localStorage.setItem('token', data.token);
-      localStorage.setItem('userName', data.nombre);
-      document.getElementById('auth').style.display = 'none';
-      document.getElementById('tienda').style.display = 'block';
-      document.getElementById('nav-nombre').textContent = '👾 ' + data.nombre;
-      cargarJuegos();
-    } else mostrarMensaje(data.error || 'Error al iniciar sesion', 'error');
-  }
+function cargarJuegos() {
+  renderJuegos(juegos, 'lista-juegos');
+  renderJuegos(masVendidos.map(i => juegos[i]), 'lista-mas-vendidos');
+}
 
-  function cerrarSesion() {
-    localStorage.removeItem('token'); localStorage.removeItem('userName');
-    carrito = []; actualizarCarrito();
-    document.getElementById('tienda').style.display = 'none';
-    document.getElementById('auth').style.display = 'flex';
-    mostrarTab('login');
-  }
+function copiarKey() {
+  navigator.clipboard.writeText(document.getElementById('modal-key').textContent);
+  document.querySelector('.btn-copiar').textContent = '✅ Copiado!';
+  setTimeout(() => document.querySelector('.btn-copiar').textContent = '📋 Copiar key', 2000);
+}
 
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrarDetalle(); });
+function cerrarModal() { document.getElementById('modal').classList.remove('abierto'); }
+
+function mostrarTab(tab) {
+  document.getElementById('form-registro').style.display = tab === 'registro' ? 'block' : 'none';
+  document.getElementById('form-login').style.display = tab === 'login' ? 'block' : 'none';
+  document.querySelectorAll('.tab').forEach((t, i) => t.classList.toggle('activo', (tab === 'registro' && i === 0) || (tab === 'login' && i === 1)));
+  ocultarMensaje();
+}
+
+function mostrarMensaje(texto, tipo) {
+  const el = document.getElementById('mensaje');
+  el.textContent = texto; el.className = 'mensaje ' + tipo; el.style.display = 'block';
+}
+
+function ocultarMensaje() { document.getElementById('mensaje').style.display = 'none'; }
+
+async function registrar() {
+  const nombre = document.getElementById('reg-nombre').value;
+  const email = document.getElementById('reg-email').value;
+  const password = document.getElementById('reg-pass').value;
+  const res = await fetch('/api/auth/registro', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ nombre, email, password }) });
+  const data = await res.json();
+  if (res.ok) { mostrarMensaje('Cuenta creada! Ahora inicia sesion.', 'ok'); setTimeout(() => mostrarTab('login'), 1500); }
+  else mostrarMensaje(data.error || data.errores?.[0]?.msg || 'Error al registrar', 'error');
+}
+
+async function login() {
+  const email = document.getElementById('log-email').value;
+  const password = document.getElementById('log-pass').value;
+  const res = await fetch('/api/auth/login', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, password }) });
+  const data = await res.json();
+  if (res.ok) {
+    localStorage.setItem('token', data.token);
+    localStorage.setItem('userName', data.nombre);
+    document.getElementById('auth').style.display = 'none';
+    document.getElementById('tienda').style.display = 'block';
+    document.getElementById('nav-nombre').textContent = '👾 ' + data.nombre;
+    cargarJuegos();
+  } else mostrarMensaje(data.error || 'Error al iniciar sesion', 'error');
+}
+
+function cerrarSesion() {
+  localStorage.removeItem('token'); localStorage.removeItem('userName');
+  carrito = []; actualizarCarrito();
+  document.getElementById('tienda').style.display = 'none';
+  document.getElementById('auth').style.display = 'flex';
+  mostrarTab('login');
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrarDetalle(); });
 </script>
 </body>
 </html>
