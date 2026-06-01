@@ -905,82 +905,113 @@
 
 
   <!-- ===== PAGINA: VIDEOS ===== -->
-  <div class="page" id="videos-page">
-    <div class="pagina-contenido" style="max-width:1100px;">
-      <h2>🎬 Videos</h2>
-      <p class="subtitulo">Sube videos directamente desde tu computadora. Soporta MP4, WebM, MOV, AVI.</p>
+<div class="page" id="videos-page">
+  <div class="pagina-contenido" style="max-width:1100px;">
+    <h2>🎬 Videos</h2>
+    <p class="subtitulo">
+      Videos de nuestros modelos y proyectos.
+    </p>
 
-      <div class="videos-grid" id="videos-grid">
+    <div class="videos-grid" id="videos-grid">
 
-        <!-- VIDEO 1 -->
-       <!-- VIDEO 1 -->
-<div class="video-thumb" id="video-thumb-1">
-    <video controls preload="metadata"
-        style="width:100%;height:100%;object-fit:cover;display:block;"
-        src="/videos/bigdady.mp4">
-    </video>
-</div>
+      <!-- VIDEO 1 -->
+      <div class="video-card">
+        <div class="video-thumb">
+          <video controls preload="metadata"
+            style="width:100%;height:100%;object-fit:cover;display:block;"
+            src="/videos/bigdady.mp4">
+          </video>
+        </div>
 
-<div class="video-info">
-    <div class="video-titulo" id="video-titulo-1">bigdady</div>
-    <div class="video-desc" id="video-desc-1">MP4</div>
-</div>
+        <div class="video-info">
+          <div class="video-titulo">bigdady</div>
+          <div class="video-desc">MP4</div>
+        </div>
+      </div>
 
-        <!-- VIDEO 2 -->
-        <div class="video-thumb" id="video-thumb-2">
-    <video controls preload="metadata"
-        style="width:100%;height:100%;object-fit:cover;display:block;"
-        src="/videos/cod.mp4">
-    </video>
-</div>
+      <!-- VIDEO 2 -->
+      <div class="video-card">
+        <div class="video-thumb">
+          <video controls preload="metadata"
+            style="width:100%;height:100%;object-fit:cover;display:block;"
+            src="/videos/cod.mp4">
+          </video>
+        </div>
 
-<div class="video-info">
-    <div class="video-titulo" id="video-titulo-2">cod</div>
-    <div class="video-desc" id="video-desc-2">MP4</div>
-</div>
-         
+        <div class="video-info">
+          <div class="video-titulo">cod</div>
+          <div class="video-desc">MP4</div>
+        </div>
+      </div>
 
-        <!-- VIDEO 3 -->
-        <div class="video-thumb" id="video-thumb-2">
-    <video controls preload="metadata"
-        style="width:100%;height:100%;object-fit:cover;display:block;"
-        src="/videos/spyderman.mp4">
-    </video>
-</div>
+      <!-- VIDEO 3 -->
+      <div class="video-card">
+        <div class="video-thumb">
+          <video controls preload="metadata"
+            style="width:100%;height:100%;object-fit:cover;display:block;"
+            src="/videos/spyderman.mp4">
+          </video>
+        </div>
 
-<div class="video-info">
-    <div class="video-titulo" id="video-titulo-2">spyderman</div>
-    <div class="video-desc" id="video-desc-2">MP4</div>
-</div>
-         
-        <!-- VIDEO 4 -->
-        <div class="video-card" id="video-card-3">
-          <div class="video-thumb" id="video-thumb-3">
-            <div class="video-thumb-placeholder" id="video-placeholder-3">
-              <div class="play-icon">▶</div>
-              <span>Sin video cargado</span>
-            
+        <div class="video-info">
+          <div class="video-titulo">spyderman</div>
+          <div class="video-desc">MP4</div>
+        </div>
+      </div>
 
-        <!-- VIDEO 5 -->
-        <div class="video-card" id="video-card-4">
-          <div class="video-thumb" id="video-thumb-4">
-            <div class="video-thumb-placeholder" id="video-placeholder-4">
-              <div class="play-icon">▶</div>
-              <span>Sin video cargado</span>
-            </div>
+      <!-- VIDEO 4 -->
+      <div class="video-card">
+        <div class="video-thumb">
+          <div class="video-thumb-placeholder">
+            <div class="play-icon">▶</div>
+            <span>Próximamente</span>
           </div>
-         
+        </div>
 
-        <!-- VIDEO 6 -->
-        <div class="video-card" id="video-card-5">
-          <div class="video-thumb" id="video-thumb-5">
-            <div class="video-thumb-placeholder" id="video-placeholder-5">
-              <div class="play-icon">▶</div>
-              <span>Sin video cargado</span>
-            </div>
+        <div class="video-info">
+          <div class="video-titulo">Video 4</div>
+          <div class="video-desc">Disponible pronto</div>
+        </div>
+      </div>
+
+      <!-- VIDEO 5 -->
+      <div class="video-card">
+        <div class="video-thumb">
+          <div class="video-thumb-placeholder">
+            <div class="play-icon">▶</div>
+            <span>Próximamente</span>
           </div>
-         
-    
+        </div>
+
+        <div class="video-info">
+          <div class="video-titulo">Video 5</div>
+          <div class="video-desc">Disponible pronto</div>
+        </div>
+      </div>
+
+      <!-- VIDEO 6 -->
+      <div class="video-card">
+        <div class="video-thumb">
+          <div class="video-thumb-placeholder">
+            <div class="play-icon">▶</div>
+            <span>Próximamente</span>
+          </div>
+        </div>
+
+        <div class="video-info">
+          <div class="video-titulo">Video 6</div>
+          <div class="video-desc">Disponible pronto</div>
+        </div>
+      </div>
+
+    </div>
+
+    <p style="color:var(--muted);font-size:12px;margin-top:20px;">
+      🎬 Videos almacenados en <code>public/videos/</code>
+    </p>
+
+  </div>
+</div>
       
 
       <p style="color:var(--muted);font-size:12px;margin-top:20px;">⚠️ Los videos se cargan en memoria mientras la pagina este abierta. Para que sean permanentes, pon los archivos en <code>public/videos/</code> y cambia el src manualmente.</p>
