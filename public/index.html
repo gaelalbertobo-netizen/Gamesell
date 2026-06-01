@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GameKeys — Keys al mejor precio</title>
@@ -234,6 +235,21 @@
       background: rgba(124,58,237,0.12);
       position: relative;
     }
+    .video-top{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius:20px;
+    display:block;
+}
+
+.video-banner{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:15px;
+    display:block;
+}
     .tabla-comparacion th.col-nosotros::after {
       content: '★ MEJOR';
       display: block;
@@ -539,210 +555,7 @@
       color: var(--muted);
     }
 
-    /* ===== MODELOS 3D ===== */
-    .modelos3d-seccion {
-      margin: 48px 0 0;
-    }
-    .modelos3d-seccion h3 {
-      font-family: 'Rajdhani', sans-serif;
-      font-size: 22px;
-      color: #fff;
-      margin-bottom: 6px;
-    }
-    .modelos3d-seccion p {
-      color: var(--muted);
-      font-size: 13px;
-      margin-bottom: 20px;
-    }
-    .modelos3d-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 16px;
-    }
-    .modelo3d-card {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      overflow: hidden;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-    .modelo3d-card:hover {
-      border-color: var(--purple);
-      box-shadow: 0 6px 24px rgba(124,58,237,0.2);
-    }
-    .modelo3d-viewport {
-      width: 100%;
-      height: 240px;
-      background: radial-gradient(ellipse at center, #1a0a2e 0%, var(--bg) 100%);
-      position: relative;
-      cursor: grab;
-      overflow: hidden;
-    }
-    .modelo3d-viewport:active { cursor: grabbing; }
-    .modelo3d-viewport canvas { width: 100% !important; height: 100% !important; display: block; }
-    .modelo3d-viewport .modelo-placeholder {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      color: var(--muted);
-      font-size: 13px;
-      text-align: center;
-      padding: 16px;
-      pointer-events: none;
-    }
-    .modelo3d-viewport .modelo-icon { font-size: 36px; opacity: 0.5; }
-    .modelo3d-viewport .upload-3d-btn {
-      position: absolute;
-      bottom: 10px;
-      right: 10px;
-      background: rgba(124,58,237,0.85);
-      border: none;
-      border-radius: 8px;
-      color: #fff;
-      font-size: 12px;
-      padding: 6px 12px;
-      cursor: pointer;
-      backdrop-filter: blur(4px);
-      transition: background 0.2s;
-      z-index: 2;
-    }
-    .modelo3d-viewport .upload-3d-btn:hover { background: var(--purple); }
-    .modelo3d-viewport .modelo-hint {
-      position: absolute;
-      top: 8px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(0,0,0,0.5);
-      border-radius: 20px;
-      padding: 3px 10px;
-      font-size: 10px;
-      color: var(--muted);
-      white-space: nowrap;
-      pointer-events: none;
-      z-index: 2;
-    }
-    .modelo3d-info {
-      padding: 14px 16px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .modelo3d-nombre { font-size: 13px; font-weight: 600; color: #fff; }
-    .modelo3d-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
-    .modelo3d-acciones { display: flex; gap: 6px; }
-    .btn-modelo-accion {
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      color: var(--muted);
-      font-size: 12px;
-      padding: 5px 10px;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .btn-modelo-accion:hover { border-color: var(--purple); color: var(--purple2); }
-
-    /* ===== VIDEOS ===== */
-    .videos-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 20px;
-    }
-    .video-card {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      overflow: hidden;
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-    .video-card:hover { border-color: var(--purple); box-shadow: 0 6px 24px rgba(124,58,237,0.15); }
-    .video-thumb {
-      width: 100%;
-      aspect-ratio: 16/9;
-      background: var(--bg3);
-      position: relative;
-      overflow: hidden;
-    }
-    .video-thumb iframe { width: 100%; height: 100%; border: none; display: block; }
-    .video-thumb-placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      color: var(--muted);
-      font-size: 13px;
-      text-align: center;
-      padding: 16px;
-    }
-    .video-thumb-placeholder .play-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      background: rgba(124,58,237,0.3);
-      border: 2px solid rgba(124,58,237,0.5);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      margin-bottom: 4px;
-    }
-    .video-info { padding: 14px 16px; }
-    .video-titulo { font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 4px; }
-    .video-desc { font-size: 12px; color: var(--muted); line-height: 1.5; margin-bottom: 10px; }
-    .video-actions { display: flex; gap: 8px; align-items: center; }
-    .video-url-input {
-      flex: 1;
-      padding: 7px 10px;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      color: var(--text);
-      font-size: 12px;
-      outline: none;
-      margin: 0;
-      width: auto;
-    }
-    .video-url-input:focus { border-color: var(--purple); }
-    .btn-cargar-video {
-      background: var(--purple);
-      border: none;
-      border-radius: 8px;
-      color: #fff;
-      font-size: 12px;
-      padding: 7px 12px;
-      cursor: pointer;
-      white-space: nowrap;
-      transition: background 0.2s;
-    }
-    .btn-cargar-video:hover { background: #6d28d9; }
-    .video-add-card {
-      background: var(--bg2);
-      border: 2px dashed rgba(124,58,237,0.3);
-      border-radius: 14px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      min-height: 200px;
-      cursor: pointer;
-      transition: border-color 0.2s, color 0.2s;
-      padding: 24px;
-      text-align: center;
-      color: var(--muted);
-      font-size: 13px;
-    }
-    .video-add-card:hover { border-color: var(--purple); color: var(--purple2); }
-    .video-add-card .add-icon { font-size: 32px; opacity: 0.6; }
-
-        ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
     ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 
@@ -756,9 +569,10 @@
       .contacto-grid { grid-template-columns: 1fr; }
       .footer-inner { grid-template-columns: 1fr 1fr; }
       .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+      
     }
   </style>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
 <body>
 
@@ -766,7 +580,7 @@
 <div id="auth">
   <div class="tarjeta">
     <div class="logo-auth">
-      <div class="brand">🎮 Game<span>Keys</span></div>
+      <div class="brand">🎮 Game<span>sell</span></div>
       <p>Keys de videojuegos al mejor precio</p>
     </div>
     <div class="tabs">
@@ -796,8 +610,6 @@
     </div>
     <div class="nav-pages">
       <button class="nav-page-btn activo" onclick="irPagina('tienda-page', this)">🏪 Tienda</button>
-      <button class="nav-page-btn" onclick="irPagina('videos-page', this)">🎬 Videos</button>
-      <button class="nav-page-btn" onclick="irPagina('modelos-page', this)">🧊 Modelos 3D</button>
       <button class="nav-page-btn" onclick="irPagina('comparacion-page', this)">📊 Precios</button>
       <button class="nav-page-btn" onclick="irPagina('nosotros-page', this)">ℹ️ Nosotros</button>
       <button class="nav-page-btn" onclick="irPagina('faq-page', this)">❓ FAQ</button>
@@ -818,10 +630,7 @@
     <!-- BANNER SUPERIOR -->
     <!-- Para poner imagen: reemplaza el div.banner-top-placeholder con <img src="/img/banner-top.jpg"> -->
     <div class="banner-top">
-      <div class="banner-top-inner" style="max-width:none;height:420px;padding:0">
-    <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover">
-      <source src="/videos/gta6.mp4" type="video/mp4">
-    </video>
+      <div class="banner-top-inner">
         <div class="banner-top-placeholder">
           <span>🖼️</span>
           <span><strong>Banner Superior</strong> — Pon tu imagen: <code>&lt;img src="/img/banner-top.jpg"&gt;</code></span>
@@ -832,21 +641,16 @@
     <div class="tienda-layout">
 
       <!-- BANNER IZQUIERDO -->
-      <div class="banner-lateral">
-        <!-- Para poner imagen: reemplaza el contenido por <img src="/img/banner-izq-1.jpg"> -->
-        <div class="banner-slot tall">
-          <span class="slot-icon">📢</span>
-          <span>160×300<br><small>banner-izq-1.jpg</small></span>
-        </div>
-        <div class="banner-slot medium">
-          <span class="slot-icon">📢</span>
-          <span>160×200<br><small>banner-izq-2.jpg</small></span>
-        </div>
-        <div class="banner-slot small">
-          <span class="slot-icon">📢</span>
-          <span>160×120</span>
-        </div>
-      </div>
+    <div class="banner-lateral">
+    <video
+        autoplay
+        muted
+        loop
+        playsinline
+        class="video-banner">
+        <source src="videos/bigdady.mp4" type="video/mp4">
+    </video>
+</div>
 
       <!-- CONTENIDO CENTRAL -->
       <div class="tienda-centro">
@@ -909,129 +713,6 @@
         </div>
       </div>
 
-    </div>
-  </div>
-
-
-  <!-- ===== PAGINA: VIDEOS ===== -->
-  <div class="page" id="videos-page">
-    <div class="pagina-contenido" style="max-width:1100px;">
-      <h2>🎬 Videos</h2>
-      <p class="subtitulo">Trailers, gameplays y resenas en video. Pega una URL de YouTube para cargar cualquier video.</p>
-
-      <div class="videos-grid" id="videos-grid">
-
-        <!-- VIDEO 1 -->
-        <div class="video-card" id="video-card-0">
-          <div class="video-thumb" id="video-thumb-0">
-            <div class="video-thumb-placeholder">
-              <div class="play-icon">▶</div>
-              <span>Pega una URL de YouTube abajo</span>
-            </div>
-          </div>
-          <div class="video-info">
-            <div class="video-titulo" id="video-titulo-0">Video 1</div>
-            <div class="video-desc" id="video-desc-0">Trailer, gameplay o resena</div>
-            <div class="video-actions">
-              <input class="video-url-input" id="video-url-0" placeholder="https://youtube.com/watch?v=...">
-              <button class="btn-cargar-video" onclick="cargarVideo(0)">Cargar</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- VIDEO 2 -->
-        <div class="video-card" id="video-card-1">
-          <div class="video-thumb" id="video-thumb-1">
-            <div class="video-thumb-placeholder">
-              <div class="play-icon">▶</div>
-              <span>Pega una URL de YouTube abajo</span>
-            </div>
-          </div>
-          <div class="video-info">
-            <div class="video-titulo" id="video-titulo-1">Video 2</div>
-            <div class="video-desc" id="video-desc-1">Trailer, gameplay o resena</div>
-            <div class="video-actions">
-              <input class="video-url-input" id="video-url-1" placeholder="https://youtube.com/watch?v=...">
-              <button class="btn-cargar-video" onclick="cargarVideo(1)">Cargar</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- VIDEO 3 -->
-        <div class="video-card" id="video-card-2">
-          <div class="video-thumb" id="video-thumb-2">
-            <div class="video-thumb-placeholder">
-              <div class="play-icon">▶</div>
-              <span>Pega una URL de YouTube abajo</span>
-            </div>
-          </div>
-          <div class="video-info">
-            <div class="video-titulo" id="video-titulo-2">Video 3</div>
-            <div class="video-desc" id="video-desc-2">Trailer, gameplay o resena</div>
-            <div class="video-actions">
-              <input class="video-url-input" id="video-url-2" placeholder="https://youtube.com/watch?v=...">
-              <button class="btn-cargar-video" onclick="cargarVideo(2)">Cargar</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- VIDEO 4 -->
-        <div class="video-card" id="video-card-3">
-          <div class="video-thumb" id="video-thumb-3">
-            <div class="video-thumb-placeholder">
-              <div class="play-icon">▶</div>
-              <span>Pega una URL de YouTube abajo</span>
-            </div>
-          </div>
-          <div class="video-info">
-            <div class="video-titulo" id="video-titulo-3">Video 4</div>
-            <div class="video-desc" id="video-desc-3">Trailer, gameplay o resena</div>
-            <div class="video-actions">
-              <input class="video-url-input" id="video-url-3" placeholder="https://youtube.com/watch?v=...">
-              <button class="btn-cargar-video" onclick="cargarVideo(3)">Cargar</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- VIDEO 5 -->
-        <div class="video-card" id="video-card-4">
-          <div class="video-thumb" id="video-thumb-4">
-            <div class="video-thumb-placeholder">
-              <div class="play-icon">▶</div>
-              <span>Pega una URL de YouTube abajo</span>
-            </div>
-          </div>
-          <div class="video-info">
-            <div class="video-titulo" id="video-titulo-4">Video 5</div>
-            <div class="video-desc" id="video-desc-4">Trailer, gameplay o resena</div>
-            <div class="video-actions">
-              <input class="video-url-input" id="video-url-4" placeholder="https://youtube.com/watch?v=...">
-              <button class="btn-cargar-video" onclick="cargarVideo(4)">Cargar</button>
-            </div>
-          </div>
-        </div>
-
-        <!-- VIDEO 6 -->
-        <div class="video-card" id="video-card-5">
-          <div class="video-thumb" id="video-thumb-5">
-            <div class="video-thumb-placeholder">
-              <div class="play-icon">▶</div>
-              <span>Pega una URL de YouTube abajo</span>
-            </div>
-          </div>
-          <div class="video-info">
-            <div class="video-titulo" id="video-titulo-5">Video 6</div>
-            <div class="video-desc" id="video-desc-5">Trailer, gameplay o resena</div>
-            <div class="video-actions">
-              <input class="video-url-input" id="video-url-5" placeholder="https://youtube.com/watch?v=...">
-              <button class="btn-cargar-video" onclick="cargarVideo(5)">Cargar</button>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <p style="color:var(--muted);font-size:12px;margin-top:20px;">Acepta URLs de YouTube: youtube.com/watch?v=... o youtu.be/... — Los videos se cargan directamente en la pagina.</p>
     </div>
   </div>
 
@@ -1253,7 +934,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2025 GameKeys. Todos los derechos reservados.</span>
+      <span>© 2026 GameKeys. Todos los derechos reservados.</span>
       <span>Pagos seguros con 🔒 Stripe</span>
     </div>
   </div>
@@ -1393,7 +1074,6 @@ const juegos = [
   { nombre:"Monster Hunter: World", plataforma:"Steam", emoji:"🐉", imgs:["img/mhw.jpg"], original:29.99, precio:9.99, descuento:67, desarrollador:"Capcom", fecha:"9 Ago, 2018", generos:["RPG","Accion","Cooperativo"], descripcion:"Monster Hunter World...", rating:4.7, resenas:[{usuario:"HunterPro",avatar:"H",texto:"Cientos de horas",positiva:true,fecha:"Feb 2024"}], requisitos:{minimos:{SO:"Windows 7",CPU:"Intel Core i5-4460",RAM:"8 GB",GPU:"NVIDIA GTX 760",Disco:"30 GB"},recomendados:{SO:"Windows 10",CPU:"Intel Core i7-3770",RAM:"8 GB",GPU:"NVIDIA GTX 1060",Disco:"30 GB"}} },
   { nombre:"Death Stranding", plataforma:"Steam", emoji:"📦", imgs:["img/dsdc.jpg"], original:39.99, precio:12.99, descuento:68, desarrollador:"Kojima Productions", fecha:"14 Jul, 2020", generos:["Accion","Aventura","Sci-Fi"], descripcion:"Death Stranding...", rating:4.3, resenas:[{usuario:"KojimaFan",avatar:"K",texto:"Experiencia única",positiva:true,fecha:"Ago 2020"}], requisitos:{minimos:{SO:"Windows 10",CPU:"Intel Core i5-3470",RAM:"8 GB",GPU:"NVIDIA GTX 1060 3GB",Disco:"80 GB"},recomendados:{SO:"Windows 10",CPU:"Intel Core i7-3770",RAM:"8 GB",GPU:"NVIDIA GTX 1080",Disco:"80 GB"}} }
 ];
-
 
 const masVendidos = [0, 2, 8, 6, 11, 14, 21, 22];
 
@@ -1749,232 +1429,6 @@ function enviarContacto() {
 }
 
 document.addEventListener('keydown', e => { if (e.key === 'Escape') cerrarDetalle(); });
-// ==========================================
-// VIDEOS — YouTube embed
-// ==========================================
-function extraerYoutubeId(url) {
-  const regexps = [
-    /[?&]v=([^&#]+)/,
-    /youtu\.be\/([^?#]+)/,
-    /embed\/([^?#]+)/,
-    /shorts\/([^?#]+)/
-  ];
-  for (const r of regexps) {
-    const m = url.match(r);
-    if (m) return m[1];
-  }
-  return null;
-}
-
-function cargarVideo(idx) {
-  const url = document.getElementById('video-url-' + idx).value.trim();
-  if (!url) { alert('Pega una URL de YouTube primero'); return; }
-  const id = extraerYoutubeId(url);
-  if (!id) { alert('URL de YouTube no valida'); return; }
-  const thumb = document.getElementById('video-thumb-' + idx);
-  thumb.innerHTML = '<iframe src="https://www.youtube.com/embed/' + id + '?rel=0" allowfullscreen allow="autoplay; encrypted-media"></iframe>';
-  document.getElementById('video-titulo-' + idx).textContent = 'Video ' + (idx + 1) + ' cargado ✓';
-}
-
-// Allow Enter key on video inputs
-document.addEventListener('DOMContentLoaded', () => {
-  for (let i = 0; i < 6; i++) {
-    const inp = document.getElementById('video-url-' + i);
-    if (inp) inp.addEventListener('keydown', e => { if (e.key === 'Enter') cargarVideo(i); });
-  }
-});
-
-// ==========================================
-// MODELOS 3D — Three.js
-// ==========================================
-const viewers3D = {};
-let upload3DTarget = 0;
-
-function abrirUpload3D(idx) {
-  upload3DTarget = idx;
-  document.getElementById('input-3d').click();
-}
-
-function cargarModelo3D(input) {
-  const file = input.files[0];
-  if (!file) return;
-  const idx = upload3DTarget;
-  const ext = file.name.split('.').pop().toLowerCase();
-  if (!['glb', 'gltf'].includes(ext)) {
-    alert('Solo se soportan archivos .GLB o .GLTF');
-    return;
-  }
-  document.getElementById('modelo-nombre-' + idx).textContent = file.name.replace(/\.[^.]+$/, '');
-  document.getElementById('modelo-sub-' + idx).textContent = (file.size / 1024 / 1024).toFixed(2) + ' MB — .' + ext.toUpperCase();
-  const url = URL.createObjectURL(file);
-  inicializarViewer3D(idx, url, ext);
-  input.value = '';
-}
-
-function inicializarViewer3D(idx, modelUrl, ext) {
-  const container = document.getElementById('viewport-' + idx);
-
-  // Limpiar placeholder
-  const placeholder = container.querySelector('.modelo-placeholder');
-  if (placeholder) placeholder.style.display = 'none';
-
-  // Destruir viewer previo si existe
-  if (viewers3D[idx]) {
-    viewers3D[idx].dispose();
-  }
-
-  // Scene
-  const scene = new THREE.Scene();
-  scene.background = null;
-
-  // Camera
-  const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.01, 1000);
-  camera.position.set(0, 1.5, 3.5);
-
-  // Renderer
-  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-  renderer.setPixelRatio(window.devicePixelRatio);
-  renderer.setSize(container.clientWidth, container.clientHeight);
-  renderer.shadowMap.enabled = true;
-  renderer.outputEncoding = THREE.sRGBEncoding;
-  renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.2;
-
-  // Remove old canvas if any
-  const oldCanvas = container.querySelector('canvas');
-  if (oldCanvas) oldCanvas.remove();
-  container.appendChild(renderer.domElement);
-
-  // Lights
-  const ambient = new THREE.AmbientLight(0xffffff, 0.6);
-  scene.add(ambient);
-  const dirLight = new THREE.DirectionalLight(0xffffff, 1.2);
-  dirLight.position.set(5, 10, 7);
-  dirLight.castShadow = true;
-  scene.add(dirLight);
-  const fillLight = new THREE.DirectionalLight(0xa78bfa, 0.4);
-  fillLight.position.set(-5, 2, -3);
-  scene.add(fillLight);
-  const rimLight = new THREE.DirectionalLight(0x4ade80, 0.2);
-  rimLight.position.set(0, -3, -5);
-  scene.add(rimLight);
-
-  // Load model
-  let loadScript = document.getElementById('gltf-loader-script');
-  if (!loadScript) {
-    loadScript = document.createElement('script');
-    loadScript.id = 'gltf-loader-script';
-    loadScript.src = 'https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js';
-    document.head.appendChild(loadScript);
-  }
-
-  function doLoad() {
-    if (!THREE.GLTFLoader) { setTimeout(doLoad, 100); return; }
-    const loader = new THREE.GLTFLoader();
-    loader.load(modelUrl, (gltf) => {
-      const model = gltf.scene;
-
-      // Auto center and scale
-      const box = new THREE.Box3().setFromObject(model);
-      const center = box.getCenter(new THREE.Vector3());
-      const size = box.getSize(new THREE.Vector3());
-      const maxDim = Math.max(size.x, size.y, size.z);
-      const scale = 2.5 / maxDim;
-      model.scale.setScalar(scale);
-      model.position.sub(center.multiplyScalar(scale));
-
-      scene.add(model);
-      viewers3D[idx].model = model;
-
-      // Hide placeholder hint
-      const hint = container.querySelector('.modelo-hint');
-      if (hint) hint.style.display = 'block';
-    }, undefined, (err) => {
-      console.error('Error cargando modelo:', err);
-      alert('Error al cargar el modelo. Asegurate de que sea un .GLB o .GLTF valido.');
-    });
-  }
-  doLoad();
-
-  // Orbit controls (manual)
-  let isPointerDown = false;
-  let lastX = 0, lastY = 0;
-  let rotX = 0, rotY = 0;
-  let zoom = 3.5;
-  let autoRotate = true;
-
-  renderer.domElement.addEventListener('pointerdown', e => {
-    isPointerDown = true;
-    lastX = e.clientX;
-    lastY = e.clientY;
-    autoRotate = false;
-    document.getElementById('btn-auto-' + idx).textContent = '▶ Auto';
-  });
-  renderer.domElement.addEventListener('pointerup', () => { isPointerDown = false; });
-  renderer.domElement.addEventListener('pointermove', e => {
-    if (!isPointerDown) return;
-    const dx = e.clientX - lastX;
-    const dy = e.clientY - lastY;
-    rotY += dx * 0.01;
-    rotX += dy * 0.01;
-    rotX = Math.max(-Math.PI/2, Math.min(Math.PI/2, rotX));
-    lastX = e.clientX;
-    lastY = e.clientY;
-  });
-  renderer.domElement.addEventListener('wheel', e => {
-    zoom += e.deltaY * 0.005;
-    zoom = Math.max(0.5, Math.min(10, zoom));
-    e.preventDefault();
-  }, { passive: false });
-
-  // Animate
-  let animId;
-  function animate() {
-    animId = requestAnimationFrame(animate);
-    if (autoRotate) rotY += 0.005;
-    camera.position.x = Math.sin(rotY) * Math.cos(rotX) * zoom;
-    camera.position.y = Math.sin(rotX) * zoom;
-    camera.position.z = Math.cos(rotY) * Math.cos(rotX) * zoom;
-    camera.lookAt(0, 0, 0);
-    renderer.render(scene, camera);
-  }
-  animate();
-
-  // Resize
-  const resizeObs = new ResizeObserver(() => {
-    renderer.setSize(container.clientWidth, container.clientHeight);
-    camera.aspect = container.clientWidth / container.clientHeight;
-    camera.updateProjectionMatrix();
-  });
-  resizeObs.observe(container);
-
-  // Store viewer state
-  viewers3D[idx] = {
-    scene, camera, renderer, animId, resizeObs,
-    model: null,
-    autoRotate: () => autoRotate,
-    setAutoRotate: (v) => { autoRotate = v; },
-    resetCam: () => { rotX = 0; rotY = 0; zoom = 3.5; },
-    dispose: () => {
-      cancelAnimationFrame(animId);
-      resizeObs.disconnect();
-      renderer.dispose();
-    }
-  };
-}
-
-function resetearCamara(idx) {
-  if (viewers3D[idx]) viewers3D[idx].resetCam();
-}
-
-function toggleAutoRotar(idx) {
-  if (!viewers3D[idx]) return;
-  const v = viewers3D[idx];
-  const newState = !v.autoRotate();
-  v.setAutoRotate(newState);
-  document.getElementById('btn-auto-' + idx).textContent = newState ? '⏸ Auto' : '▶ Auto';
-}
-
 </script>
 </body>
 </html>
