@@ -1,7 +1,8 @@
-catch (err) {
-  console.error('LOGIN ERROR:', err);
-  res.status(500).json({
-    error: err.message,
-    stack: err.stack
-  });
-}
+const { Pool } = require('pg');
+
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: { rejectUnauthorized: false }
+});
+
+module.exports = pool;
